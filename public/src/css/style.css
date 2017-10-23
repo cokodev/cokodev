@@ -1,3 +1,355 @@
+<<<<<<< HEAD
 h3 {
     color: #1A91EB;
 }
+=======
+/**
+ * Body CSS
+ */
+
+html,
+body {
+    /*font-family: Roboto-Regular;*/
+    height: 100%;
+    background-color: #273142;
+}
+
+html,
+body,
+input,
+textarea,
+button {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+/**
+ * Header CSS
+ */
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+}
+
+header ul.mui-list--inline {
+    margin-bottom: 0;
+}
+
+header a {
+    color: white;
+}
+
+header table ul li button .mui-appbar{
+    background-color: #1A91EB;
+}
+
+.img-user {
+    width : 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin:-9px auto;
+}
+
+header table form input {
+    background-color: #1A91EB;
+    border :5px;
+}
+
+header table form input[type="text"]::-webkit-input-placeholder{
+    color : white;
+}
+
+/**
+ * Content CSS
+ */
+
+#content-wrapper {
+    min-height: 100%;
+
+    /* sticky footer */
+    box-sizing: border-box;
+    margin-bottom: -100px;
+    padding-bottom: 100px;
+    background: #252F44;
+}
+
+#button-bar .mui-btn {
+    width: 150px;
+}
+
+#app {
+    margin-top: 5px;
+}
+
+/**
+ * Folder CSS
+ */
+
+#app #folder, #snippet{
+    border: solid rgba(218, 218, 218, 0.1);
+    border-width: 1px 1px 0px 0px;
+    height: 733px;
+    overflow: scroll;
+    background: #263043;
+}
+
+#app #folder #header{
+    margin-top: 10px;
+    height: 30px;
+    color: whitesmoke;
+    border-bottom: 0.4px solid rgba(227, 227, 227, 0.2);
+}
+
+#app #folder #header .mui-btn{
+    margin-top: -5px;
+    margin-left: 2px;
+    background-color: #E0AD19;
+    color: whitesmoke;
+}
+
+#app #folder #header .fa-trash-o{
+    color: whitesmoke;
+    font-size: 18px;
+    float: right;
+    margin-right: 10px;
+}
+
+#app #folder #fo-folder{
+    height: 80px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: whitesmoke;
+    border-bottom: 0.4px solid rgba(227, 227, 227, 0.2);
+}
+
+#app #folder #fo-folder:hover{
+    background: #3A465B;
+}
+
+#app #folder img{
+    float: left;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+#app #folder .image:hover{
+    content: url("/images/pencil.png");
+    width: 50px;
+    height: 50px;
+}
+
+#app #folder h5 {
+    margin-bottom: 0px;
+    padding-top: 10px;
+}
+
+#app #folder p {
+    font-size: 12px;
+}
+
+/**
+ * Modal folder / Snippet CSS
+ */
+
+.titleE1, .titleE2 {
+    padding-left: 10px;
+    padding-top: 10px;
+    height: 30px;
+    color: whitesmoke;
+    background: #454C5A;
+    font-size: 14px;
+}
+
+.inputcenterTitleFolder, .inputcenterTitleSnippet, .inputcenterDesc, .inputcenterTag, .inputcenterTypeL {
+    height: 30px;
+    color: whitesmoke;
+    background: #454C5A;
+    font-size: 14px;
+    width: 200px;
+    border: 0;
+    margin: auto;
+    padding-left: 10px;
+    display: block;
+}
+
+.inputcenterTitleFolder {
+    margin-top: 60px;
+}
+
+.inputcenterTitleSnippet {
+    margin-top: 30px;
+}
+
+.inputcenterDesc, .inputcenterTypeL, .inputcenterTag {
+    margin-top:-8px;
+}
+
+.inputcenterTypeL {
+    width: 211px;
+}
+
+#submit {
+    display: block;
+    height: 30px;
+    color: whitesmoke;
+    background: #008FF7;
+    font-size: 14px;
+    width: 211px;
+    border: 0;
+    margin: auto;
+    margin-top:-8px;
+    padding-left: 10px;
+}
+
+
+/**
+ * Snippet CSS
+ */
+
+#app #snippet{
+    background: #343C4B;
+}
+
+#app #snippet #header{
+    margin-top: 10px;
+    height: 30px;
+    color: whitesmoke;
+    border-bottom: 0.4px solid rgba(227, 227, 227, 0.2);
+}
+
+#app #snippet #header .mui-btn{
+    margin-top: -5px;
+    margin-left: 2px;
+    background-color: #39B54A;
+    color: whitesmoke;
+}
+
+#app #snippet #header .fa-trash-o{
+    color: whitesmoke;
+    font-size: 18px;
+    float: right;
+    margin-right: 10px;
+}
+
+#app #snippet #sn-snippet{
+    height: 80px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: whitesmoke;
+    border-bottom: 0.4px solid rgba(227, 227, 227, 0.2);
+}
+
+#app #snippet #sn-snippet:hover{
+    background: #3A465B;
+}
+
+#app #snippet img{
+    float: left;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+#app #snippet .image:hover{
+    content: url("/images/pencils.png");
+    width: 50px;
+    height: 50px;
+}
+
+#app #snippet h5 {
+    margin-bottom: 0px;
+    padding-top: 10px;
+}
+
+#app #snippet p {
+    font-size: 12px;
+}
+
+#app #snippet p #folderonsnippet{
+    font-size: 10px;
+    color: #E0AD19;
+    float: right;
+    margin-top: -12px;
+}
+
+#app #snippet p #snippettag{
+    font-size: 10px;
+    color: #39B54A;
+    float: right;
+    margin-top: -12px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/**
+ * Content CSS
+ */
+
+#app #content{
+    border: solid rgba(218, 218, 218, 0.1);
+    border-width: 1px 0px 0px 0px;
+    height: 733px;
+    background: #212733;
+    color: whitesmoke;
+}
+
+#app #content .easy1{
+    margin-top: -8px;
+    Box-sizing: Border-box;
+    height: 100%;
+}
+
+#app #content .easy2{
+    Box-sizing: Border-box;
+    margin-top: -8px;
+    height: 100%;
+    display: none;
+}
+
+#app #content .fa-ellipsis-h{
+    color: whitesmoke;
+    font-size: 15px;
+    width: 30px;
+    height: 12px;
+    background: #3A465B;
+    border-radius: 20%;
+}
+
+/**
+ * Footer CSS
+ */
+
+footer {
+    box-sizing: border-box;
+    padding-top: 10px;
+    background: #263043;
+}
+
+footer a {
+    color: #cfd7d8;
+    font-size: 12px;
+}
+
+footer p {
+    color: #cfd7d8;
+    font-size: 12px;
+}
+
+/*
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url(../fonts/Roboto-Regular.ttf);
+}*/
+>>>>>>> design
