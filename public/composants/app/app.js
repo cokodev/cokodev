@@ -1,4 +1,5 @@
 var React = require("react");
+
 class App extends React.Component {
     constructor() {
         super();
@@ -8,7 +9,7 @@ class App extends React.Component {
             <div>
                 <h3>Welcome to cokodev</h3>
             </div>
-        )
+        );
     }
 }
 
