@@ -1,15 +1,13 @@
-<<<<<<< HEAD
 h3 {
     color: #1A91EB;
 }
-=======
+
 /**
  * Body CSS
  */
 
 html,
 body {
-    /*font-family: Roboto-Regular;*/
     height: 100%;
     background-color: #273142;
 }
@@ -347,9 +345,3 @@ footer p {
     font-size: 12px;
 }
 
-/*
-@font-face {
-    font-family: 'Roboto-Regular';
-    src: url(../fonts/Roboto-Regular.ttf);
-}*/
->>>>>>> design
