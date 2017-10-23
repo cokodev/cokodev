@@ -46,6 +46,15 @@ header table ul li button .mui-appbar{
     background-color: #1A91EB;
 }
 
+.mui-appbar{
+    background-color: #1A91EB;
+    min-height: 50px;
+}
+
+div.mui--appbar-height{
+    height: 48px;
+}
+
 .img-user {
     width : 30px;
     height: 30px;

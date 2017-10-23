@@ -134,7 +134,7 @@ class Dashboard extends React.Component {
           <div id="content-wrapper" className="mui--text-center">
             <div className="mui--appbar-height" />
             <div className="mui--text-display3">
-              <div>
+              <div className="tabBar">
                 <button className="mui-btn mui-btn--primary">Dashboard</button>
                 <button className="mui-btn mui-btn--primary">Shared</button>
               </div>
