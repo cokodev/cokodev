@@ -69,6 +69,13 @@ app.post('/register', function (req, res) {
 
 
 
+/********************************************************************
+* Page des tests
+*********************************************************************/
+app.get('/test', function (req, res) {
+    res.render('index');
+});
+
 
 
 /*********************************************************************************************************
@@ -80,7 +87,7 @@ app.listen(port, function () {
 });
 
 /********************************************************************
-* WebpackHotMiddleware - config specifique gaspard
+* WebpackHotMiddleware - config specifique mac gaspard
 *********************************************************************/
 const webpack = require('webpack');
 const webpackconfig = require('./webpack.config');

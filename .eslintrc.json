@@ -1,0 +1,39 @@
+{
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "classes": true,
+            "defaultParams": true
+        }
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "no-const-assign": "warn",
+        "no-this-before-super": "warn",
+        "no-undef": "warn",
+        "no-unreachable": "warn",
+        "no-unused-vars": "warn",
+        "constructor-super": "warn",
+        "valid-typeof": "warn",
+        "no-extra-semi": "error",
+        "babel/new-cap": 1,
+        "babel/object-curly-spacing": 1,
+        "babel/no-invalid-this": 1,
+        "babel/semi": 1,
+        "react/no-multi-comp": 0,
+        "react/jsx-no-bind": 0,
+        "react/jsx-closing-bracket-location": 0,
+        "react/no-did-mount-set-state": 0
+    }
+}

@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
     devtool: 'source-map',
     entry : {
@@ -63,6 +64,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin("app.css"),
+        new CleanWebpackPlugin(['./public/bundle']),
+        new ExtractTextPlugin("./public/bundle/app.css"),
     ]
 };

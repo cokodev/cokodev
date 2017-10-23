@@ -8,13 +8,16 @@ var Link = require('react-router-dom').Link
 var App = require('./composants/app/app');
 var Login = require('./composants/login/class/login');
 var Register = require('./composants/register/class/register');
-
+var Test = require("./composants/test/test");
 //RenderDom - La page de point entrée dans l'app
 ReactDOM.render(
-    <BrowserRouter>
-        <div>
-            <Route exact path="/" component={App}/>
-            <Route exact path="/login" component={Login}/>
-            <Route exact path="/register" component={Register}/>
-        </div>
-    </BrowserRouter>, document.getElementById('container'));
+  <BrowserRouter>
+    <div>
+      <Route exact path="/" component={App} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/test" component={Test} />
+    </div>
+  </BrowserRouter>,
+  document.getElementById("container")
+);
