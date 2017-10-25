@@ -31,14 +31,16 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express-form-data": "^2.0.1",
-    "material-ui-icons": "^1.0.0-beta.15",
+    "material-ui": "^0.19.4",
+    "material-ui-icons": "^1.0.0-beta.17",
     "mongoose": "^4.12.3",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-form": "^7.1.1",
     "redux-form-material-ui": "^4.3.0",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "simple-react-modal": "^0.5.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -61,7 +63,6 @@
     "express": "^4.16.2",
     "extract-text-webpack-plugin": "^3.0.1",
     "html-webpack-plugin": "^2.30.1",
-    "material-ui": "^1.0.0-beta.17",
     "md5": "^2.2.1",
     "muicss": "^0.9.27",
     "node-sass": "^4.5.3",

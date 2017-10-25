@@ -114,16 +114,17 @@ header table form input[type="text"]::-webkit-input-placeholder{
 
 #app #folder #header .mui-btn{
     margin-top: -5px;
-    margin-left: 2px;
+    margin-left: 3px;
     background-color: #E0AD19;
     color: whitesmoke;
 }
 
-#app #folder #header .fa-trash-o{
+#app #folder #header #trashF{
     color: whitesmoke;
     font-size: 18px;
     float: right;
-    margin-right: 10px;
+    margin-top: -30px;
+    padding-right: 10px;
 }
 
 #app #folder #fo-folder{
@@ -134,13 +135,18 @@ header table form input[type="text"]::-webkit-input-placeholder{
     border-bottom: 0.4px solid rgba(227, 227, 227, 0.2);
 }
 
+#app #folder ul {
+    list-style: none;
+    padding-left: initial;
+}
+
 #app #folder #fo-folder:hover{
     background: #3A465B;
 }
 
 #app #folder img{
     float: left;
-    margin-top: 15px;
+    margin-top: 14px;
     margin-right: 15px;
     margin-left: 15px;
     width: 50px;
@@ -176,6 +182,11 @@ header table form input[type="text"]::-webkit-input-placeholder{
     font-size: 14px;
 }
 
+.formEF {
+    background: #263043!important;
+    padding: 0 0 13px!important;
+}
+
 .inputcenterTitleFolder, .inputcenterTitleSnippet, .inputcenterDesc, .inputcenterTag, .inputcenterTypeL {
     height: 30px;
     color: whitesmoke;
@@ -189,7 +200,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
 }
 
 .inputcenterTitleFolder {
-    margin-top: 60px;
+    margin-top: 13px;
 }
 
 .inputcenterTitleSnippet {
@@ -204,7 +215,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
     width: 211px;
 }
 
-#submit {
+#app #folder #header #submit {
     display: block;
     height: 30px;
     color: whitesmoke;
@@ -353,4 +364,24 @@ footer p {
     color: #cfd7d8;
     font-size: 12px;
 }
+
+/* Tablets in portrait mode (768-980px) */
+@media only screen and ( min-width: 768px) and ( max-width: 980px) {
+
+}
+
+/* Smartphones in landscape mode (480-768px) */
+@media only screen and ( min-width: 480px) and ( max-width: 767px) {
+    #app #folder #header #trashF{
+        margin-top: -30px;
+    }
+}
+
+/* Smartphones in portrait mode (0-479px) */
+@media only screen and ( max-width: 479px) {
+    #app #folder #header #trashF{
+        margin-top: -32px;
+    }
+}
+
 

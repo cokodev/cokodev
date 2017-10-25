@@ -1,35 +1,10 @@
 var React = require("react");
+var FolderX = require("./headerfolder");
+var ListFolderX = require("./listfolder");
 
 class Dashboard extends React.Component {
   constructor() {
     super();
-  }
-  activateModalFolder() {
-    console.log();
-    // modal folder
-    var $modalEl = $("<div/>");
-    // set style
-    $modalEl.css({
-      width: 400,
-      height: 300,
-      margin: "100px auto",
-      backgroundColor: "#263043"
-    });
-    // content modal folder
-    var $titleE1 = $('<h4 class="titleE1">Untitle folder</h4>');
-    var $formEl = $(
-      '<form class="formEl">' +
-        '<Input type="text" class="inputcenterTitleFolder" id="title" placeholder="Untitle folder">' +
-        "<br>" +
-        '<Input type="text" class="inputcenterDesc" placeholder="Description">' +
-        "<br>" +
-        '<Button type="submit" value="Save" id="submit">Save</Button>' +
-        "</form>"
-    );
-    $modalEl.append($titleE1);
-    $modalEl.append($formEl);
-    // show modal
-    mui.overlay("on", $modalEl.get(0));
   }
   activateModalSnippet() {
     // modal snippet
@@ -145,63 +120,16 @@ class Dashboard extends React.Component {
           <div className="mui-container-fluid">
             <div className="mui-row">
               <div className="mui-col-md-3" id="folder">
-                <div id="header" className="mui-row">
-                  <button
-                    className="mui-btn mui-btn--small"
-                    onClick={this.activateModalFolder}
-                  >
-                    <strong>+</strong>
-                  </button>
-                  <a href="#">
-                    <i className="fa fa-trash-o" aria-hidden="true" />
-                  </a>
-                </div>
-                <div id="fo-folder" className="mui-row">
-                  <div>
-                    <a href="#" onClick={this.activateModalFolder}>
-                      <img
-                        src="images/folder.png"
-                        alt="image folder"
-                        className="image"
-                      />
-                    </a>
-                  </div>
-                  <h5>Default</h5>
-                  <p>folder for snippet</p>
-                </div>
-                <div id="fo-folder" className="mui-row">
-                  <div>
-                    <a href="#" onClick={this.activateModalFolder}>
-                      <img
-                        src="images/folder.png"
-                        alt="image folder"
-                        className="image"
-                      />
-                    </a>
-                  </div>
-                  <h5>Default</h5>
-                  <p>folder for snippet</p>
-                </div>
-                <div id="fo-folder" className="mui-row">
-                  <div>
-                    <a href="#" onClick={this.activateModalFolder}>
-                      <img
-                        src="images/folder.png"
-                        alt="image folder"
-                        className="image"
-                      />
-                    </a>
-                  </div>
-                  <h5>Default</h5>
-                  <p>folder for snippet</p>
-                </div>
+
+                <FolderX/>
+                <ListFolderX/>
+
               </div>
               <div className="mui-col-md-3" id="snippet">
                 <div id="header" className="mui-row">
                   <button
                     className="mui-btn mui-btn--small"
-                    onClick={this.activateModalSnippet}
-                  >
+                    onClick={this.activateModalSnippet}>
                     <strong>+</strong>
                   </button>
                   <a href="#">
