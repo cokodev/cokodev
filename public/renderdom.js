@@ -10,14 +10,13 @@ var Provider = require("react-redux").Provider;
 
 //Les class
 var App = require("./components/app/app");
-var Login = require('./components/login/class/login');
-var Register = require('./components/register/class/register');
-var Forgotpassword = require('./components/forgotpassword/class/forgotpassword');
+var Login = require('./components/login/login');
+var Register = require('./components/register/register');
+var Forgotpassword = require('./components/forgotpassword/forgotpassword');
 var Dashboard = require("./components/dashboard/dashboard");
-var Test = require("./components/test/test");
 
 //Reducer global
-var globalReducers =  require('./components/app/combineReducerReduc');
+var globalReducers =  require('./components/app/combineReducer');
 
 //Création du Store
 const store = createStore(globalReducers, ({folder:[]}));
@@ -32,7 +31,6 @@ ReactDOM.render(
           <Route exact path="/register" component={Register} />
           <Route exact path="/forgotpassword" component={Forgotpassword} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/test" component={Test} />
         </div>
       </BrowserRouter>
     </Provider>,

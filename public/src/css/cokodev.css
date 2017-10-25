@@ -1,0 +1,35 @@
+/**
+ * Les pages
+ */
+
+
+/** La page login et register*/
+.login_register_page #content-wrapper {
+    background: #273143;
+    margin-top: 100px;
+    color:#FFF;
+}
+
+.loginregister_title_bloc {
+    margin-bottom: 30px;
+}
+
+.loginregister_title_bloc h1 {
+    color: #1A91EB;
+    font-size: 50px;
+    padding: 20px;
+}
+
+.loginregister_title_bloc h5 {
+    font-size: 30px;
+    color:#FFF;
+}
+
+.loginregister_form_bloc button,
+.loginregister_links_bloc {
+    margin-top: 10px;
+}
+
+.loginregister_links_bloc a {
+    margin: 100px;
+}
