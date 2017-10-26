@@ -13,7 +13,7 @@ class Addfolder extends React.Component {
     }
     show() {
         this.setState({ show: true });
-        this.props.initialize({titleFolder : "", DescriptionFolder: "" });
+        this.props.initialize({folderName : "", folderDescription: "" });
     }
     close() {
         this.setState({ show: false });
@@ -31,9 +31,9 @@ class Addfolder extends React.Component {
                     </a>
                     <form onSubmit={this.props.handleSubmit}>
                         <label>
-                            <Field type="text" name="titleFolder" className="inputcenterTitleFolder" id="title" placeholder="Untitle folder" component="input"/>
+                            <Field type="text" name="folderName" className="inputcenterTitleFolder" id="title" placeholder="Untitle folder" component="input"/>
                             <br/>
-                            <Field type="text" name="DescriptionFolder" className="inputcenterDesc" placeholder="Description" component="input"/>
+                            <Field type="text" name="folderDescription" className="inputcenterDesc" placeholder="Description" component="input"/>
                             <br/>
                             <Button type="submit" value="Save" id="submit" onClick={this.close.bind(this)}>Save</Button>
                         </label>

@@ -19,8 +19,8 @@ class Listfolder extends React.Component {
                 <li key={i}>
                     <div id="fo-folder" className="mui-row">
                         <UpdateFolderXForm onSubmit={this.submit} folder={this.props.folder[i]}/>
-                        <h5>{this.props.folder[i].titleFolder}</h5>
-                        <p>{this.props.folder[i].DescriptionFolder}</p>
+                        <h5>{this.props.folder[i].folderName}</h5>
+                        <p>{this.props.folder[i].folderDescription}</p>
                     </div>
                 </li>
             );

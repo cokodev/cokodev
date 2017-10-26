@@ -13,7 +13,7 @@ class Updatefolder extends React.Component {
     }
     show() {
         this.setState({ show: true });
-        this.props.initialize({titleFolder : this.props.folder.titleFolder, DescriptionFolder: this.props.folder.DescriptionFolder, id: this.props.folder.id });
+        this.props.initialize({folderName : this.props.folder.folderName, folderDescription: this.props.folder.folderDescription, id: this.props.folder.id });
     };
     close() {
         this.setState({ show: false });
@@ -27,15 +27,15 @@ class Updatefolder extends React.Component {
                     className="image"
                 />
                 <Modal containerClassName="formEF" closeOnOuterClick={true} show={this.state.show} onClose={this.close.bind(this)} transitionSpeed={1000}>
-                    <h4 className="titleE1">{this.props.folder.titleFolder}</h4>
+                    <h4 className="titleE1">{this.props.folder.folderName}</h4>
                     <a key="close" style={closeStyle} onClick={this.close.bind(this)}>
                         X
                     </a>
                     <form onSubmit={this.props.handleSubmit}>
                         <label>
-                            <Field type="text" name="titleFolder" className="inputcenterTitleFolder" id="title" placeholder="Title" component="input"/>
+                            <Field type="text" name="folderName" className="inputcenterTitleFolder" id="title" placeholder="Title" component="input"/>
                             <br/>
-                            <Field type="text" name="DescriptionFolder" className="inputcenterDesc" placeholder="Description" component="input"/>
+                            <Field type="text" name="folderDescription" className="inputcenterDesc" placeholder="Description" component="input"/>
                             <br/>
                             <Field type="hidden" name="id" placeholder="id" component="input"/>
                             <br/>
