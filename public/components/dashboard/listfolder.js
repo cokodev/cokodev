@@ -1,33 +1,34 @@
 var React = require('react');
 var connect = require('react-redux').connect;
+var UpdateFolderXForm = require('./updatefolder');
 
 class Listfolder extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.state = {folder: ""};
+        this.submit = this.submit.bind(this);
     }
+    submit(values){
+        console.log("valuesSubmitUpdate",values);
+        this.props.handleChange(values);
+    };
     render() {
-        var itemsList = [];
+        var itemsFolder = [];
         for(var i=0; i<this.props.folder.length; i++ ) {
-            itemsList.push(
+            itemsFolder.push(
                 <li key={i}>
                     <div id="fo-folder" className="mui-row">
-                        <a href="#">
-                            <img
-                                src="images/folder.png"
-                                alt="image folder"
-                                className="image"
-                            />
-                        </a>
+                        <UpdateFolderXForm onSubmit={this.submit} folder={this.props.folder[i]}/>
                         <h5>{this.props.folder[i].titleFolder}</h5>
                         <p>{this.props.folder[i].DescriptionFolder}</p>
                     </div>
-                </li>);
-            //console.log("this.props.folder",this.props.folder);
+                </li>
+            );
         }
         return (
             <div>
                 <ul>
-                    {itemsList}
+                    {itemsFolder}
                 </ul>
             </div>
         )
@@ -38,9 +39,17 @@ function mapStateToPropsFolder(state) {
     return {folder: state.folder};
 }
 
+function mapDispatchToPropsFolder(dispatch) {
+    return {
+        handleChange: function(folder) {
+            dispatch({type: "updatefolder", folder: folder});
+        }
+    }
+}
+
 var ListFolderX = connect(
     mapStateToPropsFolder,
-    null
+    mapDispatchToPropsFolder
 )(Listfolder);
 
 module.exports = ListFolderX;

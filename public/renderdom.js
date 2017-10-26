@@ -21,6 +21,7 @@ var globalReducers =  require('./components/app/combineReducerReduc');
 
 //Création du Store
 const store = createStore(globalReducers, ({folder:[]}));
+console.log("store",store.getState());
 
 //RenderDom - La page de point entrée dans l'app
 ReactDOM.render(

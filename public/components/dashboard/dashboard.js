@@ -74,7 +74,7 @@ class Dashboard extends React.Component {
                       <li>
                         <img
                           className="img-user"
-                          src="images/img-user.jpg"
+                          src="img/img-user.jpg"
                           alt="image profil"
                         />
                         <div className="mui-dropdown">
@@ -140,7 +140,7 @@ class Dashboard extends React.Component {
                   <div>
                     <a href="#" onClick={this.activateModalSnippet}>
                       <img
-                        src="images/snippet.png"
+                        src="img/snippet.png"
                         alt="image snippet"
                         className="image"
                       />
@@ -157,7 +157,7 @@ class Dashboard extends React.Component {
                   <div>
                     <a href="#" onClick={this.activateModalSnippet}>
                       <img
-                        src="images/snippet.png"
+                        src="img/snippet.png"
                         alt="image snippet"
                         className="image"
                       />
@@ -174,7 +174,7 @@ class Dashboard extends React.Component {
                   <div>
                     <a href="#" onClick={this.activateModalSnippet}>
                       <img
-                        src="images/snippet.png"
+                        src="img/snippet.png"
                         alt="image snippet"
                         className="image"
                       />
@@ -191,7 +191,7 @@ class Dashboard extends React.Component {
                   <div>
                     <a href="#" onClick={this.activateModalSnippet}>
                       <img
-                        src="images/snippet.png"
+                        src="img/snippet.png"
                         alt="image snippet"
                         className="image"
                       />
@@ -208,7 +208,7 @@ class Dashboard extends React.Component {
                   <div>
                     <a href="#" onClick={this.activateModalSnippet}>
                       <img
-                        src="images/snippet.png"
+                        src="img/snippet.png"
                         alt="image snippet"
                         className="image"
                       />
@@ -225,7 +225,7 @@ class Dashboard extends React.Component {
                   <div>
                     <a href="#" onClick={this.activateModalSnippet}>
                       <img
-                        src="images/snippet.png"
+                        src="img/snippet.png"
                         alt="image snippet"
                         className="image"
                       />
@@ -242,7 +242,7 @@ class Dashboard extends React.Component {
                   <div>
                     <a href="#" onClick={this.activateModalSnippet}>
                       <img
-                        src="images/snippet.png"
+                        src="img/snippet.png"
                         alt="image snippet"
                         className="image"
                       />
@@ -259,7 +259,7 @@ class Dashboard extends React.Component {
                   <div>
                     <a href="#" onClick={this.activateModalSnippet}>
                       <img
-                        src="images/snippet.png"
+                        src="img/snippet.png"
                         alt="image snippet"
                         className="image"
                       />
@@ -276,7 +276,7 @@ class Dashboard extends React.Component {
                   <div>
                     <a href="#" onClick={this.activateModalSnippet}>
                       <img
-                        src="images/snippet.png"
+                        src="img/snippet.png"
                         alt="image snippet"
                         className="image"
                       />
@@ -293,7 +293,7 @@ class Dashboard extends React.Component {
                   <div>
                     <a href="#" onClick={this.activateModalSnippet}>
                       <img
-                        src="images/snippet.png"
+                        src="img/snippet.png"
                         alt="image snippet"
                         className="image"
                       />
