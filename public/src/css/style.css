@@ -155,7 +155,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
 }
 
 #app #folder .image:hover{
-    content: url("/images/pencil.png");
+    content: url("/img/pencil.png");
     width: 50px;
     height: 50px;
 }
@@ -225,9 +225,23 @@ header table form input[type="text"]::-webkit-input-placeholder{
     border: 0;
     margin: auto;
     margin-top:-8px;
-    padding-left: 10px;
 }
 
+#app #folder #fo-folder #submit {
+    display: block;
+    height: 30px;
+    color: whitesmoke;
+    background: #008FF7;
+    font-size: 14px;
+    width: 211px;
+    border: 0;
+    margin: auto;
+    margin-top:-42px;
+}
+
+#app #folder #fo-folder .inputcenterDesc {
+    margin-top:-16px;
+}
 
 /**
  * Snippet CSS
@@ -281,7 +295,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
 }
 
 #app #snippet .image:hover{
-    content: url("/images/pencils.png");
+    content: url("/img/pencils.png");
     width: 50px;
     height: 50px;
 }

@@ -1,6 +1,6 @@
 var React = require("react");
 import { Fields, reduxForm } from "redux-form";
-var Link = require('react-router-dom').Link
+var Link = require('react-router-dom').Link;
 import Button from "material-ui/Button";
 import TextField from "material-ui/TextField";
 

@@ -10,7 +10,6 @@ function folder(state = [], action) {
         for (var i=0; i<state.length; i++ ) {
             if (state[i].id == action.folder.id) {
                 folders[i] = action.folder;
-                console.log("action.folder",action.folder);
             }
         }
         return folders;
