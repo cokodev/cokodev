@@ -19,7 +19,7 @@ var Dashboard = require("./components/dashboard/dashboard");
 var globalReducers =  require('./components/app/combineReducer');
 
 //Création du Store
-const store = createStore(globalReducers, ({folder:[]}));
+const store = createStore(globalReducers, ({folder:[], folderSelected:""}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 console.log("store",store.getState());
 
 //RenderDom - La page de point entrée dans l'app
