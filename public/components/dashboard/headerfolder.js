@@ -1,6 +1,6 @@
 var React = require("react");
 var AddFolderXForm = require("./addfolder");
-var Deletefolder = require("./deletefolder");
+var DeleteFolderX = require("./deletefolder");
 var connect = require('react-redux').connect;
 
 class Headerfolder extends React.Component {
@@ -16,7 +16,7 @@ class Headerfolder extends React.Component {
         return (
             <div id="header" className="mui-row">
                 <AddFolderXForm onSubmit={this.submit}/>
-                <Deletefolder/>
+                <DeleteFolderX/>
             </div>
         )
     }

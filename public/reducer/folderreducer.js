@@ -13,6 +13,20 @@ function folder(state = [], action) {
             }
         }
         return folders;
+    } if (action.type == 'deletefolder') {
+        console.log("hello reducer delete", action.folderSelected);
+        console.log("hello reducer delete action", action);
+        console.log("hello reducer delete state", state);
+        var folders = state.slice(0);
+
+        for (var i=0; i<folders.length; i++ ) {
+            if (folders[i].id == action.folderSelected) {
+                folders.splice(i, 1);
+                break;
+            }
+        }
+        //this.state.folder.splice(action.folderSelected, 1);
+        return folders;
     } else {
         return state;
     }
