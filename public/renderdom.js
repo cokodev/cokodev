@@ -18,8 +18,11 @@ var Dashboard = require("./components/dashboard/dashboard");
 //Reducer global
 var globalReducers =  require('./components/app/combineReducer');
 
-//Création du Store
-const store = createStore(globalReducers, ({folder:[], folderSelected:""}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+const store = createStore(globalReducers, ({form: {}, folder: [{folderName : "titleExample", folderDescription: "descriptionExample" }]}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+// Le folderSelected ne peut pas être hydraté et fonctionné, il a besoin de l'id généré à la création des folders!
+//hydrater le store = retirer redux-dev-tool:
+//const store = createStore(globalReducers, ({form: {}, folder: [{folderName : "titleExample", folderDescription: "descriptionExample" }]}));
+
 console.log("store",store.getState());
 
 //RenderDom - La page de point entrée dans l'app

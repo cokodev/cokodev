@@ -1,6 +1,6 @@
 var React = require("react");
-var FolderX = require("./headerfolder");
-var ListFolderX = require("./listfolder");
+var FolderX = require("./folder/headerfolder");
+var ListFolderX = require("./folder/listfolder");
 
 class Dashboard extends React.Component {
   constructor() {
