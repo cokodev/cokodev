@@ -24,7 +24,7 @@ class Addfolder extends React.Component {
                 <Button className="mui-btn mui-btn--small"
                         onClick={this.show.bind(this)}>+
                 </Button>
-                <Modal containerClassName="formEF" closeOnOuterClick={true} show={this.state.show} onClose={this.close.bind(this)} transitionSpeed={1000}>
+                <Modal containerClassName="formEF" closeOnOuterClick={true} show={this.state.show} onClose={this.close.bind(this)} transitionSpeed={1}>
                     <h4 className="titleE1">Untitle folder</h4>
                     <a key="close" style={closeStyle} onClick={this.close.bind(this)}>
                         X

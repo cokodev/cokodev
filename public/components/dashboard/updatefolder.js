@@ -37,8 +37,6 @@ class Updatefolder extends React.Component {
                             <br/>
                             <Field type="text" name="folderDescription" className="inputcenterDesc" placeholder="Description" component="input"/>
                             <br/>
-                            <Field type="hidden" name="id" placeholder="id" component="input"/>
-                            <br/>
                             <Button type="submit" value="Save" id="submit" onClick={this.close.bind(this)}>Save</Button>
                         </label>
                     </form>

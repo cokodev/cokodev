@@ -133,6 +133,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
     line-height: 1.5;
     color: whitesmoke;
     border-bottom: 0.4px solid rgba(227, 227, 227, 0.2);
+    margin-top: -10px;
 }
 
 #app #folder ul {
@@ -142,6 +143,11 @@ header table form input[type="text"]::-webkit-input-placeholder{
 
 #app #folder #fo-folder:hover{
     background: #3A465B;
+}
+
+.folder-selected {
+    background: #212734;
+    border-bottom: 0.7px solid rgba(231, 175, 0, 0.7) !important;
 }
 
 #app #folder img{
@@ -155,14 +161,14 @@ header table form input[type="text"]::-webkit-input-placeholder{
 }
 
 #app #folder .image:hover{
-    content: url("/img/pencil.png");
+    content: url("./img/pencil.png");
     width: 50px;
     height: 50px;
 }
 
 #app #folder h5 {
     margin-bottom: 0px;
-    padding-top: 10px;
+    padding-top: 18px;
 }
 
 #app #folder p {
@@ -236,11 +242,11 @@ header table form input[type="text"]::-webkit-input-placeholder{
     width: 211px;
     border: 0;
     margin: auto;
-    margin-top:-42px;
+    margin-top:-16px;
 }
 
 #app #folder #fo-folder .inputcenterDesc {
-    margin-top:-16px;
+    margin-top:-17px;
 }
 
 /**
@@ -295,7 +301,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
 }
 
 #app #snippet .image:hover{
-    content: url("/img/pencils.png");
+    content: url("./img/pencils.png");
     width: 50px;
     height: 50px;
 }
