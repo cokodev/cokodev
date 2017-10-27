@@ -6,7 +6,6 @@ var connect = require('react-redux').connect;
 class Headerfolder extends React.Component {
     constructor(props) {
         super(props);
-        //this.state = {folder: ""};
         this.submit = this.submit.bind(this);
     }
     submit(values){

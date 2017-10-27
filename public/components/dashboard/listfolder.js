@@ -18,23 +18,12 @@ class Listfolder extends React.Component {
         this.props.handleSelectedFolder(id);
     };
     render() {
-
-        //if (this.props.folderSelected == ) {
-            //console.log("this.props.folderid", this.props.folderid);
-            //console.log("this.props.folderSelected", this.props.folderSelected);
-            //console.log("this.props.folderSelected == this.props.folder.id" ,this.props.folderSelected + "==" + this.props.folder.id);
-            //className = "folder-selected";
-        //}
         var itemsFolder = [];
         for(var i=0; i<this.props.folder.length; i++ ) {
-
             var className = null;
             if (this.props.folderSelected == this.props.folder[i].id) {
-                console.log("hello this.props.folder[i].id", this.props.folder[i].id);
-                console.log("this.props.folderSelected", this.props.folderSelected);
                 className = "folder-selected";
             }
-
             itemsFolder.push(
                 <li key={i} onClick={this.handleClick.bind(this, this.props.folder[i].id)} className="mui-row">
                     <div id="fo-folder" className={className}>
