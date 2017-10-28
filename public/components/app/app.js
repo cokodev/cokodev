@@ -1,5 +1,5 @@
 var React = require("react");
-var Login = require("../login/login");
+var Login = require("../accounts/login/login");
 class App extends React.Component {
   constructor() {
     super();
