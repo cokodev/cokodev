@@ -1,44 +1,12 @@
 var React = require("react");
 var FolderX = require("./folder/headerfolder");
 var ListFolderX = require("./folder/listfolder");
+var Headersnippet = require("./snippet/headersnippet");
+
 
 class Dashboard extends React.Component {
   constructor() {
     super();
-  }
-  activateModalSnippet() {
-    // modal snippet
-    var $modalE2 = $("<div/>");
-    // set style
-    $modalE2.css({
-      width: 400,
-      height: 300,
-      margin: "100px auto",
-      backgroundColor: "#263043"
-    });
-    // content modal snippet
-    var $titleE2 = $('<h4 class="titleE2">Untitle snippet (name folder)</h4>');
-    var $formE2 = $(
-      '<form class="mui--text-center formE2">' +
-        '<Input type="text" class="inputcenterTitleSnippet" placeholder="Untitle snippet">' +
-        "<br>" +
-        '<Input type="text" class="inputcenterDesc" placeholder="Description">' +
-        "<br>" +
-        '<Input type="text" class="inputcenterTag" placeholder="Tag">' +
-        "<br>" +
-        '<select id="select" class="inputcenterTypeL">' +
-        '<option value="valeur1">Plain text</option>' +
-        '<option value="valeur2" selected>JS</option>' +
-        '<option value="valeur3">CSS</option>' +
-        "</select>" +
-        "<br>" +
-        '<Button type="submit" value="Save" id="submit">Save</Button>' +
-        "</form>"
-    );
-    $modalE2.append($titleE2);
-    $modalE2.append($formE2);
-    // show modal
-    mui.overlay("on", $modalE2.get(0));
   }
   render() {
     return (
@@ -120,22 +88,17 @@ class Dashboard extends React.Component {
           <div className="mui-container-fluid">
             <div className="mui-row">
               <div className="mui-col-md-3" id="folder">
-
                 <FolderX/>
                 <ListFolderX/>
-
               </div>
               <div className="mui-col-md-3" id="snippet">
-                <div id="header" className="mui-row">
-                  <button
-                    className="mui-btn mui-btn--small"
-                    onClick={this.activateModalSnippet}>
-                    <strong>+</strong>
-                  </button>
-                  <a href="#">
-                    <i className="fa fa-trash-o" aria-hidden="true" />
-                  </a>
-                </div>
+
+
+
+                  <Headersnippet/>
+
+
+
                 <div id="sn-snippet" className="mui-row">
                   <div>
                     <a href="#" onClick={this.activateModalSnippet}>
