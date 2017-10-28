@@ -3,11 +3,30 @@
  */
 
 
+/* Changer Autocomplete styles dans Chrome - Formulaires*/
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    /*couleur texte*/
+    -webkit-text-fill-color: #FFF;
+    /*couleur background input*/
+    -webkit-box-shadow: 0 0 0px 1000px #293844 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
 /** La page login et register*/
+
 .login_register_page #content-wrapper {
     background: #273143;
     margin-top: 100px;
-    color:#FFF;
+    color: #FFF;
 }
 
 .loginregister_title_bloc {
@@ -22,7 +41,7 @@
 
 .loginregister_title_bloc h5 {
     font-size: 30px;
-    color:#FFF;
+    color: #FFF;
 }
 
 .loginregister_form_bloc button,
@@ -32,4 +51,14 @@
 
 .loginregister_links_bloc a {
     margin: 100px;
+}
+
+.login_register_page #content-wrapper .input-row {
+    margin-bottom: 10px;
+}
+
+.login_register_page #content-wrapper .input-row input {
+    color: #FFF;
+    text-align: center;
+    width: 220px;
 }

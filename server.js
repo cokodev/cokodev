@@ -69,16 +69,6 @@ var UserModel = mongoose.model('Users', UserSchema);
 
 
 
-
-
-
-
-
-
-
-
-
-
 /********************************************************************
 * Index - home app
 *********************************************************************/
@@ -103,46 +93,47 @@ app.get('/login', function (req, res) {
 //Post login
 app.post('/login', function (req, res) {
     console.log(req.body.login.indexOf("@"));
+
     if (req.body.login.indexOf("@") > -1) {
-        UserModel.findOne({ email: req.body.login, password: req.body.password }, function (err, UserSchema) {
-            if (UserSchema) {
+        UserModel.findOne({ email: req.body.login, password: req.body.password }, function (err, User) {
+            if (User) {
                 req.session.isLog = true;
-                req.session.tokenId = UserSchema.id;
+                req.session.tokenId = User.id;
                 console.log("connexion par email");
             }
             else {
                 console.log("Not registered yet by email");
             }
-
-            isLoged(req.session.isLog, res);
+            isLoged(req.session.isLog, res, User);
         });
     }
     else {
-        UserModel.findOne({ userName: req.body.login, password: req.body.password }, function (err, UserSchema) {
-            if (UserSchema) {
+        UserModel.findOne({ userName: req.body.login, password: req.body.password }, function (err, User) {
+            if (User) {
                 req.session.isLog = true;
-                req.session.tokenId = UserSchema.id;
+                req.session.tokenId = User.id;
                 console.log("connexion par username");
             }
             else {
                 console.log("Not registered yet by username");
             }
-            isLoged(req.session.isLog, res);
+            isLoged(req.session.isLog, res, User);
         });
-
     }
-
 });
 
-function isLoged(isLog, res) {
+function isLoged(isLog, res, User) {
+    console.log("islogggg:",isLog);
     if (isLog) {
-        res.send("logged");
+        res.send(User);
     }
     else {
         var error = "Incorrect login or password";
-        res.send({ error: error });
+        res.send({ error: true });
     }
 }
+
+
 
 /********************************************************************
 * REGISTER
@@ -194,14 +185,22 @@ app.post("/register", function(req, res) {
 
 
 
-
-
-
 /********************************************************************
 * DASHBOARD
 *********************************************************************/
 app.get("/dashboard", function (req, res) {
     res.render('index');
+});
+
+app.get("/dashboard9999", function (req, res) {
+    
+    if (!req.session.isLog) {
+        res.redirect('/')
+    }
+
+    UserModel.findOne({ _id: req.session.tokenId }, function (err, currentuser) {
+        res.render("index", { currentuser: currentuser });
+    });
 });
 
 
@@ -216,18 +215,9 @@ app.get("/forgotpassword", function (req, res) {
 /********************************************************************
 * LOGOUT
 *********************************************************************/
-app.get("/logout", function (req, res) {
-    res.render('index');
-});
-
-
-
-
-/********************************************************************
-* PAGE DES TESTS
-*********************************************************************/
-app.get('/test', function (req, res) {
-    res.render('index');
+app.get("/logout", function(req, res) {
+  req.session.destroy();
+  res.redirect("/");
 });
 
 
@@ -241,7 +231,7 @@ app.listen(port, function () {
 });
 
 /********************************************************************
-* WebpackHotMiddleware - config specifique mac gaspard
+* WebpackHotMiddleware
 *********************************************************************/
 const webpack = require('webpack');
 const webpackconfig = require('./webpack.config');

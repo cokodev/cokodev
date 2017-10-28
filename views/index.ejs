@@ -15,8 +15,19 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link href="cokodev.css" rel="stylesheet" type="text/css" />
 
+<script>
+    var usercurrentdata =
+    <% if (typeof(currentuser)!= "undefined") { %>
+       <%- JSON.stringify(currentuser) %>
+    <% } else { %>
+        {}
+    <% } %>;
+
+</script>
+
 </head>
 <body>
+
 <div>
     <div id="container"></div>
 </div>

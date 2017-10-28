@@ -1,6 +1,9 @@
 var React = require("react");
 var LoginXForm = require("./loginForm");
 var { Route, Redirect } = require("react-router");
+import createBrowserHistory from "history/createBrowserHistory";
+const history = createBrowserHistory();
+var connect = require("react-redux").connect;
 
 class Login extends React.Component {
   constructor() {
@@ -8,41 +11,52 @@ class Login extends React.Component {
     this.submit = this.submit.bind(this);
     this.state = { islog: false };
   }
+
+
   submit(values) {
+    //var componentSignupStore = this;
     var componentSignup = this;
     //Ajax Jquery
+
     $.ajax({
       type: "POST",
       url: "/login",
       // The key needs to match your method's input parameter (case-sensitive).
       data: values,
-      success: function(data) {
-        if (data == "logged") {
+      success: function (data) {
+         console.log(data);
+        if (data.error != true) {
           componentSignup.setState({ islog: true });
+          componentSignup.props.getUserData(data);
         }
-      },
-      failure: function(errMsg) {
-        console.log("not Ok" + errMsg);
-        $(err).html(data.error);
-        $("#err").html("<p> erreur d'enregistrement</p>");
       }
     });
-
-    console.log(values);
   }
+
   render() {
     var redirectComponent;
     if (this.state.islog) {
-      redirectComponent = <Redirect to="/dashboard" />;
+      redirectComponent = <Redirect to="/dashboard9999" />;
     }
+
     return (
       <div>
         {redirectComponent}
-        <div id="err" color="" />
         <LoginXForm onSubmit={this.submit} />
       </div>
     );
   }
 }
 
-module.exports = Login;
+
+function mapDispatchToPropsUsersdata(dispatch) {
+  return {
+    getUserData: function(userdata) {
+      dispatch({ type: "login",userdata});
+    }
+  };
+}
+
+var LoginX = connect(null, mapDispatchToPropsUsersdata)(Login);
+
+module.exports = LoginX;

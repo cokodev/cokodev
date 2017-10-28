@@ -8,7 +8,7 @@ class Forgotpassword extends React.Component {
         return (
             <div>
                 <h3>Forgot Password</h3>
-                 <Link to="./login">Login</Link>
+                 <Link to="/">Login</Link>
             </div>
         )
     }

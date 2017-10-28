@@ -1,6 +1,7 @@
 # Project folder and files #
 ############################
 node_modules/
+public/bundle/
 
 # Compiled source #
 ###################
