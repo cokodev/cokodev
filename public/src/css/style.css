@@ -276,6 +276,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
     font-size: 18px;
     float: right;
     margin-right: 10px;
+    margin-top: -31px;
 }
 
 #app #snippet #sn-snippet{
