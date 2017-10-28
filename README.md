@@ -1,14 +1,14 @@
 # cokodev
 
-Installation (projet)
+Installation
 ------------------
-installation du package.json : npm install
+npm install
 
 Server
 ------------------
 npm start
 
-Compilation du webpack
+Compilation Webpack
 ------------------
 npm run dev
 
