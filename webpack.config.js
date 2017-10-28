@@ -63,5 +63,4 @@ devServer : {
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.HotModuleReplacementPlugin()
 ]
-
 };
