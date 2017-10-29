@@ -3,7 +3,7 @@ var FolderX = require("./folder/headerfolder");
 var ListFolderX = require("./folder/listfolder");
 var SnippetX = require("./snippet/headersnippet");
 var ListSnippetX = require("./snippet/listsnippet");
-
+var ContentSnippet = require("./contentsnippet/contentsnippet");
 
 class Dashboard extends React.Component {
   constructor() {
@@ -97,26 +97,7 @@ class Dashboard extends React.Component {
                   <ListSnippetX/>
               </div>
               <div className="mui-col-md-6" id="content">
-                <div className="easy2">
-                  <div className="mui--text-center mui--align-bottom">
-                    <span id="p2Back">
-                      <a href="#">
-                        <i className="fa fa-ellipsis-h" aria-hidden="true" />
-                      </a>
-                    </span>
-                  </div>
-                  <p>Message</p>
-                </div>
-                <div className="easy1">
-                  <div className="mui--text-center mui--align-bottom">
-                    <span id="p1Next">
-                      <a href="#">
-                        <i className="fa fa-ellipsis-h" aria-hidden="true" />
-                      </a>
-                    </span>
-                  </div>
-                  <p>Content</p>
-                </div>
+                <ContentSnippet/>
               </div>
             </div>
           </div>
