@@ -210,7 +210,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
 }
 
 .inputcenterTitleSnippet {
-    margin-top: 30px;
+    margin-top: 13px;
 }
 
 .inputcenterDesc, .inputcenterTypeL, .inputcenterTag {
@@ -269,6 +269,11 @@ header table form input[type="text"]::-webkit-input-placeholder{
     margin-left: 2px;
     background-color: #39B54A;
     color: whitesmoke;
+}
+
+#app #snippet #header #submit{
+    background-color: #008FF7;
+    width: 211px;
 }
 
 #app #snippet #header .fa-trash-o{
