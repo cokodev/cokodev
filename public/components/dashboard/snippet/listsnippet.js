@@ -4,14 +4,22 @@ var connect = require('react-redux').connect;
 class Listfolder extends React.Component {
     constructor() {
         super();
-        this.state = {snippet: ""};
+        this.state = {snippet: "", folderSelected: null};
+        this.handleClick = this.handleClick.bind(this);
     }
+    handleClick(id) {
+        this.props.handleSelectedSnippet(id);
+    };
     render() {
         var itemsSnippet = [];
         for(var i=0; i<this.props.snippet.length; i++ ) {
+            var className = null;
+            if (this.props.snippetSelected == this.props.snippet[i].id) {
+                className = "folder-selected";
+            }
             itemsSnippet.push(
-                <li key={i} className="mui-row">
-                    <div id="sn-snippet">
+                <li key={i} onClick={this.handleClick.bind(this, this.props.snippet[i].id)} className="mui-row">
+                    <div id="sn-snippet" className={className}>
                         <a href="#">
                             <img
                                 src="img/snippet.png"
@@ -40,13 +48,20 @@ class Listfolder extends React.Component {
 }
 
 function mapStateToPropsSnippet(state) {
-    console.log("state aaaaa", state.snippet);
-    return {snippet: state.snippet};
+    return {snippet: state.snippet, snippetSelected: state.snippetSelected};
+}
+
+function mapDispatchToPropsSnippet(dispatch) {
+    return {
+        handleSelectedSnippet: function(snippetSelected) {
+            dispatch({type: "selectedsnippet", snippetSelected: snippetSelected});
+        }
+    }
 }
 
 var ListSnippetX = connect(
     mapStateToPropsSnippet,
-    null
+    mapDispatchToPropsSnippet
 )(Listfolder);
 
 module.exports = ListSnippetX;

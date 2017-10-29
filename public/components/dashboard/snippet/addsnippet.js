@@ -44,7 +44,7 @@ class Addsnippet extends React.Component {
                                 <option value="CSS">CSS</option>
                             </Field>
                             <br/>
-                            <Button type="submit" value="Save" id="submit">Save</Button>
+                            <Button type="submit" value="Save" id="submit" onClick={this.close.bind(this)}>Save</Button>
                         </label>
                     </form>
                 </Modal>
