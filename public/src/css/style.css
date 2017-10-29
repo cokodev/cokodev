@@ -133,7 +133,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
     line-height: 1.5;
     color: whitesmoke;
     border-bottom: 0.4px solid rgba(227, 227, 227, 0.2);
-    margin-top: -10px;
+    margin-top: -9px;
 }
 
 #app #folder ul {
@@ -285,6 +285,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
 }
 
 #app #snippet #sn-snippet{
+    padding-top: 1px;
     height: 80px;
     font-size: 18px;
     line-height: 1.5;
@@ -314,7 +315,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
 
 #app #snippet h5 {
     margin-bottom: 0px;
-    padding-top: 10px;
+    padding-top: 8px;
 }
 
 #app #snippet p {
@@ -325,16 +326,21 @@ header table form input[type="text"]::-webkit-input-placeholder{
     font-size: 10px;
     color: #E0AD19;
     float: right;
-    margin-top: -12px;
+    margin-top: -6px;
 }
 
 #app #snippet p #snippettag{
     font-size: 10px;
     color: #39B54A;
     float: right;
-    margin-top: -12px;
+    margin-top: -6px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+#app #snippet ul {
+    list-style: none;
+    padding-left: initial;
 }
 
 /**

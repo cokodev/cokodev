@@ -1,5 +1,6 @@
 var React = require("react");
 var AddSnippetXForm = require("./addsnippet");
+var connect = require('react-redux').connect;
 
 class Headersnippet extends React.Component {
     constructor(props) {
@@ -8,6 +9,7 @@ class Headersnippet extends React.Component {
     }
     submit(values){
         console.log("valuesSubmit",values);
+        this.props.handleChange(values);
     };
     render() {
         return (
@@ -21,4 +23,17 @@ class Headersnippet extends React.Component {
     }
 }
 
-module.exports = Headersnippet;
+function mapDispatchToPropsSnippet(dispatch) {
+    return {
+        handleChange: function(snippet) {
+            dispatch({type: "addsnippet", snippet: snippet});
+        }
+    }
+}
+
+var SnippetX = connect(
+    null,
+    mapDispatchToPropsSnippet
+)(Headersnippet);
+
+module.exports = SnippetX;
