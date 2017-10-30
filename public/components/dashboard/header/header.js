@@ -44,7 +44,7 @@ class Header extends React.Component {
                             className="mui-btn mui-btn--primary"
                             data-mui-toggle="dropdown"
                           >
-                            {this.props.lastname} {this.props.firstname}
+                         {this.props.firstname} {this.props.lastname}
                             <span className="mui-caret" />
                           </button>
                           <ul className="mui-dropdown__menu mui-dropdown__menu--right">

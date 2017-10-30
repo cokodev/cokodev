@@ -1,8 +1,9 @@
 function folder(state = [], action) {
     if (action.type == 'addfolder') {
         var folders = state.slice(0);
-        var tempsEnMs = Date.now();
-        action.folder.id = tempsEnMs;
+        //modification de la création du folde id
+        //var tempsEnMs = Date.now();
+        //action.folder._id = tempsEnMs;
         folders.push(action.folder);
         return folders;
     } if (action.type == 'updatefolder') {

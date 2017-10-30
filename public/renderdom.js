@@ -20,10 +20,11 @@ var globalReducers = require("./components/app/combineReducer");
 
 const store = createStore(globalReducers, ({
   form: {},
-  folder: [{ folderName: "titleExample", folderDescription: "descriptionExample" }],
+  //folder: [{ folderName: "titleExample", folderDescription: "descriptionExample" }],
+  //=> plus nécessaire car on se connecte via usersdata juste en dessous qui hydrate le store avec toutes les données
   usersdata: usercurrentdata
-},
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+}));
+//window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 
 
 //RenderDom - La page de point entrée dans app

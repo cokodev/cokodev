@@ -36,7 +36,7 @@ class Login extends React.Component {
   render() {
     var redirectComponent;
     if (this.state.islog) {
-      redirectComponent = <Redirect to="/dashboard9999" />;
+      redirectComponent = <Redirect to="/dashboard" />;
     }
 
     return (
