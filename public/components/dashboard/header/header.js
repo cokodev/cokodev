@@ -1,14 +1,12 @@
 var React = require("react");
 var Link = require('react-router-dom').Link
 var connect = require("react-redux").connect;
-
+var Search = require("./search")
 class Header extends React.Component {
   constructor() {
     super();
 
   }
-
-
   render() {
     return (
       <div>
@@ -21,14 +19,7 @@ class Header extends React.Component {
                     <Link to="./dashboard9999">CoKoDEV</Link>
                   </td>
                   <td className="mui--text-body2">
-                    <form>
-                      <i className="fa fa-search" aria-hidden="true" />
-                      <input
-                        type="text"
-                        name="search"
-                        placeholder="Search for snippets..."
-                      />
-                    </form>
+                   <Search/>
                   </td>
                   <td align="right">
                     <ul className="mui-list--inline mui--text-body2">

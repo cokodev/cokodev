@@ -9,14 +9,18 @@ class Register extends React.Component {
                 this.state = {islog: false};
     }
     submit(values){ // pouvait être plus facilement fait avec Fetch
-             var componentSignup =  this;
+        var componentSignup = this;
         $.ajax({
             type: 'POST',
             url: "./register",
             data: values,
             success: function (data) {
+                console.log('------------------------------------');
+                console.log(data);
+                console.log('------------------------------------');
                 if (data == "registred") {
-                     componentSignup.setState({islog: true});
+                    componentSignup.setState({ islog: true });
+                    console.log("test");
                 }
                 console.log("register",data);
             },
