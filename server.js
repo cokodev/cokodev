@@ -260,6 +260,77 @@ app.post('/updatefolder', function (req, res) {
                         res.send("folder updated");
      });
 });
+/********************************************************************
+* ADD SNIPPET
+*********************************************************************/
+//Post update folder
+app.post('/addsnippet', function (req, res) {
+
+    var snippet ={snippetName: req.body.snippetName,
+                        snippetDescription: req.body.snippetDescription,
+                        snippetTag: req.body.snippetTag,
+                        snippetContent: req.body.snippetContent,
+                        date : new Date (),   //=> On la garde dans la base de données mais pas nécessaire dans le formulaire.
+                        languageType: req.body.languageType
+                }
+
+          console.log(JSON.stringify(snippet));
+          UserModel.update({'folders._id':"59ef05b4728f1218a45977a1"},{$push: {'folders.$.snippets': snippet}}, function (err, snippet) {
+                               console.log("snippet ",JSON.stringify(snippet));
+                               //console.log(" folder recorded !");
+                               res.send('recorded');
+               });
+});
+/********************************************************************
+* DELETE SNIPPET
+*********************************************************************/
+//Post delete snippet
+app.post('/deletesnippet', function (req, res) {
+
+    UserModel.update({'folders._id':"59eeff4a8b924032943bd8b0"},{$pull: {'folders.$.snippets': {_id:"59ef0193cb7d7e1be04f81ac"}}}, function (err, user) {
+                        console.log(user);
+                        res.send(user);
+    });
+});
+
+/********************************************************************
+* UPDATE SNIPPET
+*********************************************************************/
+//Post update snippet
+app.post('/updatesnippet', function (req, res) {
+
+    var updateSnippetName = 'script.js';
+    var updateSnippetDescription = 'Ceci est un test';
+    var updateSnippetTag = "script"
+    var updateSnippetContent = "ceci est un script"
+    var updateLanguageType = 'JS'
+
+         UserModel.findOne({_id:"59ef056a865e362e2092aa6e"},{'_id':0,'folders': { $elemMatch: {_id:"59ef05b4728f1218a45977a1"}},'folders.snippets': 1},
+         function (err, snippets) {
+                                                //console.log(snippets);
+                                     var snippetCollection = snippets.folders[0].snippets;
+
+                                                for (var i=0; i<snippetCollection.length; i++) {
+
+                                                            if (snippetCollection[i]._id == '59ef06288f229127c0ae2270') {
+                                                                        let data = {}
+                                                                        data["folders.$.snippets." + i + ".snippetName"] = updateSnippetName
+                                                                        data["folders.$.snippets." + i + ". snippetDescription"] = updateSnippetDescription
+                                                                        data["folders.$.snippets." + i + ".snippetTag"] = updateSnippetTag
+                                                                        data["folders.$.snippets." + i + ".snippetContent"] = updateSnippetContent
+                                                                        data["folders.$.snippets." + i + ".languageType"] = updateLanguageType
+
+                                                                        //console.log(data);
+                                                                         UserModel.update({'folders':{$elemMatch: {'_id': '59ef05b4728f1218a45977a1'}}},
+                                                                        {$set:data}, function (err, snippets) {
+                                                                                        //console.log(JSON.stringify(snippets));
+                                                                                          res.send(snippets);
+                                                                                      });
+                                                           }
+                                                          // break;
+                                                 }
+                 });
+});
 
 /********************************************************************
 * FORGET PASSAWORD
