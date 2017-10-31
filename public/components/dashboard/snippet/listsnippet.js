@@ -4,7 +4,7 @@ var connect = require('react-redux').connect;
 class Listfolder extends React.Component {
     constructor() {
         super();
-        this.state = {snippet: "", folderSelected: null};
+        this.state = {snippet: "", snippetSelected: null};
         this.handleClick = this.handleClick.bind(this);
     }
     handleClick(id) {
