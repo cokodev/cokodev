@@ -6,19 +6,17 @@ class Deletefolder extends React.Component {
         super();
         this.handleClick = this.handleClick.bind(this);
     }
-    handleClick(data) {
-        var componentDeleteFolder = this;
+    handleClick(id) {
+        console.log(" id du deletefolder.js:",id);
+
        $.ajax({
          type: "POST",
          url: "/deletefolder",
-         data: {selectedFolder :"59f8511e2dad4e1fac9153a6"},
-         success: function (data) {
-           if (data.error != true) {
-             componentDeleteFolder.props.handleSelectedFolder(data);
-           }
+         data: {selectedFolder : id},
+         success: function (folderSelected) {
        }
        });
-        //this.props.handleSelectedFolder(id);
+        this.props.handleSelectedFolder(id);
     }
     render() {
         return (
@@ -34,15 +32,13 @@ class Deletefolder extends React.Component {
 
 
 function mapStateToPropsFolder(state) {
-    return {folderSelected: state.usersdata.folderSelected};
-        console.log("Le bon folder selectionné ?:", usersdata.folderSelected);
-    //return {folderSelected: state.folderSelected};
+    return {folderSelected: state.folderSelected};
 }
 
 function mapDispatchToPropsFolder(dispatch) {
     return {
         handleSelectedFolder: function(folderSelected) {
-            dispatch({type: "deletefolder", folderSelected});
+            dispatch({type: "deletefolder", folderSelected: folderSelected});
         }
     }
 }

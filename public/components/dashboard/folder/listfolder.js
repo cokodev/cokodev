@@ -47,7 +47,7 @@ class Listfolder extends React.Component {
 
 function mapStateToPropsFolder(state) {
     //state du folder modifié avec les données du user loggé : usersdata
-    return {folder: state.usersdata.folders, folderSelected: state.usersdata.folderSelected};
+    return {folder: state.usersdata.folders, folderSelected: state.folderSelected};
 }
 
 function mapDispatchToPropsFolder(dispatch) {
@@ -56,7 +56,7 @@ function mapDispatchToPropsFolder(dispatch) {
             dispatch({type: "updatefolder", folder: usersadata.folders});
         },
         handleSelectedFolder: function(folderSelected) {
-            dispatch({type: "selectedfolder", folderSelected: usersdata.folderSelected});
+            dispatch({type: "selectedfolder", folderSelected: folderSelected});
         }
     }
 }

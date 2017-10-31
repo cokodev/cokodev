@@ -36,6 +36,12 @@ class Addfolder extends React.Component {
                             <br/>
                             <Field type="text" name="folderDescription" className="inputcenterDesc" placeholder="Description" component="input"/>
                             <br/>
+                            <Field type="text" name="folderStatus" className="inputcenterStatus" placeholder="Status" component="select">
+                            <option></option>
+                                <option value="shared">shared</option>
+                                <option value="private">private</option>
+                                </Field>
+                            <br/>
                             <Button type="submit" value="Save" id="submit" onClick={this.close.bind(this)}>Save</Button>
                         </label>
                     </form>
