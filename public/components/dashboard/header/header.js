@@ -1,7 +1,7 @@
 var React = require("react");
 var Link = require('react-router-dom').Link
 var connect = require("react-redux").connect;
-var Search = require("./search")
+var InstantSearchC = require("./InstantSearch");
 class Header extends React.Component {
   constructor() {
     super();
@@ -19,7 +19,7 @@ class Header extends React.Component {
                     <Link to="./dashboard9999">CoKoDEV</Link>
                   </td>
                   <td className="mui--text-body2">
-                   <Search/>
+                   <InstantSearchC/>
                   </td>
                   <td align="right">
                     <ul className="mui-list--inline mui--text-body2">

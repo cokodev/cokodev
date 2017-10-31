@@ -230,19 +230,25 @@ app.post('/addfolder', function (req, res) {
                                    console.log("error folder not recorded");
                                }*/
 });
+
+
 /********************************************************************
 * DELETE FOLDER
 *********************************************************************/
-//Post login
+//Post delete folder
 app.post('/deletefolder', function (req, res) {
     console.log("tokenId user : ",req.session.tokenId);
-
-UserModel.update({_id:req.session.tokenId},{$pull: {'folders': {_id:req.body.selectedFolder}}}, function (err, folderDelete) {
-                     console.log("folder deleted :", folderDelete);
-                        console.log("tokenId folder : ",req.body.selectedFolder);
-                     res.send(folderDelete);
-     });
+    UserModel.update({ _id: req.session.tokenId },
+        { $pull: { 'folders': { _id: req.body.selectedFolder } } }, function (err, folderDelete) {
+            console.log("folder deleted :", folderDelete);
+            console.log("tokenId folder : ",req.body.selectedFolder);
+            res.send(folderDelete);
+        });
 });
+
+
+
+
 /********************************************************************
 * FORGET PASSAWORD
 *********************************************************************/

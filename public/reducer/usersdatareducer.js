@@ -21,8 +21,8 @@ function usersdata(state = {}, action) {
     Méthode Select folder
     *********************************************************************/
     if (action.type == 'selectedfolder') {
-          var nState =  jQuery.extend(true, {}, state);
-         return action.folderSelected;
+        var nState =  jQuery.extend(true, {}, state);
+        return action.userdata.folderSelected;
     }
 
     /********************************************************************

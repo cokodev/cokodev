@@ -1,24 +1,25 @@
 var React = require("react");
 
-class Search extends React.Component {
-  constructor() {
-    super();
+var Folder = require("./searchfolder");
+// First, we need to add the Hits component to our import
+import {
+  InstantSearch,
+  Hits,
+  SearchBox,
+  Highlight,
+  RefinementList,
+  CurrentRefinements,
+  ClearAll
+} from "react-instantsearch/dom";
 
-  }
-  render() {
-    return (
-      <div>
-        <form>
-            <i className="fa fa-search" aria-hidden="true" />
-            <input
-            type="text"
-            name="search"
-            placeholder="Search for snippets..."
-            />
-        </form>
-      </div>
-    );
-  }
+
+function Search() {
+  return <div className="container">
+      <CurrentRefinements />
+      <SearchBox translations={{placeholder:"Search folder and snippet"}}/>
+      <RefinementList attributeName="category" />
+      <Hits hitComponent={Folder} />
+    </div>;
 }
 
 module.exports = Search;

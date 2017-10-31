@@ -7,22 +7,19 @@ class Deletefolder extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     handleClick(data) {
-
         var componentDeleteFolder = this;
        $.ajax({
          type: "POST",
          url: "/deletefolder",
-         // The key needs to match your method's input parameter (case-sensitive).
-         data: "59f750cf29f19a0a342ae3f1",
+         data: {selectedFolder :"59f8511e2dad4e1fac9153a6"},
          success: function (data) {
            if (data.error != true) {
-             //componentSignup.setState({ islog: true });
              componentDeleteFolder.props.handleSelectedFolder(data);
            }
        }
        });
         //this.props.handleSelectedFolder(id);
-    };
+    }
     render() {
         return (
             <div>
