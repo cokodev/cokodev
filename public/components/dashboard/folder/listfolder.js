@@ -10,6 +10,13 @@ class Listfolder extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     submit(values){
+        $.ajax({
+          type: "POST",
+          url: "/updatefolder",
+          data:  {folderName:values.folderName, folderDescription:values.folderDescription, selectedFolder:values.id },
+          success: function () {
+        }
+        });
         console.log("valuesSubmitUpdate",values);
         this.props.handleChange(values);
     };
@@ -53,7 +60,7 @@ function mapStateToPropsFolder(state) {
 function mapDispatchToPropsFolder(dispatch) {
     return {
         handleChange: function(folder) {
-            dispatch({type: "updatefolder", folder: usersadata.folders});
+            dispatch({type: "updatefolder", folder:folder});
         },
         handleSelectedFolder: function(folderSelected) {
             dispatch({type: "selectedfolder", folderSelected: folderSelected});

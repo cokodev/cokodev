@@ -252,10 +252,11 @@ app.post('/deletefolder', function (req, res) {
 //Post update folder
 app.post('/updatefolder', function (req, res) {
         console.log("tokenId user : ",req.session.tokenId);
-        userModel.update({'folders._id':"59ef05aa728f1218a45977a0"},
-                {$set: {'folders.$.folderStatus': "private"}} , function (err, folderUpdate) {
-                        console.log("folder deleted :", folderDelete);
-                        console.log("tokenId folder : ",req.body.selectedFolder);
+        UserModel.update({'folders._id':req.body.selectedFolder},
+                {$set: {'folders.$.folderName': req.body.folderName,'folders.$.folderDescription': req.body.folderDescription}} , function (err, folderUpdate) {
+                        console.log("folder update :", folderUpdate);
+                        console.log("folder name : ",req.body.folderName);
+                        console.log("folder description : ",req.body.folderDescription);
                         res.send("folder updated");
      });
 });
