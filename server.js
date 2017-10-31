@@ -237,17 +237,28 @@ app.post('/addfolder', function (req, res) {
 *********************************************************************/
 //Post delete folder
 app.post('/deletefolder', function (req, res) {
-    console.log("tokenId user : ",req.session.tokenId);
+
     UserModel.update({ _id: req.session.tokenId },
         { $pull: { 'folders': { _id: req.body.selectedFolder } } }, function (err, folderDelete) {
             console.log("folder deleted :", folderDelete);
             console.log("tokenId folder : ",req.body.selectedFolder);
-            res.send(folderDelete);
+            res.send("folder deleted");
         });
 });
 
-
-
+/********************************************************************
+* UPDATE FOLDER
+*********************************************************************/
+//Post update folder
+app.post('/updatefolder', function (req, res) {
+        console.log("tokenId user : ",req.session.tokenId);
+        userModel.update({'folders._id':"59ef05aa728f1218a45977a0"},
+                {$set: {'folders.$.folderStatus': "private"}} , function (err, folderUpdate) {
+                        console.log("folder deleted :", folderDelete);
+                        console.log("tokenId folder : ",req.body.selectedFolder);
+                        res.send("folder updated");
+     });
+});
 
 /********************************************************************
 * FORGET PASSAWORD

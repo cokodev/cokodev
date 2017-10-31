@@ -18,10 +18,7 @@ var Dashboard9999 = require("./components/dashboard/dashboard9999");
 //Reducer global
 var globalReducers = require("./components/app/combineReducer");
 
-const store = createStore(globalReducers, ({
-  form: {},
-  usersdata: usercurrentdata
-}));
+const store = createStore(globalReducers, ({ form: {}, usersdata: usercurrentdata}));
 
 
 //RenderDom - La page de point entrée dans app
