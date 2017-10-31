@@ -204,6 +204,18 @@ header table form input[type="text"]::-webkit-input-placeholder{
     padding-left: 10px;
     display: block;
 }
+.inputcenterStatus{
+    height: 30px;
+    color: whitesmoke;
+    background: #454C5A;
+    font-size: 14px;
+    width: 210px;
+    border: 0;
+    margin: auto;
+    padding-left: 10px;
+    display: block;
+
+}
 
 .inputcenterTitleFolder {
     margin-top: 13px;
@@ -213,7 +225,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
     margin-top: 13px;
 }
 
-.inputcenterDesc, .inputcenterTypeL, .inputcenterTag {
+.inputcenterDesc, .inputcenterTypeL, .inputcenterStatus, .inputcenterTag {
     margin-top:-8px;
 }
 
@@ -431,5 +443,3 @@ footer p {
         margin-top: -32px;
     }
 }
-
-

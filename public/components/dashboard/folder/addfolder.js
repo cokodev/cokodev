@@ -36,8 +36,8 @@ class Addfolder extends React.Component {
                             <br/>
                             <Field type="text" name="folderDescription" className="inputcenterDesc" placeholder="Description" component="input"/>
                             <br/>
-                            <Field type="text" name="folderStatus" className="inputcenterStatus" placeholder="Status" component="select">
-                            <option></option>
+                            <Field type="text" name="folderStatus"  id="select" className="inputcenterStatus" placeholder="Status" component="select">
+                            <option value="Plain text">Status</option>
                                 <option value="shared">shared</option>
                                 <option value="private">private</option>
                                 </Field>
