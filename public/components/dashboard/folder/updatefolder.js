@@ -13,7 +13,7 @@ class Updatefolder extends React.Component {
     }
     show() {
         this.setState({ show: true });
-        this.props.initialize({folderName : this.props.folder.folderName, folderDescription: this.props.folder.folderDescription, id: this.props.folder.id });
+        this.props.initialize({folderName : this.props.folder.folderName, folderDescription: this.props.folder.folderDescription, id: this.props.folder._id });
     };
     close() {
         this.setState({ show: false });

@@ -21,11 +21,12 @@ class Listfolder extends React.Component {
         var itemsFolder = [];
         for(var i=0; i<this.props.folder.length; i++ ) {
             var className = null;
-            if (this.props.folderSelected == this.props.folder[i].id) {
+            //id du folder modifié avec l'_id du folder de la BD
+            if (this.props.folderSelected == this.props.folder[i]._id) {
                 className = "folder-selected";
             }
             itemsFolder.push(
-                <li key={i} onClick={this.handleClick.bind(this, this.props.folder[i].id)} className="mui-row">
+                <li key={i} onClick={this.handleClick.bind(this, this.props.folder[i]._id)} className="mui-row">
                     <div id="fo-folder" className={className}>
                         <UpdateFolderXForm onSubmit={this.submit} folder={this.props.folder[i]}/>
                         <h5>{this.props.folder[i].folderName}</h5>
@@ -45,16 +46,17 @@ class Listfolder extends React.Component {
 }
 
 function mapStateToPropsFolder(state) {
-    return {folder: state.folder, folderSelected: state.folderSelected};
+    //state du folder modifié avec les données du user loggé : usersdata
+    return {folder: state.usersdata.folders, folderSelected: state.usersdata.folderSelected};
 }
 
 function mapDispatchToPropsFolder(dispatch) {
     return {
         handleChange: function(folder) {
-            dispatch({type: "updatefolder", folder: folder});
+            dispatch({type: "updatefolder", folder: usersadata.folders});
         },
         handleSelectedFolder: function(folderSelected) {
-            dispatch({type: "selectedfolder", folderSelected: folderSelected});
+            dispatch({type: "selectedfolder", folderSelected: usersdata.folderSelected});
         }
     }
 }

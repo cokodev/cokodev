@@ -80,6 +80,48 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
+/********************************************************************
+* REGISTER
+*********************************************************************/
+//Get register
+app.get('/register', function (req, res) {
+    res.render('index');
+});
+
+//Post register
+app.post("/register", function(req, res) {
+    var user = new UserModel({
+    userName: req.body.userName,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    password: req.body.password,
+    folders: [
+            {
+                folderName: "default",
+                snippets: [{ snippetName: "default" }]
+            }
+        ]
+    });
+
+    if (
+        req.body.userName &&
+        req.body.firstName &&
+        req.body.lastName &&
+        req.body.email &&
+        req.body.password
+    ) {
+
+    user.save(function(error, user) {
+        req.session.tokenId = user.id;
+        req.session.isLog = true;
+        res.send("registred");
+    });
+    } else {
+        console.log("not BDD error");
+        res.send("Not registered");
+    }
+});
 
 
 /********************************************************************
@@ -123,7 +165,6 @@ app.post('/login', function (req, res) {
 });
 
 function isLoged(isLog, res, User) {
-    console.log("islogggg:",isLog);
     if (isLog) {
         res.send(User);
     }
@@ -133,67 +174,10 @@ function isLoged(isLog, res, User) {
     }
 }
 
-
-
-/********************************************************************
-* REGISTER
-*********************************************************************/
-//Get register
-app.get('/register', function (req, res) {
-    res.render('index');
-});
-
-//Post register
-app.post("/register", function(req, res) {
-  var user = new UserModel({
-    userName: req.body.userName,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password,
-    folders: [
-      {
-        folderName: "default",
-        snippets: [{ snippetName: "default" }]
-      }
-    ]
-  });
-
-  if (
-    req.body.userName &&
-    req.body.firstName &&
-    req.body.lastName &&
-    req.body.email &&
-    req.body.password
-  ) {
-
-    //Faire une condition pour checker le mot de passe à confirmer
-    user.save(function(error, user) {
-      req.session.tokenId = user.id;
-      console.log("userid: " + user.id);
-      req.session.isLog = true;
-      console.log("user", user);
-      res.send("signed");
-    });
-  } else {
-    console.log("not BDD error");
-    res.send("Not registered");
-  }
-  //res.render('index');
-  //res.send('you sign');
-});
-
-
-
 /********************************************************************
 * DASHBOARD
 *********************************************************************/
 app.get("/dashboard", function (req, res) {
-    res.render('index');
-});
-
-app.get("/dashboard9999", function (req, res) {
-    
     if (!req.session.isLog) {
         res.redirect('/')
     }
@@ -202,6 +186,67 @@ app.get("/dashboard9999", function (req, res) {
         res.render("index", { currentuser: currentuser });
     });
 });
+
+app.get("/dashboard9999", function (req, res) {
+
+    if (!req.session.isLog) {
+        res.redirect('/')
+    }
+
+    UserModel.findOne({ _id: req.session.tokenId }, function (err, currentuser) {
+        res.render("index", { currentuser: currentuser });
+    });
+});
+
+/********************************************************************
+* ADD FOLDER
+*********************************************************************/
+//Get addfolder
+app.get('/addfolder', function (req, res) {
+    res.render('index');
+});
+
+//Post login
+app.post('/addfolder', function (req, res) {
+    var myId = mongoose.Types.ObjectId();
+    var folder ={
+                    _id: myId,
+                    folderName:req.body.folderName,
+                    folderDescription: req.body.folderDescription,
+                    folderStatus: req.body.folderStatus,
+                    snippets: []
+                }
+                     //req.session.tokenIdFolder = folder.myId;
+        //if (req.session.isLog) {}
+                       console.log("folder "+JSON.stringify(folder));
+                       UserModel.update(
+                           {_id:req.session.tokenId},
+                           {$push: {folders:  folder}}, function (err, folderAdded) {
+
+                             console.log(" folder recorded : ", myId);
+                             res.send(folder);
+                               });
+                               /*} else {
+                                   console.log("error folder not recorded");
+                               }*/
+});
+
+
+/********************************************************************
+* DELETE FOLDER
+*********************************************************************/
+//Post delete folder
+app.post('/deletefolder', function (req, res) {
+    console.log("tokenId user : ",req.session.tokenId);
+    UserModel.update({ _id: req.session.tokenId },
+        { $pull: { 'folders': { _id: req.body.selectedFolder } } }, function (err, folderDelete) {
+            console.log("folder deleted :", folderDelete);
+            console.log("tokenId folder : ",req.body.selectedFolder);
+            res.send(folderDelete);
+        });
+});
+
+
 
 
 /********************************************************************
@@ -248,5 +293,3 @@ app.use(wpmw);
 const wphmw = webpackHotMiddleware(webpackCompiler);
 app.use(wphmw);
 app.use(express.static(__dirname + '/public'));
-
-
