@@ -20,7 +20,7 @@ var globalReducers = require("./components/app/combineReducer");
 
 const store = createStore(globalReducers, ({
   form: {},
-  //folder: [{ folderName: "titleExample", folderDescription: "descriptionExample" }],
+  //folder: [{ folderName: "", folderDescription: "" }],
   //=> plus nécessaire car on se connecte via usersdata juste en dessous qui hydrate le store avec toutes les données
   usersdata: usercurrentdata
 }));

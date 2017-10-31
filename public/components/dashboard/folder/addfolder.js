@@ -6,6 +6,7 @@ var Field = require('redux-form').Field;
 import Button from "muicss/lib/react/button";
 import Modal, { closeStyle } from "simple-react-modal";
 
+
 class Addfolder extends React.Component {
     constructor() {
         super();

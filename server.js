@@ -208,25 +208,40 @@ app.get('/addfolder', function (req, res) {
 
 //Post login
 app.post('/addfolder', function (req, res) {
-
-    var folder ={folderName:req.body.folderName,
+    var myId = mongoose.Types.ObjectId();
+    var folder ={
+                    _id: myId,
+                    folderName:req.body.folderName,
                     folderDescription: req.body.folderDescription,
                     folderStatus: req.body.folderStatus,
                     snippets: []
                 }
-
+                     //req.session.tokenIdFolder = folder.myId;
         //if (req.session.isLog) {}
                        console.log("folder "+JSON.stringify(folder));
-                       userModel.update(
-                           {_id:"59ef056a865e362e2092aa6e"},
-                           {$push: {folders:  folder}}, function (err, folder) {
+                       UserModel.update(
+                           {_id:req.session.tokenId},
+                           {$push: {folders:  folder}}, function (err, folderAdded) {
 
-                             console.log(" folder recorded !");
-                             res.send('recorded');
+                             console.log(" folder recorded : ", myId);
+                             res.send(folder);
                                });
                                /*} else {
                                    console.log("error folder not recorded");
                                }*/
+});
+/********************************************************************
+* DELETE FOLDER
+*********************************************************************/
+//Post login
+app.post('/deletefolder', function (req, res) {
+    console.log("tokenId user : ",req.session.tokenId);
+
+UserModel.update({_id:req.session.tokenId},{$pull: {'folders': {_id:req.body.selectedFolder}}}, function (err, folderDelete) {
+                     console.log("folder deleted :", folderDelete);
+                        console.log("tokenId folder : ",req.body.selectedFolder);
+                     res.send(folderDelete);
+     });
 });
 /********************************************************************
 * FORGET PASSAWORD

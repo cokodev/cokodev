@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   watch:true,
 
 entry : {
@@ -11,7 +11,7 @@ entry : {
     'webpack-hot-middleware/client',
     './public/renderdom.js']
 },
-  
+
 devServer : {
   contentBase : path.join(__dirname, "./public/bundle"),
   headers: {
@@ -27,7 +27,7 @@ devServer : {
   hot: true,
   stats:'errors-only'
 },
-  
+
   module: {
     loaders: [
       {
