@@ -39,8 +39,8 @@ class Listfolder extends React.Component {
                         </li>
                     );
                 }
+                break;
             }
-            break;
         }
         return (
             <div>

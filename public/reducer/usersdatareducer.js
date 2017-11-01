@@ -1,4 +1,5 @@
 function usersdata(state = {}, action) {
+
     /********************************************************************
     Lecture User Data
     *********************************************************************/
@@ -51,9 +52,20 @@ function usersdata(state = {}, action) {
         }
         return nState;
     }
-    else {
-        return state;
+
+    /********************************************************************
+     Méthode ajout snippet
+     *********************************************************************/
+    if (action.type == 'addsnippet') {
+        var nState =  jQuery.extend(true, {}, state);
+        for (var i=0; i<nState.folders.length; i++ ) {
+            if (action.selectedFolder.selectedFolder == nState.folders[i]._id) {
+                nState.folders[i].snippets.push(action.snippet);
+            }
+        }
+        return nState;
     }
+    return state;
 }
 
 module.exports = usersdata;

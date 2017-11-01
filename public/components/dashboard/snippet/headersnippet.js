@@ -8,8 +8,19 @@ class Headersnippet extends React.Component {
         this.submit = this.submit.bind(this);
     }
     submit(values){
-        console.log("valuesSubmit",values);
-        this.props.handleChange(values);
+        var componentAddSnippet = this;
+        values.selectedFolder = this.props.folderSelected;
+        $.ajax({
+            type: "POST",
+            url: "/addsnippet",
+            data: values,
+            success: function (data) {
+                if (data.error != true) {
+
+                    componentAddSnippet.props.handleChange(data, values);
+                }
+            }
+        });
     };
     render() {
         return (
@@ -23,16 +34,21 @@ class Headersnippet extends React.Component {
     }
 }
 
+function mapStateToPropsFolder(state) {
+    return {folderSelected: state.folderSelected};
+}
+
 function mapDispatchToPropsSnippet(dispatch) {
     return {
-        handleChange: function(snippet) {
-            dispatch({type: "addsnippet", snippet: snippet});
+        handleChange: function(snippet, selectedFolder) {
+            console.log("snippet99", snippet);
+            dispatch({type: "addsnippet", snippet: snippet, selectedFolder: selectedFolder});
         }
     }
 }
 
 var SnippetX = connect(
-    null,
+    mapStateToPropsFolder,
     mapDispatchToPropsSnippet
 )(Headersnippet);
 

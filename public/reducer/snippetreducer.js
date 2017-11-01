@@ -1,4 +1,4 @@
-function snippet(state = [], action) {
+/*function snippet(state = [], action) {
     if (action.type == 'addsnippet') {
         var snippets = state.slice(0);
         var tempsEnMs = Date.now();
@@ -20,4 +20,4 @@ function snippet(state = [], action) {
     }
 }
 
-module.exports = snippet;
+module.exports = snippet;*/

@@ -210,25 +210,20 @@ app.get('/addfolder', function (req, res) {
 app.post('/addfolder', function (req, res) {
     var myId = mongoose.Types.ObjectId();
     var folder ={
-                    _id: myId,
-                    folderName:req.body.folderName,
-                    folderDescription: req.body.folderDescription,
-                    folderStatus: req.body.folderStatus,
-                    snippets: []
-                };
-                     //req.session.tokenIdFolder = folder.myId;
-        //if (req.session.isLog) {}
-                       console.log("folder "+JSON.stringify(folder));
-                       UserModel.update(
-                           {_id:req.session.tokenId},
-                           {$push: {folders:  folder}}, function (err, folderAdded) {
-
-                             console.log(" folder recorded : ", myId);
-                             res.send(folder);
-                               });
-                               /*} else {
-                                   console.log("error folder not recorded");
-                               }*/
+        _id: myId,
+        folderName:req.body.folderName,
+        folderDescription: req.body.folderDescription,
+        folderStatus: req.body.folderStatus,
+        snippets: []
+    };
+    console.log("folder "+JSON.stringify(folder));
+    UserModel.update({_id:req.session.tokenId}, {$push: {folders:  folder}}, function (err, folderAdded) {
+         console.log(" folder recorded : ", myId);
+         res.send(folder);
+           });
+           /*} else {
+               console.log("error folder not recorded");
+           }*/
 });
 
 
@@ -237,7 +232,6 @@ app.post('/addfolder', function (req, res) {
 *********************************************************************/
 //Post delete folder
 app.post('/deletefolder', function (req, res) {
-
     UserModel.update({ _id: req.session.tokenId },
         { $pull: { 'folders': { _id: req.body.selectedFolder } } }, function (err, folderDelete) {
             console.log("folder deleted :", folderDelete);
@@ -251,14 +245,14 @@ app.post('/deletefolder', function (req, res) {
 *********************************************************************/
 //Post update folder
 app.post('/updatefolder', function (req, res) {
-        console.log("tokenId user : ",req.session.tokenId);
-        UserModel.update({'folders._id':req.body.selectedFolder},
-                {$set: {'folders.$.folderName': req.body.folderName,'folders.$.folderDescription': req.body.folderDescription,'folders.$.folderStatus': req.body.folderStatus}} , function (err, folderUpdate) {
-                        console.log("folder update :", folderUpdate);
-                        console.log("folder name : ",req.body.folderName);
-                        console.log("folder description : ",req.body.folderDescription);
-                        console.log("folder status : ",req.body.folderStatus);
-                        res.send("folder updated");
+    console.log("tokenId user : ",req.session.tokenId);
+    UserModel.update({'folders._id':req.body.selectedFolder},
+            {$set: {'folders.$.folderName': req.body.folderName,'folders.$.folderDescription': req.body.folderDescription,'folders.$.folderStatus': req.body.folderStatus}} , function (err, folderUpdate) {
+                    console.log("folder update :", folderUpdate);
+                    console.log("folder name : ",req.body.folderName);
+                    console.log("folder description : ",req.body.folderDescription);
+                    console.log("folder status : ",req.body.folderStatus);
+                    res.send("folder updated");
      });
 });
 /********************************************************************
@@ -266,21 +260,20 @@ app.post('/updatefolder', function (req, res) {
 *********************************************************************/
 //Post add snippet
 app.post('/addsnippet', function (req, res) {
+    var myId = mongoose.Types.ObjectId();
+    var snippet ={
+        _id: myId,
+        snippetName: req.body.snippetName,
+        snippetDescription: req.body.snippetDescription,
+        snippetTag: req.body.snippetTag,
+        snippetContent: req.body.snippetContent,
+        date : new Date (),
+        languageType: req.body.languageType
+    };
 
-    var snippet ={snippetName: req.body.snippetName,
-                        snippetDescription: req.body.snippetDescription,
-                        snippetTag: req.body.snippetTag,
-                        snippetContent: req.body.snippetContent,
-                        date : new Date (),   //=> On la garde dans la base de données mais pas nécessaire dans le formulaire.
-                        languageType: req.body.languageType
-                }
-
-          console.log(JSON.stringify(snippet));
-          UserModel.update({'folders._id':"59ef05b4728f1218a45977a1"},{$push: {'folders.$.snippets': snippet}}, function (err, snippet) {
-                               console.log("snippet ",JSON.stringify(snippet));
-                               //console.log(" folder recorded !");
-                               res.send('recorded');
-               });
+    UserModel.update({'folders._id':req.body.selectedFolder},{$push: {'folders.$.snippets': snippet}}, function (err, snippetAdded) {
+        res.send(snippet);
+    });
 });
 /********************************************************************
 * DELETE SNIPPET
