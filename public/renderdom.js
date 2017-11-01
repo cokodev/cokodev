@@ -22,9 +22,7 @@ var globalReducers = require("./components/app/combineReducer");
 // redux dev tool:
 //, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 const store = createStore(globalReducers, ({
-    form: {}, usersdata: usercurrentdata,
-    //snippet: [{snippetName : "titleExample", snippetDescription: "descriptionExample", snippetTag: "snippetTagExample", languageType: "languageTypeExample", id: "12", contentSnippet:"test"}],
-    snippetSelected : "12"}));
+    form: {}, usersdata: usercurrentdata}));
 
 console.log("store",store.getState());
 

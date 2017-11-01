@@ -11,16 +11,18 @@ class Listfolder extends React.Component {
         this.props.handleSelectedSnippet(id);
     };
     render() {
+        var itemsSnippet = [];
         for (var i=0; i<this.props.folders.length; i++ ) {
             if (this.props.folderSelected == this.props.folders[i]._id) {
-                var itemsSnippet = [];
+                console.log("this.props.folderSelected", this.props.folderSelected);
+                console.log("this.props.folders[i]._id", this.props.folders[i]);
                 for(var j=0; j<this.props.folders[i].snippets.length; j++ ) {
                     var className = null;
                     if (this.props.snippetSelected == this.props.folders[i].snippets[j]._id) {
                         className = "folder-selected";
                     }
                     itemsSnippet.push(
-                        <li key={i} onClick={this.handleClick.bind(this, this.props.folders[i].snippets[j]._id)} className="mui-row">
+                        <li key={j} onClick={this.handleClick.bind(this, this.props.folders[i].snippets[j]._id)} className="mui-row">
                             <div id="sn-snippet" className={className}>
                                 <a href="#">
                                     <img
@@ -42,6 +44,7 @@ class Listfolder extends React.Component {
                 break;
             }
         }
+        console.log("itemsSnippet", itemsSnippet);
         return (
             <div>
                 <ul>

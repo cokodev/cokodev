@@ -61,6 +61,7 @@ function usersdata(state = {}, action) {
         for (var i=0; i<nState.folders.length; i++ ) {
             if (action.selectedFolder.selectedFolder == nState.folders[i]._id) {
                 nState.folders[i].snippets.push(action.snippet);
+                break;
             }
         }
         return nState;
