@@ -13,7 +13,7 @@ class Updatefolder extends React.Component {
     }
     show() {
         this.setState({ show: true });
-        this.props.initialize({folderName : this.props.folder.folderName, folderDescription: this.props.folder.folderDescription, id: this.props.folder._id });
+        this.props.initialize({folderName : this.props.folder.folderName, folderDescription: this.props.folder.folderDescription, id: this.props.folder._id, folderStatus : this.props.folder.folderStatus });
     };
     close() {
         this.setState({ show: false });
@@ -37,6 +37,12 @@ class Updatefolder extends React.Component {
                             <br/>
                             <Field type="text" name="folderDescription" className="inputcenterDesc" placeholder="Description" component="input"/>
                             <br/>
+                            <Field type="text" name="folderStatus"  id="select" className="inputcenterStatus" placeholder="Status" component="select">
+                            <option value="Plain text">Status</option>
+                                <option value="shared">shared</option>
+                                <option value="private">private</option>
+                                </Field>
+                                <br/>
                             <Button type="submit" value="Save" id="submit" onClick={this.close.bind(this)}>Save</Button>
                         </label>
                     </form>

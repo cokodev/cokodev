@@ -253,17 +253,18 @@ app.post('/deletefolder', function (req, res) {
 app.post('/updatefolder', function (req, res) {
         console.log("tokenId user : ",req.session.tokenId);
         UserModel.update({'folders._id':req.body.selectedFolder},
-                {$set: {'folders.$.folderName': req.body.folderName,'folders.$.folderDescription': req.body.folderDescription}} , function (err, folderUpdate) {
+                {$set: {'folders.$.folderName': req.body.folderName,'folders.$.folderDescription': req.body.folderDescription,'folders.$.folderStatus': req.body.folderStatus}} , function (err, folderUpdate) {
                         console.log("folder update :", folderUpdate);
                         console.log("folder name : ",req.body.folderName);
                         console.log("folder description : ",req.body.folderDescription);
+                        console.log("folder status : ",req.body.folderStatus);
                         res.send("folder updated");
      });
 });
 /********************************************************************
 * ADD SNIPPET
 *********************************************************************/
-//Post update folder
+//Post add snippet
 app.post('/addsnippet', function (req, res) {
 
     var snippet ={snippetName: req.body.snippetName,

@@ -13,7 +13,7 @@ class Listfolder extends React.Component {
         $.ajax({
           type: "POST",
           url: "/updatefolder",
-          data:  {folderName:values.folderName, folderDescription:values.folderDescription, selectedFolder:values.id },
+          data:  {folderName:values.folderName, folderDescription:values.folderDescription, folderStatus:values.folderStatus, selectedFolder:values.id },
           success: function () {
         }
         });
