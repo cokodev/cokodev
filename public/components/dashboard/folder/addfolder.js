@@ -14,7 +14,7 @@ class Addfolder extends React.Component {
     }
     show() {
         this.setState({ show: true });
-        this.props.initialize({folderName : "", folderDescription: "" });
+        this.props.initialize({folderName : "", folderDescription: "", folderStatus: "" });
     }
     close() {
         this.setState({ show: false });
