@@ -215,7 +215,7 @@ app.post('/addfolder', function (req, res) {
                     folderDescription: req.body.folderDescription,
                     folderStatus: req.body.folderStatus,
                     snippets: []
-                }
+                };
                      //req.session.tokenIdFolder = folder.myId;
         //if (req.session.isLog) {}
                        console.log("folder "+JSON.stringify(folder));
