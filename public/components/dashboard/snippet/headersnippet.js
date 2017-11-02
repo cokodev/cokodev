@@ -1,5 +1,6 @@
 var React = require("react");
 var AddSnippetXForm = require("./addsnippet");
+var DeleteSnippetX = require("./deletesnippet");
 var connect = require('react-redux').connect;
 
 class Headersnippet extends React.Component {
@@ -26,9 +27,7 @@ class Headersnippet extends React.Component {
         return (
             <div id="header" className="mui-row">
                 <AddSnippetXForm onSubmit={this.submit}/>
-                <a href="#">
-                    <i className="fa fa-trash-o" aria-hidden="true" />
-                </a>
+                <DeleteSnippetX/>
             </div>
         )
     }
