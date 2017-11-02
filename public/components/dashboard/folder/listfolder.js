@@ -26,6 +26,7 @@ class Listfolder extends React.Component {
     };
     render() {
         var itemsFolder = [];
+        console.log("this.props.folder", this.props.folder);
         for(var i=0; i<this.props.folder.length; i++ ) {
             var className = null;
             //id du folder modifié avec l'_id du folder de la BD
@@ -54,6 +55,8 @@ class Listfolder extends React.Component {
 
 function mapStateToPropsFolder(state) {
     //state du folder modifié avec les données du user loggé : usersdata
+    console.log("statestatestatestatestate", state);
+
     return {folder: state.usersdata.folders, folderSelected: state.folderSelected};
 }
 

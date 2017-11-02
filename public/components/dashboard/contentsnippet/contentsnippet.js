@@ -30,7 +30,7 @@ class ContentSnippet extends React.Component {
     };
 
     render() {
-        const initialValue = {snippetContent : this.props.snippetContent.snippetContent};
+            var initialValue = {snippetContent : this.props.snippetContent.snippetContent};
         return (
             <div >
                 <div className="easy2">
@@ -60,9 +60,8 @@ function mapStateToPropsContentSnippet(state) {
                 }
             }
         }
-    } else {
-        return {snippetContent : {snippetContent : null}};
     }
+    return {snippetContent : {snippetContent : null}};
 }
 
 function mapDispatchToPropsContentSnippet(dispatch) {
