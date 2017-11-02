@@ -266,7 +266,7 @@ app.post('/addsnippet', function (req, res) {
         snippetName: req.body.snippetName,
         snippetDescription: req.body.snippetDescription,
         snippetTag: req.body.snippetTag,
-        snippetContent: req.body.snippetContent,
+        snippetContent: "",
         date : new Date (),
         languageType: req.body.languageType
     };
@@ -282,8 +282,34 @@ app.post('/addsnippet', function (req, res) {
 app.post('/deletesnippet', function (req, res) {
 
     UserModel.update({'folders._id':"59eeff4a8b924032943bd8b0"},{$pull: {'folders.$.snippets': {_id:"59ef0193cb7d7e1be04f81ac"}}}, function (err, user) {
-                        console.log(user);
-                        res.send(user);
+        console.log(user);
+        res.send(user);
+    });
+});
+
+/********************************************************************
+ * UPDATE SNIPPET CONTENT
+ *********************************************************************/
+//Post update snippetContent
+
+app.post('/updatecontent', function (req, res) {
+    var updateSnippetContent = req.body.snippetContent;
+    UserModel.findOne({_id: req.session.tokenId},{'_id':0,'folders': { $elemMatch: {_id:req.body.selectedFolder}},'folders.snippets': 1},
+        function (err, snippets) {
+            var snippetCollection = snippets.folders[0].snippets;
+            for (var i=0; i<snippetCollection.length; i++) {
+                if (snippetCollection[i]._id == req.body.selectedSnippet) {
+                    let data = {};
+                    data["folders.$.snippets." + i + ".snippetContent"] = updateSnippetContent;
+                    UserModel.update({'folders': {$elemMatch: {_id: req.body.selectedFolder}}},
+                        {$set: data}, function (err, snippetsUpdateContent) {
+                            console.log(JSON.stringify(snippetsUpdateContent));
+                            res.send("Snippet Content updated");
+                        }
+                    );
+                }
+
+            }
     });
 });
 
@@ -292,38 +318,34 @@ app.post('/deletesnippet', function (req, res) {
 *********************************************************************/
 //Post update snippet
 app.post('/updatesnippet', function (req, res) {
-
     var updateSnippetName = 'script.js';
     var updateSnippetDescription = 'Ceci est un test';
-    var updateSnippetTag = "script"
-    var updateSnippetContent = "ceci est un script"
-    var updateLanguageType = 'JS'
+    var updateSnippetTag = "script";
+    var updateSnippetContent = "ceci est un script";
+    var updateLanguageType = 'JS';
+     UserModel.findOne({_id:"59ef056a865e362e2092aa6e"},{'_id':0,'folders': { $elemMatch: {_id:"59ef05b4728f1218a45977a1"}},'folders.snippets': 1},
+     function (err, snippets) {
+         //console.log(snippets);
+         var snippetCollection = snippets.folders[0].snippets;
+         for (var i=0; i<snippetCollection.length; i++) {
+             if (snippetCollection[i]._id == '59ef06288f229127c0ae2270') {
+                 let data = {};
+                data["folders.$.snippets." + i + ".snippetName"] = updateSnippetName;
+                data["folders.$.snippets." + i + ". snippetDescription"] = updateSnippetDescription;
+                data["folders.$.snippets." + i + ".snippetTag"] = updateSnippetTag;
+                data["folders.$.snippets." + i + ".snippetContent"] = updateSnippetContent;
+                data["folders.$.snippets." + i + ".languageType"] = updateLanguageType;
 
-         UserModel.findOne({_id:"59ef056a865e362e2092aa6e"},{'_id':0,'folders': { $elemMatch: {_id:"59ef05b4728f1218a45977a1"}},'folders.snippets': 1},
-         function (err, snippets) {
-                                                //console.log(snippets);
-                                     var snippetCollection = snippets.folders[0].snippets;
-
-                                                for (var i=0; i<snippetCollection.length; i++) {
-
-                                                            if (snippetCollection[i]._id == '59ef06288f229127c0ae2270') {
-                                                                        let data = {}
-                                                                        data["folders.$.snippets." + i + ".snippetName"] = updateSnippetName
-                                                                        data["folders.$.snippets." + i + ". snippetDescription"] = updateSnippetDescription
-                                                                        data["folders.$.snippets." + i + ".snippetTag"] = updateSnippetTag
-                                                                        data["folders.$.snippets." + i + ".snippetContent"] = updateSnippetContent
-                                                                        data["folders.$.snippets." + i + ".languageType"] = updateLanguageType
-
-                                                                        //console.log(data);
-                                                                         UserModel.update({'folders':{$elemMatch: {'_id': '59ef05b4728f1218a45977a1'}}},
-                                                                        {$set:data}, function (err, snippets) {
-                                                                                        //console.log(JSON.stringify(snippets));
-                                                                                          res.send(snippets);
-                                                                                      });
-                                                           }
-                                                          // break;
-                                                 }
+                //console.log(data);
+                 UserModel.update({'folders':{$elemMatch: {'_id': '59ef05b4728f1218a45977a1'}}},
+                {$set:data}, function (err, snippets) {
+                         //console.log(JSON.stringify(snippets));
+                         res.send(snippets);
                  });
+             }
+             // break;
+         }
+     });
 });
 
 /********************************************************************

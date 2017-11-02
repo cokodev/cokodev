@@ -21,7 +21,7 @@ class Content extends React.Component {
                 </div>
                 <form onSubmit={this.props.handleSubmit}>
                     <label>
-                        <Field name="contentsnippet" component="textarea" id="textarea" placeholder="Ici votre snippet"/>
+                        <Field name="snippetContent" component="textarea" id="textarea" placeholder="Ici votre snippet"/>
                         <Button type="submit" value="Save" id="submitContent" >Save</Button>
                     </label>
                 </form>

@@ -66,6 +66,23 @@ function usersdata(state = {}, action) {
         }
         return nState;
     }
+
+    /********************************************************************
+     Méthode ajout snippetContent
+     *********************************************************************/
+    if (action.type == 'snippetContent') {
+        var nState =  jQuery.extend(true, {}, state);
+        for (var i=0; i<state.folders.length; i++ ) {
+            for (var j=0; j<state.folders[i].snippets.length; j++ ) {
+                if (action.idsnippet == state.folders[i].snippets[j]._id) {
+                    nState.folders[i].snippets[j].snippetContent = action.snippetContent;
+                break;
+                }
+            }
+        }
+        console.log("nState", nState);
+        return nState;
+    }
     return state;
 }
 
