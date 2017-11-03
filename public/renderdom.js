@@ -12,8 +12,10 @@ var App = require("./components/app/app");
 var LoginX = require("./components/accounts/login/login");
 var Register = require("./components/accounts/register/register");
 var Forgotpassword = require("./components/accounts/forgotpassword/forgotpassword");
+var Shared = require("./components/shared/shared");
 var Dashboard = require("./components/dashboard/dashboard");
 var Dashboard9999 = require("./components/dashboard/dashboard9999");
+
 
 //Reducer global
 var globalReducers = require("./components/app/combineReducer");
@@ -36,6 +38,7 @@ ReactDOM.render(
         <Route exact path="/register" component={Register} />
         <Route exact path="/forgotpassword" component={Forgotpassword} />
         <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/shared" component={Shared} />
         <Route exact path="/dashboard9999" component={Dashboard9999} />
         <Route exact path="/lougout" />
       </div>
