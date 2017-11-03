@@ -4,6 +4,7 @@ function usersdata(state = {}, action) {
     Lecture User Data
     *********************************************************************/
     if (action.type == 'login') {
+        console.log("action dans le reducer login ",action);
         return action.userdata;
     }
 

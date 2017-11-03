@@ -19,6 +19,7 @@ class Addsnippet extends React.Component {
         this.setState({ show: false });
     }
     render() {
+
         return (
             <div>
                 <Button className="mui-btn mui-btn--small"
@@ -26,7 +27,7 @@ class Addsnippet extends React.Component {
                 </Button>
                 <Modal containerClassName="formEF" closeOnOuterClick={true} show={this.state.show} onClose={this.close.bind(this)} transitionSpeed={1}>
 
-                    <h4 className="titleE2">Untitle snippet (name folder)</h4>
+                    <h4 className="titleE2">New snippet ({this.props.fold})</h4>
                     <a key="close" style={closeStyle} onClick={this.close.bind(this)}>
                         X
                     </a>

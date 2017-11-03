@@ -24,9 +24,10 @@ class Headersnippet extends React.Component {
         });
     };
     render() {
+
         return (
             <div id="header" className="mui-row">
-                <AddSnippetXForm onSubmit={this.submit}/>
+                <AddSnippetXForm onSubmit={this.submit} fold={this.props.folderN}/>
                 <DeleteSnippetX/>
             </div>
         )
@@ -34,7 +35,11 @@ class Headersnippet extends React.Component {
 }
 
 function mapStateToPropsFolder(state) {
-    return {folderSelected: state.folderSelected};
+    for (var i=0; i<state.usersdata.folders.length; i++ ) {
+        if (state.folderSelected == state.usersdata.folders[i]._id) {
+               return {folderSelected: state.folderSelected, folderN: state.usersdata.folders[i].folderName};
+           }
+    }
 }
 
 function mapDispatchToPropsSnippet(dispatch) {
