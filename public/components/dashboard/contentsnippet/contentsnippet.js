@@ -50,16 +50,6 @@ class ContentSnippet extends React.Component {
         return (
             <div>
                 <Button type="submit" value="Edit" id="editContent">EDIT</Button>
-                <div className="easy2">
-                    <div className="mui--text-center mui--align-bottom">
-                            <span id="p2Back">
-                              <a href="#">
-                                <i className="fa fa-ellipsis-h" aria-hidden="true" />
-                              </a>
-                            </span>
-                    </div>
-                    <p>Message</p>
-                </div>
                 <div id="showContent">
                     <ContentSnippetXForm initialValues={initialValue} onSubmit={this.submit} id="ContentSnippetXForm"/>
                 </div>

@@ -13,14 +13,7 @@ class Content extends React.Component {
     render() {
         console.log("this.props.initialValues.snippetContent", this.props.initialValues.snippetContent);
         return (
-            <div className="easy1" >
-                <div className="mui--text-center mui--align-bottom">
-                    <span id="p1Next">
-                      <a href="#">
-                        <i className="fa fa-ellipsis-h" aria-hidden="true" />
-                      </a>
-                    </span>
-                </div>
+            <div>
                 <form onSubmit={this.props.handleSubmit}>
                     <label>
                         <Field name="snippetContent" component="textarea" id="textarea" placeholder="Ici votre snippet"/>
