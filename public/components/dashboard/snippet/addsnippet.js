@@ -40,7 +40,7 @@ class Addsnippet extends React.Component {
                             <Field type="text" name="snippetTag" className="inputcenterTag" placeholder="#Tag" component="input"/>
                             <br/>
                             <Field name="languageType" id="select" className="inputcenterTypeL" component="select">
-                                <option value="Plain text">Plain text</option>
+                                <option value="none">Plain text</option>
                                 <option value="javascript">javascript</option>
                                 <option value="css">css</option>
                                 <option value="html">html</option>
