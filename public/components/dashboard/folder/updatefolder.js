@@ -6,6 +6,7 @@ import Button from "muicss/lib/react/button";
 
 import Modal, { closeStyle } from "simple-react-modal";
 
+
 class Updatefolder extends React.Component {
     constructor() {
         super();
@@ -13,7 +14,8 @@ class Updatefolder extends React.Component {
     }
     show() {
         this.setState({ show: true });
-        this.props.initialize({folderName : this.props.folder.folderName, folderDescription: this.props.folder.folderDescription, id: this.props.folder._id, folderStatus : this.props.folder.folderStatus });
+        this.props.initialize({folderName : this.props.folder.folderName,
+            folderDescription: this.props.folder.folderDescription, id: this.props.folder._id, folderStatus : this.props.folder.folderStatus });
     };
     close() {
         this.setState({ show: false });

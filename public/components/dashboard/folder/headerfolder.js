@@ -31,7 +31,7 @@ class Headerfolder extends React.Component {
     };
 
     render() {
-        return (
+        return (    
             <div id="header" className="mui-row">
                 <AddFolderXForm onSubmit={this.submit}/>
                 <DeleteFolderX/>

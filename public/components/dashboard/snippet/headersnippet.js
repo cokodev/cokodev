@@ -40,6 +40,7 @@ function mapStateToPropsFolder(state) {
                return {folderSelected: state.folderSelected, folderN: state.usersdata.folders[i].folderName};
            }
     }
+    return {folderSelected: state.folderSelected};
 }
 
 function mapDispatchToPropsSnippet(dispatch) {
