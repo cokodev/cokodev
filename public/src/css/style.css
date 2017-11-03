@@ -390,11 +390,9 @@ header table form input[type="text"]::-webkit-input-placeholder{
 }
 
 #app #content #submitContent {
-    line-height: unset;
     float: right;
     margin-top: -42px;
     margin-right: 14px;
-    height: 22px;
 }
 
 #app #content #textarea {
@@ -402,8 +400,29 @@ header table form input[type="text"]::-webkit-input-placeholder{
     width: 100%;
     border: 0px;
     color: whitesmoke;
-    min-height: 200px;
+    min-height: 700px;
 }
+
+#app #content {
+    overflow: scroll
+}
+
+#app #content #editContent{
+    margin-left: 40%;
+    position: absolute;
+    margin-top: -60px;
+}
+
+/*
+#content pre, #SyntaxHighlighter {
+    display: none!important;
+}
+
+#editContent{
+    margin-top: -38px;
+    float: right;
+    margin-bottom: -20px;
+}*/
 
 /**
  * Footer CSS

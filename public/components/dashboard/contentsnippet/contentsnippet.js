@@ -1,6 +1,10 @@
 var React = require("react");
 var connect = require('react-redux').connect;
 var ContentSnippetXForm = require("./content");
+import Button from "muicss/lib/react/button";
+
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import {hybrid} from 'react-syntax-highlighter/dist/styles';
 
 class ContentSnippet extends React.Component {
     constructor(props) {
@@ -8,14 +12,11 @@ class ContentSnippet extends React.Component {
         this.submit = this.submit.bind(this);
     }
     submit(values){
-
         var componentSelectedFolder = this;
         var componentSelectedSnippet = this;
         var componentContentSnippet = this;
-
         values.selectedFolder = componentSelectedFolder.props.selectedFolder;
         values.selectedSnippet = componentSelectedSnippet.props.selectedSnippet;
-
         $.ajax({
             type: "POST",
             url: "/updatecontent",
@@ -26,13 +27,29 @@ class ContentSnippet extends React.Component {
             }
         });
         componentContentSnippet.props.handleChangeContent(values.snippetContent, this.props.snippetContent._id);
-
     };
+
+    componentDidMount() {
+        $("#showContent").hide();
+        $( "#editContent" ).click(function() {
+            $("#showContent").slideToggle();
+            $( "#editContent" ).hide();
+            $("#SyntaxHighlighter").slideToggle();
+        });
+        $( "#submitContent" ).click(function() {
+            $("#SyntaxHighlighter").slideToggle();
+            $( "#editContent" ).show();
+            $("#showContent").slideToggle();
+        });
+    }
 
     render() {
             var initialValue = {snippetContent : this.props.snippetContent.snippetContent};
+            var code = (this.props.snippetContent.snippetContent) ? this.props.snippetContent.snippetContent : "";
         return (
             <div >
+                <Button type="submit" value="Edit" id="editContent">EDIT</Button>
+
                 <div className="easy2">
                     <div className="mui--text-center mui--align-bottom">
                     <span id="p2Back">
@@ -43,7 +60,15 @@ class ContentSnippet extends React.Component {
                     </div>
                     <p>Message</p>
                 </div>
-                <ContentSnippetXForm initialValues={initialValue} onSubmit={this.submit}/>
+
+                <div id="showContent">
+                    <ContentSnippetXForm initialValues={initialValue} onSubmit={this.submit} id="ContentSnippetXForm"/>
+                </div>
+
+                <SyntaxHighlighter language='javascript' showLineNumbers style={hybrid} id="SyntaxHighlighter">
+                    {code}
+                </SyntaxHighlighter>
+
             </div>
         )
     }

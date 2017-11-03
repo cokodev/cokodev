@@ -9,7 +9,9 @@ class Content extends React.Component {
     constructor() {
         super();
     }
+
     render() {
+        console.log("this.props.initialValues.snippetContent", this.props.initialValues.snippetContent);
         return (
             <div className="easy1" >
                 <div className="mui--text-center mui--align-bottom">
