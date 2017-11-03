@@ -14,7 +14,17 @@ class DashboardBody extends React.Component {
         var itemsContent = [];
         if (this.props.snippetContent.snippetContent != null) {
             itemsContent.push(
-                <ContentSnippetX/>
+                <div key={0} >
+                    <ContentSnippetX/>
+                </div>
+            );
+        }
+        var itemHeaderSnippet = [];
+        if (this.props.folderSelected != "") {
+            itemHeaderSnippet.push(
+                <div key={0}>
+                    <SnippetX/>
+                </div>
             );
         }
         return (
@@ -26,7 +36,7 @@ class DashboardBody extends React.Component {
                             <ListFolderX/>
                         </div>
                         <div className="mui-col-md-3" id="snippet">
-                            <SnippetX/>
+                            {itemHeaderSnippet}
                             <ListSnippetX/>
                         </div>
                         <div className="mui-col-md-6" id="content">
@@ -51,7 +61,7 @@ function mapStateToPropsSnippet(state) {
             }
         }
     }
-    return {snippetContent : {snippetContent : null}};
+    return {snippetContent : {snippetContent : null}, folderSelected: state.folderSelected};
 }
 
 var DashboardBodyX = connect(
