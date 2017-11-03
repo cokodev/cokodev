@@ -317,29 +317,35 @@ app.post('/updatecontent', function (req, res) {
 *********************************************************************/
 //Post update snippet
 app.post('/updatesnippet', function (req, res) {
-    var updateSnippetName = 'script.js';
-    var updateSnippetDescription = 'Ceci est un test';
-    var updateSnippetTag = "script";
-    var updateSnippetContent = "ceci est un script";
-    var updateLanguageType = 'JS';
-     UserModel.findOne({_id:"59ef056a865e362e2092aa6e"},{'_id':0,'folders': { $elemMatch: {_id:"59ef05b4728f1218a45977a1"}},'folders.snippets': 1},
+
+console.log("id selectedFolder ", req.body.selectedFolder);
+console.log("id selectedSnippet ", req.body.selectedSnippet);
+console.log("req.body.snippetName :",req.body.snippetName);
+console.log("req.body.snippetDescription :",req.body.snippetDescription);
+console.log("req.body.snippetTag :",req.body.snippetTag);
+console.log("req.body.languageType :",req.body.languageType);
+
+    var updateSnippetName = req.body.snippetName;
+    var updateSnippetDescription = req.body.snippetDescription;
+    var updateSnippetTag = req.body.snippetTag;
+    var updateLanguageType = req.body.languageType;
+     UserModel.findOne({_id:req.session.tokenId},{'_id':0,'folders': { $elemMatch: {_id:req.body.selectedFolder}},'folders.snippets': 1},
      function (err, snippets) {
-         //console.log(snippets);
          var snippetCollection = snippets.folders[0].snippets;
          for (var i=0; i<snippetCollection.length; i++) {
-             if (snippetCollection[i]._id == '59ef06288f229127c0ae2270') {
+             if (snippetCollection[i]._id == req.body.selectedSnippet) {
                  let data = {};
                 data["folders.$.snippets." + i + ".snippetName"] = updateSnippetName;
-                data["folders.$.snippets." + i + ". snippetDescription"] = updateSnippetDescription;
+                data["folders.$.snippets." + i + ".snippetDescription"] = updateSnippetDescription;
+
                 data["folders.$.snippets." + i + ".snippetTag"] = updateSnippetTag;
-                data["folders.$.snippets." + i + ".snippetContent"] = updateSnippetContent;
                 data["folders.$.snippets." + i + ".languageType"] = updateLanguageType;
 
                 //console.log(data);
-                 UserModel.update({'folders':{$elemMatch: {'_id': '59ef05b4728f1218a45977a1'}}},
-                {$set:data}, function (err, snippets) {
-                         //console.log(JSON.stringify(snippets));
-                         res.send(snippets);
+                 UserModel.update({'folders':{$elemMatch: {'_id': req.body.selectedFolder}}},
+                {$set:data}, function (err, snippetupdate) {
+                         console.log(snippetupdate);
+                         res.send("snippet udpated");
                  });
              }
          }

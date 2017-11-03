@@ -13,18 +13,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <HeaderX />
-        <div id="button-bar">
-          <div id="content-wrapper" className="mui--text-center">
-            <div className="mui--appbar-height" />
-            <div className="mui--text-display3">
-              <div className="tabBar">
-                <button className="mui-btn mui-btn--primary">Dashboard</button>
-                <button className="mui-btn mui-btn--primary">Shared</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <HeaderX />        
         <div id="app">
           <div className="mui-container-fluid">
             <div className="mui-row">

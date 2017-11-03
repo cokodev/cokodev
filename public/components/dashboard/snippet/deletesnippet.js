@@ -35,14 +35,17 @@ class Deletesnippet extends React.Component {
 
 
 function mapStateToPropsFolder(state) {
-    return {selectedFolder: state.folderSelected, selectedSnippet:state.snippetSelected};
+    return {selectedFolder: state.folderSelected,
+        selectedSnippet:state.snippetSelected};
 
 }
 
 function mapDispatchToPropsSnippet(dispatch) {
     return {
         handleDeleteSnippet: function( snippetSelected,folderSelected) {
-            dispatch({type: "deletesnippet", folderSelected: folderSelected, snippetSelected: snippetSelected});
+            dispatch({type: "deletesnippet",
+            folderSelected: folderSelected,
+            snippetSelected: snippetSelected});
         }
     }
 }

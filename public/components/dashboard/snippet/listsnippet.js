@@ -1,12 +1,32 @@
 var React = require('react');
 var connect = require('react-redux').connect;
+var UpdateSnippetXForm = require('./updatesnippet');
 
-class Listfolder extends React.Component {
+class Listsnippet extends React.Component {
     constructor() {
         super();
         //this.state = {snippet: "", snippetSelected: null};
+        this.submit = this.submit.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
+
+    submit(values){
+         values.selectedFolder = this.props.folderSelected;
+         values.selectedSnippet =this.props.snippetSelected;
+
+            console.log("values avant  ajax ", values);
+
+
+        $.ajax({
+          type: "POST",
+          url: "/updatesnippet",
+          data:  values,
+          success: function () {
+        }
+    });
+        this.props.handleChange(values,this.props.folderSelected,this.props.snippetSelected);
+    };
+
     handleClick(id) {
         this.props.handleSelectedSnippet(id);
     };
@@ -14,23 +34,18 @@ class Listfolder extends React.Component {
         var itemsSnippet = [];
         for (var i=0; i<this.props.folders.length; i++ ) {
             if (this.props.folderSelected == this.props.folders[i]._id) {
-                console.log("this.props.folderSelected", this.props.folderSelected);
-                console.log("this.props.folders[i]._id", this.props.folders[i]);
+                //console.log("this.props.folderSelected", this.props.folderSelected);
+                //console.log("this.props.folders[i]._id", this.props.folders[i]);
                 for(var j=0; j<this.props.folders[i].snippets.length; j++ ) {
                     var className = null;
                     if (this.props.snippetSelected == this.props.folders[i].snippets[j]._id) {
+                        console.log("this.props.folders[i].snippets[j]._id", this.props.folders[i].snippets[j]._id);
                         className = "folder-selected";
                     }
                     itemsSnippet.push(
                         <li key={j} onClick={this.handleClick.bind(this, this.props.folders[i].snippets[j]._id)} className="mui-row">
                             <div id="sn-snippet" className={className}>
-                                <a href="#">
-                                    <img
-                                        src="img/snippet.png"
-                                        alt="image snippet"
-                                        className="image"
-                                    />
-                                </a>
+                            <UpdateSnippetXForm onSubmit={this.submit} snippet={this.props.folders[i].snippets[j]}/>
                                 <h5>{this.props.folders[i].snippets[j].snippetName}</h5>
                                 <p>{this.props.folders[i].snippets[j].snippetDescription}</p>
                                 <p>
@@ -56,11 +71,18 @@ class Listfolder extends React.Component {
 }
 
 function mapStateToPropsSnippet(state) {
-    return {folders: state.usersdata.folders, snippetSelected: state.snippetSelected, folderSelected: state.folderSelected};
+    return {folders: state.usersdata.folders,
+                folderSelected: state.folderSelected,
+                snippetSelected: state.snippetSelected};
 }
 
 function mapDispatchToPropsSnippet(dispatch) {
     return {
+        handleChange: function(snippet, folderSelected,snippetSelected ) {
+            console.log("snippet dans dispatch ",snippet);
+            dispatch({type: "updatesnippet", snippet: snippet, folderSelected: folderSelected,
+            snippetSelected: snippetSelected});
+        },
         handleSelectedSnippet: function(snippetSelected) {
             dispatch({type: "selectedsnippet", snippetSelected: snippetSelected});
         }
@@ -70,6 +92,6 @@ function mapDispatchToPropsSnippet(dispatch) {
 var ListSnippetX = connect(
     mapStateToPropsSnippet,
     mapDispatchToPropsSnippet
-)(Listfolder);
+)(Listsnippet);
 
 module.exports = ListSnippetX;

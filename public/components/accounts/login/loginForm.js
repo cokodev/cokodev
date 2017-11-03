@@ -10,13 +10,13 @@ const renderFields = (fields) => (
     <div className="input-row">
       <label>Username / Email</label><br/>
       <TextField {...fields.login.input} type="text"/>
-      {fields.login.meta.touched && fields.login.meta.error && 
+      {fields.login.meta.touched && fields.login.meta.error &&
        <span className="error">{fields.login.meta.error}</span>}
     </div>
     <div className="input-row">
       <label>Password</label><br/>
       <TextField {...fields.password.input} type="password"/>
-      {fields.password.meta.touched && fields.password.meta.error && 
+      {fields.password.meta.touched && fields.password.meta.error &&
        <span className="error">{fields.password.meta.error}</span>}
     </div>
   </div>
@@ -70,6 +70,7 @@ class LoginForm extends React.Component {
           </div>
         </div>
       </div>;
+
   }
 }
 //-----Conteneur

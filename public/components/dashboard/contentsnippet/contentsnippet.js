@@ -46,10 +46,11 @@ class ContentSnippet extends React.Component {
     render() {
             var initialValue = {snippetContent : this.props.snippetContent.snippetContent};
             var code = (this.props.snippetContent.snippetContent) ? this.props.snippetContent.snippetContent : "";
+            var languageType = this.props.snippetContent.languageType;
+            console.log("this.props.snippetContent.languageType", this.props.snippetContent.languageType);
         return (
             <div >
                 <Button type="submit" value="Edit" id="editContent">EDIT</Button>
-
                 <div className="easy2">
                     <div className="mui--text-center mui--align-bottom">
                     <span id="p2Back">
@@ -60,12 +61,11 @@ class ContentSnippet extends React.Component {
                     </div>
                     <p>Message</p>
                 </div>
-
                 <div id="showContent">
                     <ContentSnippetXForm initialValues={initialValue} onSubmit={this.submit} id="ContentSnippetXForm"/>
                 </div>
-
-                <SyntaxHighlighter language='javascript' showLineNumbers style={hybrid} id="SyntaxHighlighter">
+                
+                <SyntaxHighlighter language={languageType} showLineNumbers style={hybrid} id="SyntaxHighlighter">
                     {code}
                 </SyntaxHighlighter>
 
@@ -80,7 +80,9 @@ function mapStateToPropsContentSnippet(state) {
             if (state.folderSelected == state.usersdata.folders[i]._id) {
                 for (var j = 0; j < state.usersdata.folders[i].snippets.length; j++) {
                     if (state.snippetSelected == state.usersdata.folders[i].snippets[j]._id) {
-                        return {snippetContent: state.usersdata.folders[i].snippets[j], selectedFolder: state.folderSelected, selectedSnippet:state.snippetSelected};
+                        return {snippetContent: state.usersdata.folders[i].snippets[j],
+                            selectedFolder: state.folderSelected,
+                            selectedSnippet:state.snippetSelected};
                     }
                 }
             }
@@ -92,7 +94,8 @@ function mapStateToPropsContentSnippet(state) {
 function mapDispatchToPropsContentSnippet(dispatch) {
     return {
         handleChangeContent: function(snippetContent, idsnippet) {
-            dispatch({type: "snippetContent", snippetContent: snippetContent, idsnippet: idsnippet});
+            dispatch({type: "updatesnippetContent",
+            snippetContent: snippetContent, idsnippet: idsnippet});
         }
     }
 }

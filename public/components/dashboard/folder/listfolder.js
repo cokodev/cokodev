@@ -13,7 +13,10 @@ class Listfolder extends React.Component {
         $.ajax({
           type: "POST",
           url: "/updatefolder",
-          data:  {folderName:values.folderName, folderDescription:values.folderDescription, folderStatus:values.folderStatus, selectedFolder:values.id },
+          data:  {folderName:values.folderName,
+              folderDescription:values.folderDescription,
+              folderStatus:values.folderStatus,
+              selectedFolder:values.id },
           success: function () {
         }
         });
@@ -54,9 +57,6 @@ class Listfolder extends React.Component {
 }
 
 function mapStateToPropsFolder(state) {
-    //state du folder modifié avec les données du user loggé : usersdata
-    console.log("statestatestatestatestate", state);
-
     return {folder: state.usersdata.folders, folderSelected: state.folderSelected};
 }
 
