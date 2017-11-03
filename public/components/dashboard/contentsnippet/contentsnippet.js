@@ -64,7 +64,7 @@ class ContentSnippet extends React.Component {
                 <div id="showContent">
                     <ContentSnippetXForm initialValues={initialValue} onSubmit={this.submit} id="ContentSnippetXForm"/>
                 </div>
-                
+
                 <SyntaxHighlighter language={languageType} showLineNumbers style={hybrid} id="SyntaxHighlighter">
                     {code}
                 </SyntaxHighlighter>

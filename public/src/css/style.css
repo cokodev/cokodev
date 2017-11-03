@@ -401,6 +401,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
     border: 0px;
     color: whitesmoke;
     min-height: 700px;
+    margin-top: 14px;
 }
 
 #app #content {

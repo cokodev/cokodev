@@ -1,10 +1,6 @@
 var React = require("react");
 var HeaderX = require("./header/header");
-var FolderX = require("./folder/headerfolder");
-var ListFolderX = require("./folder/listfolder");
-var SnippetX = require("./snippet/headersnippet");
-var ListSnippetX = require("./snippet/listsnippet");
-var ContentSnippetX = require("./contentsnippet/contentsnippet");
+var DashboardBodyX = require("./dashboardbody");
 
 class Dashboard extends React.Component {
   constructor() {
@@ -13,25 +9,19 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <HeaderX />        
-        <div id="app">
-          <div className="mui-container-fluid">
-            <div className="mui-row">
-              <div className="mui-col-md-3" id="folder">
-                <FolderX/>
-                <ListFolderX/>
-              </div>
-              <div className="mui-col-md-3" id="snippet">
-                  <SnippetX/>
-                  <ListSnippetX/>
-              </div>
-              <div className="mui-col-md-6" id="content">
-                  <ContentSnippetX/>
+        <HeaderX />
+        <div id="button-bar">
+          <div id="content-wrapper" className="mui--text-center">
+            <div className="mui--appbar-height" />
+            <div className="mui--text-display3">
+              <div className="tabBar">
+                <button className="mui-btn mui-btn--primary">Dashboard</button>
+                <button className="mui-btn mui-btn--primary">Shared</button>
               </div>
             </div>
           </div>
         </div>
-
+        <DashboardBodyX/>
         <footer>
           <div className="mui-container mui--text-center">
             <p>
