@@ -55,8 +55,6 @@ class Listfolder extends React.Component {
 
 function mapStateToPropsFolder(state) {
     //state du folder modifié avec les données du user loggé : usersdata
-    console.log("statestatestatestatestate", state);
-
     return {folder: state.usersdata.folders, folderSelected: state.folderSelected};
 }
 
