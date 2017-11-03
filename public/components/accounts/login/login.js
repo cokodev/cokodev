@@ -24,10 +24,12 @@ class Login extends React.Component {
       // The key needs to match your method's input parameter (case-sensitive).
       data: values,
       success: function (data) {
-         console.log(data);
+         console.log("data dans login",data);
         if (data.error != true) {
-          componentSignup.setState({ islog: true });
-          componentSignup.props.getUserData(data);
+            console.log("no error login dans ajax");
+              componentSignup.props.getUserData(data);
+              componentSignup.setState({ islog: true });
+
         }
       }
     });
@@ -47,16 +49,17 @@ class Login extends React.Component {
     );
   }
 }
-
-
 function mapDispatchToPropsUsersdata(dispatch) {
   return {
     getUserData: function(userdata) {
-      dispatch({ type: "login",userdata});
+      dispatch({ type: "login", userdata:userdata});
     }
   };
 }
 
-var LoginX = connect(null, mapDispatchToPropsUsersdata)(Login);
+var LoginX = connect(
+    null,
+    mapDispatchToPropsUsersdata)
+    (Login);
 
 module.exports = LoginX;

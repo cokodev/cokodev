@@ -6,27 +6,30 @@ var Field = require('redux-form').Field;
 import Button from "muicss/lib/react/button";
 import Modal, { closeStyle } from "simple-react-modal";
 
-
 class Addfolder extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {};
+
     }
     show() {
         this.setState({ show: true });
         this.props.initialize({folderName : "", folderDescription: "", folderStatus: "" });
     }
     close() {
-        this.setState({ show: false });
+                this.setState({ show: false });
     }
+
     render() {
+
+
         return (
-            <div>
-                <Button className="mui-btn mui-btn--small"
+           <div>
+            <Button className="mui-btn mui-btn--small"
                         onClick={this.show.bind(this)}>+
                 </Button>
                 <Modal containerClassName="formEF" closeOnOuterClick={true} show={this.state.show} onClose={this.close.bind(this)} transitionSpeed={1}>
-                    <h4 className="titleE1">Untitle folder</h4>
+                    <h4 className="titleE1">New folder</h4>
                     <a key="close" style={closeStyle} onClick={this.close.bind(this)}>
                         X
                     </a>
@@ -36,8 +39,8 @@ class Addfolder extends React.Component {
                             <br/>
                             <Field type="text" name="folderDescription" className="inputcenterDesc" placeholder="Description" component="input"/>
                             <br/>
-                            <Field type="text" name="folderStatus"  id="select" className="inputcenterStatus" placeholder="Status" component="select">
-                            <option value="Plain text">Status</option>
+                            <Field type="text" name="folderStatus" className="inputcenterStatus" placeholder="Status" component="select">
+                            <option></option>
                                 <option value="shared">shared</option>
                                 <option value="private">private</option>
                                 </Field>
@@ -47,12 +50,12 @@ class Addfolder extends React.Component {
                     </form>
                 </Modal>
             </div>
-        )
+        );
     }
 }
 
 var AddFolderXForm = reduxForm({
-    form: 'addfolder'
+    form: 'addfolder',
 })(Addfolder);
 
 

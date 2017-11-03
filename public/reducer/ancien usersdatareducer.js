@@ -4,7 +4,6 @@ function usersdata(state = {}, action) {
     Lecture User Data
     *********************************************************************/
     if (action.type == 'login') {
-        console.log("action dans le reducer login ",action);
         return action.userdata;
     }
 
@@ -89,10 +88,28 @@ function usersdata(state = {}, action) {
     *********************************************************************/
     if (action.type == 'deletesnippet') {
         var nState =  jQuery.extend(true, {}, state);
+        console.log("action delete reducer: ", action);
+        console.log("nState delete reducer",nState);
           for (var i=0; i<nState.folders.length; i++ ) {
+              console.log("nState.folders.length",nState.folders.length);
+                    console.log("state.folders[i]._id",nState.folders[i]._id);
+                    console.log("action.folderSelected",action.folderSelected);
                  if (nState.folders[i]._id == action.folderSelected) {
+
+
+                       console.log("action.folderSelected",action.folderSelected);
+                  console.log("state.folders[i]._id == action.folderSelected",nState.folders[i]._id +"=="+ action.folderSelected);
+                  console.log("state.folders[i]._id == action.folderSelected",nState.folders[i]._id == action.folderSelected);
                       for (var j=0; j<nState.folders[i].snippets.length; j++ ) {
+                        console.log("state.folders[i].snippets[j]._id",state.folders[i].snippets[j]._id);
+                         console.log("action.snippetSelected",action.snippetSelected);
+
                            if (state.folders[i].snippets[j]._id == action.snippetSelected) {
+                              console.log("state.folders[i].snippets[j]._id",state.folders[i].snippets[j]._id);
+                               console.log("action.snippetSelected",action.snippetSelected);
+                                console.log(state.folders[i].snippets[j]._id+ "=="+ action.snippetSelected);
+                                    console.log("state.folders[i].snippets[j]._id == action.snippetSelected",state.folders[i].snippets[j]._id == action.snippetSelected);
+
                                    nState.folders[i].snippets.splice(j, 1);
                                        break;
                            }

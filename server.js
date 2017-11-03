@@ -280,10 +280,9 @@ app.post('/addsnippet', function (req, res) {
 *********************************************************************/
 //Post delete snippet
 app.post('/deletesnippet', function (req, res) {
-
-    UserModel.update({'folders._id':"59eeff4a8b924032943bd8b0"},{$pull: {'folders.$.snippets': {_id:"59ef0193cb7d7e1be04f81ac"}}}, function (err, user) {
-        console.log(user);
-        res.send(user);
+    UserModel.update({'folders._id':req.body.selectedFolder},{$pull: {'folders.$.snippets': {_id:req.body.selectedSnippet}}}, function (err, snippetDelete) {
+        console.log(snippetDelete);
+        res.send("snippet deleted");
     });
 });
 
@@ -343,7 +342,6 @@ app.post('/updatesnippet', function (req, res) {
                          res.send(snippets);
                  });
              }
-             // break;
          }
      });
 });
