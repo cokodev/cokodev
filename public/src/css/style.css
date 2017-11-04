@@ -230,7 +230,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
 }
 
 .inputcenterDesc, .inputcenterTypeL, .inputcenterStatus, .inputcenterTag {
-    margin-top:-8px;
+    margin-top:-16px;
 }
 
 .inputcenterTypeL {
@@ -272,6 +272,24 @@ header table form input[type="text"]::-webkit-input-placeholder{
 #app #snippet{
     background: #343C4B;
 }
+
+
+
+
+#app #sn-snippet #submitSnippet {
+    display: block;
+    height: 30px;
+    color: whitesmoke;
+    background: #008FF7;
+    font-size: 14px;
+    width: 211px;
+    border: 0;
+    margin: auto;
+    margin-top:-16px;
+}
+
+
+
 
 #app #snippet #header{
     margin-top: 10px;
