@@ -15,8 +15,8 @@ class Shared extends React.Component {
                         <div className="mui--appbar-height" />
                         <div className="mui--text-display3">
                             <div className="tabBar">
-                                <Link to="/dashboard"><button className="mui-btn mui-btn--primary">Dashboard</button></Link>
-                                <Link to="/shared"><button className="mui-btn mui-btn--primary" >Shared</button></Link>
+                                <Link to="/dashboard"><button className="mui-btn mui-btn--primary" id="goDashboard">Dashboard</button></Link>
+                                <Link to="/shared"><button className="mui-btn mui-btn--primary" id="goShared">Shared</button></Link>
                             </div>
                         </div>
                     </div>

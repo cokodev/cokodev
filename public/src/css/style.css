@@ -71,6 +71,10 @@ header table form input[type="text"]::-webkit-input-placeholder{
     color : white;
 }
 
+#goShared, #goDashboard {
+    margin: 5px;
+}
+
 /**
  * Content CSS
  */
@@ -455,11 +459,17 @@ footer p {
     #app #folder #header #trashF{
         margin-top: -30px;
     }
+
 }
 
 /* Smartphones in portrait mode (0-479px) */
 @media only screen and ( max-width: 479px) {
     #app #folder #header #trashF{
         margin-top: -32px;
+    }
+    #goShared, #goDashboard {
+        margin-top : 55px;
+        margin-right: 5px;
+        margin-left: 5px;
     }
 }
