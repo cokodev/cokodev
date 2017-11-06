@@ -5,81 +5,56 @@ class Listsnippetshared extends React.Component {
     constructor() {
         super();
     }
-
-    componentDidMount() {
-        var componentAllUsersFoldersShared=this;
-        $.ajax({
-            type: "POST",
-            url: "/shared",
-            success: function (data) {
-                componentAllUsersFoldersShared.props.getData(data);
-            }
-        });
-    }
-
-
     render() {
-        //var Listsnippetshared = [];
-        /*
-        for (var i=0; i<this.props.folders.length; i++ ) {
-            if (this.props.folderSelected == this.props.folders[i]._id) {
-                //console.log("this.props.folderSelected", this.props.folderSelected);
-                //console.log("this.props.folders[i]._id", this.props.folders[i]);
-                for(var j=0; j<this.props.folders[i].snippets.length; j++ ) {
-                    var className = null;
-                    if (this.props.snippetSelected == this.props.folders[i].snippets[j]._id) {
-                        console.log("this.props.folders[i].snippets[j]._id", this.props.folders[i].snippets[j]._id);
-                        className = "folder-selected";
+        var snippetShared = [];
+        var Listsnippetshared = [];
+        for (var i=0; i<this.props.userShared.length; i++ ) {
+            for (var j=0; j<this.props.userShared[i].folders.length; j++ ) {
+                if (this.props.folderSelected == this.props.userShared[i].folders[j]._id) {
+                    if (this.props.userShared[i].userName.length > 7) {
+                        var usernameLong = this.props.userShared[i].userName;
+                        var usernameOk = usernameLong.slice(0, 5);
+                    } else {
+                        usernameOk = this.props.userShared[i].userName;
                     }
-                    itemsSnippet.push(
-                        <li key={j} onClick={this.handleClick.bind(this, this.props.folders[i].snippets[j]._id)} className="mui-row">
-                            <div id="sn-snippet" className={className}>
-                                <UpdateSnippetXForm onSubmit={this.submit} snippet={this.props.folders[i].snippets[j]}/>
-                                <h5>{this.props.folders[i].snippets[j].snippetName}</h5>
-                                <p>{this.props.folders[i].snippets[j].snippetDescription}</p>
-                                <p>
-                                    <span id="snippettag">{this.props.folders[i].snippets[j].snippetTag}</span>
-                                    <span id="folderonsnippet">{this.props.folders[i].folderName}</span>
-                                </p>
-                            </div>
-                        </li>
-                    );
+                    snippetShared = this.props.userShared[i].folders[j].snippets;
+                    for (var k=0; k<snippetShared.length; k++ ) {
+                        console.log("this.props.userShared[i].folders[j].snippets.length", this.props.userShared[i].folders[j].snippets.length);
+                        Listsnippetshared.push(
+                            <li>
+                                <div id="sn-snippet" className="mui-row">
+                                    <div>
+                                        <span className="userShared">{usernameOk}</span>
+                                    </div>
+                                    <h5>{snippetShared[k].snippetName}</h5>
+                                    <p>{snippetShared[k].snippetDescription}</p>
+                                    <p><span id="snippettag">{snippetShared[k].snippetTag}</span>
+                                        <span id="folderonsnippet">{this.props.userShared[i].folders[j].folderName}</span>
+                                    </p>
+                                </div>
+                            </li>
+                        );
+                    }
                 }
-                break;
             }
-        }*/
-        //console.log("itemsSnippet", itemsSnippet);
+        }
         return (
             <div>
-                <div id="sn-snippet" className="mui-row">
-                    <div>
-                        <a href="#"><img src="images/snippet.png" alt="image snippet" className="image"/></a>
-                    </div>
-                    <h5>Name snippet</h5>
-                    <p>Description</p>
-                    <p><span id="snippettag">#tag</span><span id="folderonsnippet">name folder</span></p>
-                </div>
+                <ul>
+                    {Listsnippetshared}
+                </ul>
             </div>
         )
     }
 }
 
 function mapStateToPropsSnippetShared(state) {
-    //state du folder modifié avec les données du user loggé : usersdata
-    return {};
-}
-
-function mapDispatchToPropsSnippetShared(dispatch) {
-    return {
-        getData: function(users) {
-            dispatch({type: "users", users: users});
-        }
-    };
+    return {folderSelected: state.folderSelected, userShared : state.usersdata};
 }
 
 var ListsnippetsharedX = connect(
     mapStateToPropsSnippetShared,
-    mapDispatchToPropsSnippetShared
+    null
 )(Listsnippetshared);
 
 module.exports = ListsnippetsharedX;
