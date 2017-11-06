@@ -21,13 +21,11 @@ class Listfoldershared extends React.Component {
     render() {
         var listfoldershared = [];
         for (var i=0; i<this.props.userShared.length; i++ ) {
-            console.log("this.props.userShared[i].userName", this.props.userShared[i].userName);
             for (var j=0; j<this.props.userShared[i].folders.length; j++ ) {
                 if (this.props.userShared[i].folders[j].folderStatus == "shared") {
                     if (this.props.userShared[i].userName.length > 7) {
                         var usernameLong = this.props.userShared[i].userName;
                         var usernameOk = usernameLong.slice(0, 5);
-                        console.log("usernameLong", usernameOk);
                     } else {
                         usernameOk = this.props.userShared[i].userName;
                     }
@@ -46,7 +44,6 @@ class Listfoldershared extends React.Component {
                             </div>
                         </li>
                     );
-                    console.log("Listfoldershared", listfoldershared);
                 }
             }
         }
@@ -63,7 +60,6 @@ class Listfoldershared extends React.Component {
 
 function mapStateToPropsFolderShared(state) {
     //state du folder modifié avec les données du user loggé : usersdata
-    console.log("state!!!111111,", state.usersdata);
     return {userShared : state.usersdata};
 }
 

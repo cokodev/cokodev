@@ -66,7 +66,6 @@ class Listsnippetshared extends React.Component {
 
 function mapStateToPropsSnippetShared(state) {
     //state du folder modifié avec les données du user loggé : usersdata
-    console.log("state!!!8889999,", state.usersdata);
     return {};
 }
 

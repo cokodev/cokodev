@@ -183,6 +183,7 @@ app.get("/dashboard", function (req, res) {
     }
 
     UserModel.findOne({ _id: req.session.tokenId }, function (err, currentuser) {
+        console.log("currentusercurrentuser", currentuser);
         res.render("index", { currentuser: currentuser });
     });
 });
