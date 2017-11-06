@@ -2,7 +2,7 @@ var React = require("react");
 var HeaderX = require("../dashboard/header/header");
 var ListsnippetsharedX = require("./listsnippetshared");
 var ListfoldersharedX = require("./listfoldershared");
-var ContentSnippet = require("./contentshared");
+var ContentSnippetSharedX = require("./contentshared");
 
 var Link = require("react-router-dom").Link;
 
@@ -36,7 +36,7 @@ class Shared extends React.Component {
                                 <ListsnippetsharedX/>
                             </div>
                             <div className="mui-col-md-6" id="content">
-                                <ContentSnippet/>
+                                <ContentSnippetSharedX/>
                             </div>
                         </div>
                     </div>

@@ -30,8 +30,6 @@ class Listsnippet extends React.Component {
         var itemsSnippet = [];
         for (var i=0; i<this.props.folders.length; i++ ) {
             if (this.props.folderSelected == this.props.folders[i]._id) {
-                //console.log("this.props.folderSelected", this.props.folderSelected);
-                //console.log("this.props.folders[i]._id", this.props.folders[i]);
                 for(var j=0; j<this.props.folders[i].snippets.length; j++ ) {
                     var className = null;
                     if (this.props.snippetSelected == this.props.folders[i].snippets[j]._id) {

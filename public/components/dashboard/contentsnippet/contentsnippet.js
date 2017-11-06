@@ -47,18 +47,15 @@ class ContentSnippet extends React.Component {
             var initialValue = {snippetContent : this.props.snippetContent.snippetContent};
             var code = (this.props.snippetContent.snippetContent) ? this.props.snippetContent.snippetContent : "";
             var languageType = this.props.snippetContent.languageType;
-            console.log("this.props.snippetContent.languageType", this.props.snippetContent.languageType);
         return (
             <div >
                 <Button type="submit" value="Edit" id="editContent">EDIT</Button>
                 <div id="showContent">
                     <ContentSnippetXForm initialValues={initialValue} onSubmit={this.submit} id="ContentSnippetXForm"/>
                 </div>
-
                 <SyntaxHighlighter language={languageType} showLineNumbers style={hybrid} id="SyntaxHighlighter">
                     {code}
                 </SyntaxHighlighter>
-
             </div>
         )
     }
