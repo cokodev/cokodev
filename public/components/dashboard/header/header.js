@@ -67,18 +67,6 @@ class Header extends React.Component {
             </table>
           </div>
         </header>
-        <div id="button-bar">
-          <div id="content-wrapper" className="mui--text-center">
-            <div className="mui--appbar-height" />
-            <div className="mui--text-display3">
-              <div className="tabBar">
-                <button className="mui-btn mui-btn--primary">Dashboard</button>
-                <button className="mui-btn mui-btn--primary">Shared</button>
-        
-                </div>
-            </div>
-          </div>
-        </div>
       </div>
     );
   }
