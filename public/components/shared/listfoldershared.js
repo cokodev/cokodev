@@ -17,11 +17,15 @@ class Listfoldershared extends React.Component {
         });
     }
 
+    handleClick(id) {
+        this.props.handleSelectedFolder(id);
+    };
 
     render() {
         var listfoldershared = [];
         for (var i=0; i<this.props.userShared.length; i++ ) {
             for (var j=0; j<this.props.userShared[i].folders.length; j++ ) {
+                var className = null;
                 if (this.props.userShared[i].folders[j].folderStatus == "shared") {
                     if (this.props.userShared[i].userName.length > 7) {
                         var usernameLong = this.props.userShared[i].userName;
@@ -29,10 +33,16 @@ class Listfoldershared extends React.Component {
                     } else {
                         usernameOk = this.props.userShared[i].userName;
                     }
+                    console.log("this.props.userShared[i].folders[j]", this.props.userShared[i].folders[j]._id);
+                    console.log("this.props.folderSelected", this.props.folderSelected);
+
+                    if (this.props.folderSelected == this.props.userShared[i].folders[j]._id) {
+                        className = "folder-selected";
+                    }
                     listfoldershared.push(
-                        <li>
+                        <li onClick={this.handleClick.bind(this, this.props.userShared[i].folders[j]._id)}>
                             <div className="mui-row">
-                                <div id="fo-folder">
+                                <div id="fo-folder" className={className}>
                                     <div>
                                         <span className="userShared">{usernameOk}</span>
                                     </div>
@@ -47,7 +57,6 @@ class Listfoldershared extends React.Component {
                 }
             }
         }
-        //console.log("itemsSnippet", itemsSnippet);
         return (
             <div>
                 <ul>
@@ -59,14 +68,16 @@ class Listfoldershared extends React.Component {
 }
 
 function mapStateToPropsFolderShared(state) {
-    //state du folder modifié avec les données du user loggé : usersdata
-    return {userShared : state.usersdata};
+    return {userShared : state.usersdata, folderSelected: state.folderSelected};
 }
 
 function mapDispatchToPropsFolderShared(dispatch) {
     return {
         getData: function(users) {
             dispatch({type: "users", users: users});
+        },
+        handleSelectedFolder: function(folderSelected) {
+            dispatch({type: "selectedfolder", folderSelected: folderSelected});
         }
     };
 }
