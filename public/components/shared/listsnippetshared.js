@@ -5,6 +5,11 @@ class Listsnippetshared extends React.Component {
     constructor() {
         super();
     }
+
+    handleClick(id) {
+        this.props.handleSelectedSnippet(id);
+    };
+
     render() {
         var snippetShared = [];
         var Listsnippetshared = [];
@@ -19,10 +24,13 @@ class Listsnippetshared extends React.Component {
                     }
                     snippetShared = this.props.userShared[i].folders[j].snippets;
                     for (var k=0; k<snippetShared.length; k++ ) {
-                        console.log("this.props.userShared[i].folders[j].snippets.length", this.props.userShared[i].folders[j].snippets.length);
+                        var className = null;
+                        if (this.props.snippetSelected == snippetShared[k]._id) {
+                            className = "folder-selected";
+                        }
                         Listsnippetshared.push(
-                            <li>
-                                <div id="sn-snippet" className="mui-row">
+                            <li onClick={this.handleClick.bind(this, this.props.userShared[i].folders[j].snippets[k]._id)} className="mui-row">
+                                <div id="sn-snippet" className={className}>
                                     <div>
                                         <span className="userShared">{usernameOk}</span>
                                     </div>
@@ -49,12 +57,20 @@ class Listsnippetshared extends React.Component {
 }
 
 function mapStateToPropsSnippetShared(state) {
-    return {folderSelected: state.folderSelected, userShared : state.usersdata};
+    return {folderSelected: state.folderSelected, userShared : state.usersdata, snippetSelected: state.snippetSelected};
+}
+
+function mapDispatchToPropsSnippetShared(dispatch) {
+    return {
+        handleSelectedSnippet: function(snippetSelected) {
+            dispatch({type: "selectedsnippet", snippetSelected: snippetSelected});
+        }
+    };
 }
 
 var ListsnippetsharedX = connect(
     mapStateToPropsSnippetShared,
-    null
+    mapDispatchToPropsSnippetShared
 )(Listsnippetshared);
 
 module.exports = ListsnippetsharedX;

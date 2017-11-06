@@ -2,6 +2,8 @@ var React = require("react");
 var HeaderX = require("../dashboard/header/header");
 var ListsnippetsharedX = require("./listsnippetshared");
 var ListfoldersharedX = require("./listfoldershared");
+var ContentSnippet = require("./contentshared");
+
 var Link = require("react-router-dom").Link;
 
 class Shared extends React.Component {
@@ -28,21 +30,13 @@ class Shared extends React.Component {
                     <div className="mui-container-fluid">
                         <div className="mui-row">
                             <div className="mui-col-md-3" id="folder">
-
-
                                 <ListfoldersharedX/>
-
-
                             </div>
                             <div className="mui-col-md-3" id="snippet">
-
-
                                 <ListsnippetsharedX/>
-
-
                             </div>
                             <div className="mui-col-md-6" id="content">
-                                <p>Content</p>
+                                <ContentSnippet/>
                             </div>
                         </div>
                     </div>

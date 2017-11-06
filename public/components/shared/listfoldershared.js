@@ -33,9 +33,6 @@ class Listfoldershared extends React.Component {
                     } else {
                         usernameOk = this.props.userShared[i].userName;
                     }
-                    console.log("this.props.userShared[i].folders[j]", this.props.userShared[i].folders[j]._id);
-                    console.log("this.props.folderSelected", this.props.folderSelected);
-
                     if (this.props.folderSelected == this.props.userShared[i].folders[j]._id) {
                         className = "folder-selected";
                     }
