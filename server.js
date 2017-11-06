@@ -98,8 +98,7 @@ app.post("/register", function(req, res) {
     password: req.body.password,
     folders: [
             {
-                folderName: "default",
-                snippets: [{ snippetName: "default" }]
+                folderName: "default"
             }
         ]
     });

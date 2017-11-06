@@ -1,4 +1,5 @@
 var React = require("react");
+var connect = require('react-redux').connect;
 var HeaderX = require("../dashboard/header/header");
 var ListsnippetsharedX = require("./listsnippetshared");
 var ListfoldersharedX = require("./listfoldershared");
@@ -11,6 +12,16 @@ class Shared extends React.Component {
         super();
     }
     render() {
+        var itemsContent = [];
+        if (this.props.snippetContent.snippetContent != null) {
+            itemsContent.push(
+                <div key={0} >
+                    <ContentSnippetSharedX/>
+                </div>
+            );
+        }
+
+        console.log("this.props.snippetContent.snippetContent != null", this.props.snippetContent);
         return (
 
             <div>
@@ -21,7 +32,7 @@ class Shared extends React.Component {
                         <div className="mui--text-display3">
                             <div className="tabBar">
                                 <a href="/dashboard"><button className="mui-btn mui-btn--primary" id="goDashboard">Dashboard</button></a>
-                                <Link to="/shared"><button className="mui-btn mui-btn--primary" id="goShared">Shared</button></Link>
+                                <a href="/shared"><button className="mui-btn mui-btn--primary" id="goShared">Shared</button></a>
                             </div>
                         </div>
                     </div>
@@ -36,7 +47,7 @@ class Shared extends React.Component {
                                 <ListsnippetsharedX/>
                             </div>
                             <div className="mui-col-md-6" id="content">
-                                <ContentSnippetSharedX/>
+                                {itemsContent}
                             </div>
                         </div>
                     </div>
@@ -54,4 +65,26 @@ class Shared extends React.Component {
     }
 }
 
-module.exports = Shared;
+function mapStateToPropsContentSnippet(state) {
+    if (typeof(state.snippetSelected) != "undefined" && state.snippetSelected) {
+        for (var i = 0; i < state.usersdata[i].folders.length; i++) {
+            for (var j = 0; j < state.usersdata[i].folders.length; j++) {
+                if (state.folderSelected == state.usersdata[i].folders[j]._id) {
+                    for (var k = 0; k < state.usersdata[i].folders[j].snippets.length; k++) {
+                        if (state.snippetSelected == state.usersdata[i].folders[j].snippets[k]._id) {
+                            return {snippetContent: state.usersdata[i].folders[j].snippets[k]};
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return {snippetContent: {snippetContent: null}};
+}
+
+var SharedX = connect(
+    mapStateToPropsContentSnippet,
+    null
+)(Shared);
+
+module.exports = SharedX;
