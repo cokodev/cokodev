@@ -263,6 +263,11 @@ header table form input[type="text"]::-webkit-input-placeholder{
     margin-top:-16px;
 }
 
+#app #folder #fo-folder .fa-share {
+    color: #008FF7;
+    font-size:12px;
+}
+
 /**
  * Folder shared CSS
  */
