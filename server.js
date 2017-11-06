@@ -361,6 +361,16 @@ app.get("/shared", function (req, res) {
 });
 
 /********************************************************************
+ * SHARED
+ *********************************************************************/
+app.post("/shared", function (req, res) {
+    UserModel.find(function (err, user) {
+        //console.log("usersusersusers", users);
+        res.send(user);
+    });
+});
+
+/********************************************************************
 * FORGET PASSAWORD
 *********************************************************************/
 app.get("/forgotpassword", function (req, res) {

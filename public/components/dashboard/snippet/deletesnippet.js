@@ -16,7 +16,7 @@ class Deletesnippet extends React.Component {
          data: componentSelectedFolder,
          success: function (snippetSelected) {
        }
-   });
+       });
              this.props.handleDeleteSnippet(values, this.props.selectedFolder);
 
     }

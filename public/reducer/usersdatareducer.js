@@ -163,6 +163,23 @@ function usersdata(state = {}, action) {
         return nState;
     }
 
+    /********************************************************************
+     Add Folder
+     *********************************************************************/
+    if (action.type == 'users') {
+        var usersFoldersShared = [];
+        console.log("actionactionactionaction", action);
+        for (var i=0; i<action.users.length; i++ ) {
+            for (var j=0; j<action.users[i].folders.length; j++ ) {
+                if (action.users[i].folders[j].folderStatus === "shared") {
+                    usersFoldersShared.push(action.users[i]);
+                    console.log("usersFoldersShareds",usersFoldersShared);
+                    break;
+                }
+            }
+        }
+        return usersFoldersShared;
+    }
     return state;
 }
 

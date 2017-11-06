@@ -1,5 +1,7 @@
 var React = require("react");
 var HeaderX = require("../dashboard/header/header");
+var ListsnippetsharedX = require("./listsnippetshared");
+var ListfoldersharedX = require("./listfoldershared");
 var Link = require("react-router-dom").Link;
 
 class Shared extends React.Component {
@@ -25,37 +27,16 @@ class Shared extends React.Component {
                     <div className="mui-container-fluid">
                         <div className="mui-row">
                             <div className="mui-col-md-3" id="folder">
-                                <div id="header" className="mui-row">
-                                    <button className="mui-btn mui-btn--small" onClick={this.activateModalFolder}><strong>+</strong></button>
-                                    <a href="#"><i className="fa fa-trash-o" aria-hidden="true"></i></a>
-                                </div>
 
 
-                                <div id="fo-folder" className="mui-row">
-                                    <div>
-                                        <a href="#" onClick={this.activateModalFolder}><img src="images/folder.png" alt="image folder" className="image"/></a>
-                                    </div>
-                                    <h5>Default</h5>
-                                    <p>folder for snippet</p>
-                                </div>
+                                <ListfoldersharedX/>
 
 
                             </div>
                             <div className="mui-col-md-3" id="snippet">
-                                <div id="header" className="mui-row">
-                                    <button className="mui-btn mui-btn--small" onClick={this.activateModalSnippet}><strong>+</strong></button>
-                                    <a href="#"><i className="fa fa-trash-o" aria-hidden="true"></i></a>
-                                </div>
 
 
-                                <div id="sn-snippet" className="mui-row">
-                                    <div>
-                                        <a href="#" onClick={this.activateModalSnippet} ><img src="images/snippet.png" alt="image snippet" className="image"/></a>
-                                    </div>
-                                    <h5>Name snippet</h5>
-                                    <p>Description</p>
-                                    <p><span id="snippettag">#tag</span><span id="folderonsnippet">name folder</span></p>
-                                </div>
+                                <ListsnippetsharedX/>
 
 
                             </div>
