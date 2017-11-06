@@ -31,8 +31,6 @@ class Listfolder extends React.Component {
 
         for(var i=0; i<this.props.folder.length; i++ ) {
             var className = null;
-            console.log("this.props.folderStatusthis.props.folderStatus", this.props.folder[i].folderStatus);
-            //id du folder modifié avec l'_id du folder de la BD
             if (this.props.folderSelected == this.props.folder[i]._id) {
                 className = "folder-selected";
             }
@@ -41,7 +39,6 @@ class Listfolder extends React.Component {
             }  else {
                 status = " ";
             }
-            console.log("this.props.folder[i].folder", this.props.folder[i].folderStatus);
             itemsFolder.push(
                 <li key={i} onClick={this.handleClick.bind(this, this.props.folder[i]._id) } className="mui-row">
                     <div id="fo-folder" className={className}>
@@ -63,7 +60,6 @@ class Listfolder extends React.Component {
 }
 
 function mapStateToPropsFolder(state) {
-    //state du folder modifié avec les données du user loggé : usersdata
     return {folder: state.usersdata.folders, folderSelected: state.folderSelected};
 }
 
