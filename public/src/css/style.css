@@ -273,14 +273,16 @@ header table form input[type="text"]::-webkit-input-placeholder{
  */
 
 .userShared {
-    font-size:18px;
+    font-size:16px;
     float: left;
     margin-top: 26px;
     margin-right: 15px;
     margin-left: 15px;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
+    border-radius: 50%;
+    text-align: center;
+    width: 2.4em;
+    line-height: 2.4em;
+    height: 2.4em;
 }
 
 /**
