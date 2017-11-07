@@ -40,6 +40,7 @@ class Listfoldershared extends React.Component {
                                 <div id="fo-folder" className={className}>
                                     <div>
                                         <span className="userShared">{parapheToUppercase}</span>
+                                        <i className="fa fa-folder-open-o sharedfolder" aria-hidden="true"></i>
                                     </div>
                                     <h5><span id="title-folder">{this.props.userShared[i].folders[j].folderName}</span></h5>
                                     <p>

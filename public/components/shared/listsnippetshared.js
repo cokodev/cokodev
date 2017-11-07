@@ -31,6 +31,7 @@ class Listsnippetshared extends React.Component {
                                 <div id="sn-snippet" className={className}>
                                     <div>
                                         <span className="userShared">{parapheToUppercase}</span>
+                                        <i class="fa fa-file-o" aria-hidden="true"></i>
                                     </div>
                                     <h5>{snippetShared[k].snippetName}</h5>
                                     <p>{snippetShared[k].snippetDescription}</p>
