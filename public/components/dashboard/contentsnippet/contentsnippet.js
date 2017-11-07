@@ -4,7 +4,7 @@ var ContentSnippetXForm = require("./content");
 import Button from "muicss/lib/react/button";
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import {hybrid} from 'react-syntax-highlighter/dist/styles';
+import {docco} from 'react-syntax-highlighter/dist/styles';
 
 class ContentSnippet extends React.Component {
     constructor(props) {
@@ -53,7 +53,7 @@ class ContentSnippet extends React.Component {
                 <div id="showContent">
                     <ContentSnippetXForm initialValues={initialValue} onSubmit={this.submit} id="ContentSnippetXForm"/>
                 </div>
-                <SyntaxHighlighter language={languageType} showLineNumbers style={hybrid} id="SyntaxHighlighter">
+                <SyntaxHighlighter language={languageType} showLineNumbers style={docco} id="SyntaxHighlighter">
                     {code}
                 </SyntaxHighlighter>
             </div>
