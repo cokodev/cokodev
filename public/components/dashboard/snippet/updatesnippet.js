@@ -49,18 +49,18 @@ class Updatesnippet extends React.Component {
                         <Field type="text" name="snippetTag" className="inputcenterTag" placeholder="#Tag" component="input"/>
                         <br/>
                         <Field name="languageType" id="select" className="inputcenterTypeL" component="select">
-                            <option value="none">Plain text</option>
-                            <option value="javascript">javascript</option>
-                            <option value="css">css</option>
-                            <option value="html">html</option>
-                            <option value="cs">cs</option>
-                            <option value="c++">c++</option>
-                            <option value="php">php</option>
-                            <option value="objectivec">objectivec</option>
-                            <option value="python">python</option>
+                        <option value="none">Plain text</option>
+                        <option value="javascript">javascript</option>
+                        <option value="css">css</option>
+                        <option value="html">html</option>
+                        <option value="cs">cs</option>
+                        <option value="c++">c++</option>
+                        <option value="php">php</option>
+                        <option value="objectivec">objectivec</option>
+                        <option value="python">python</option>
                         </Field>
                         <br/>
-                            <Button type="submit" value="Save" id="submitSnippet" onClick={this.close.bind(this)}>Save</Button>
+                            <Button type="submit" value="Save" id="submit" onClick={this.close.bind(this)}>Save</Button>
                         </label>
                     </form>
                 </Modal>
