@@ -37,8 +37,6 @@ class Addsnippet extends React.Component {
                             <br/>
                             <Field type="text" name="snippetDescription" className="inputcenterDesc" placeholder="Description" component="input"/>
                             <br/>
-                            <Field type="text" name="snippetTag" className="inputcenterTag" placeholder="#Tag" component="input"/>
-                            <br/>
                             <Field name="languageType" id="select" className="inputcenterTypeL" component="select">
                                 <option value="none">Plain text</option>
                                 <option value="javascript">javascript</option>

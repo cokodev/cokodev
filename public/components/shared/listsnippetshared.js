@@ -34,7 +34,8 @@ class Listsnippetshared extends React.Component {
                                     </div>
                                     <h5>{snippetShared[k].snippetName}</h5>
                                     <p>{snippetShared[k].snippetDescription}</p>
-                                    <p><span id="snippettag">{snippetShared[k].snippetTag}</span>
+                                    <p>
+                                        <span id="snippettag">{snippetShared[k].languageType}</span>
                                         <span id="folderonsnippet">{this.props.userShared[i].folders[j].folderName}</span>
                                     </p>
                                 </div>
