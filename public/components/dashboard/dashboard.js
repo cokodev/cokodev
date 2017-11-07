@@ -16,8 +16,8 @@ class Dashboard extends React.Component {
             <div className="mui--appbar-height" />
             <div className="mui--text-display3">
               <div className="tabBar">
-                  <a href="/dashboard"><button className="mui-btn mui-btn--primary" id="goDashboard">Dashboard</button></a>
-                  <a href="/shared"><button className="mui-btn mui-btn--primary" id="goShared">Shared</button></a>
+                  <Link to="/dashboard"><button className="mui-btn mui-btn--primary" id="goDashboard">Dashboard</button></Link>
+                  <Link to="/shared"><button className="mui-btn mui-btn--primary" id="goShared">Shared</button></Link>
               </div>
             </div>
           </div>

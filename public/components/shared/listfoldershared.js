@@ -65,7 +65,7 @@ class Listfoldershared extends React.Component {
 }
 
 function mapStateToPropsFolderShared(state) {
-    return {userShared : state.usersdata, folderSelected: state.folderSelected};
+    return {userShared : state.data, folderSelected: state.folderSelected};
 }
 
 function mapDispatchToPropsFolderShared(dispatch) {

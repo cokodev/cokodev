@@ -57,7 +57,7 @@ class Listsnippetshared extends React.Component {
 }
 
 function mapStateToPropsSnippetShared(state) {
-    return {folderSelected: state.folderSelected, userShared : state.usersdata, snippetSelected: state.snippetSelected};
+    return {folderSelected: state.folderSelected, userShared : state.data, snippetSelected: state.snippetSelected};
 }
 
 function mapDispatchToPropsSnippetShared(dispatch) {

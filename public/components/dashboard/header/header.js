@@ -74,7 +74,7 @@ class Header extends React.Component {
 
 
 function mapStateToPropsHeader(state) {
-  console.log("affichage username", state.usersdata.userName);
+  console.log("affichage username", state);
   return { lastname: state.usersdata.lastName , firstname: state.usersdata.firstName };
 }
 var HeaderX = connect(mapStateToPropsHeader, null)(Header);

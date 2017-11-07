@@ -23,12 +23,12 @@ class ContentSnippetShared extends React.Component {
 
 function mapStateToPropsContentSnippet(state) {
     if (typeof(state.snippetSelected) != "undefined" && state.snippetSelected) {
-        for (var i=0; i<state.usersdata.length; i++ ) {
-            for (var j=0; j<state.usersdata[i].folders.length; j++ ) {
-                for (var k=0; k<state.usersdata[i].folders[j].snippets.length; k++ ) {
-                    if (state.folderSelected == state.usersdata[i].folders[j]._id) {
-                        if (state.snippetSelected == state.usersdata[i].folders[j].snippets[k]._id) {
-                            return {snippetContent: state.usersdata[i].folders[j].snippets[k],
+        for (var i=0; i<state.data.length; i++ ) {
+            for (var j=0; j<state.data[i].folders.length; j++ ) {
+                for (var k=0; k<state.data[i].folders[j].snippets.length; k++ ) {
+                    if (state.folderSelected == state.data[i].folders[j]._id) {
+                        if (state.snippetSelected == state.data[i].folders[j].snippets[k]._id) {
+                            return {snippetContent: state.data[i].folders[j].snippets[k],
                                 selectedFolder: state.folderSelected,
                                 snippetSelected:state.snippetSelected
                             };
