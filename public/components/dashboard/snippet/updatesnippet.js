@@ -36,7 +36,7 @@ class Updatesnippet extends React.Component {
                 className="image"
                 />
                 <Modal containerClassName="formEF" closeOnOuterClick={true} show={this.state.show} onClose={this.close.bind(this)} transitionSpeed={1000}>
-                    <h4 className="titleE1">{}</h4>
+                    <h4 className="titleE1">{this.props.snippet.snippetName}</h4>
                     <a key="close" style={closeStyle} onClick={this.close.bind(this)}>
                         X
                     </a>

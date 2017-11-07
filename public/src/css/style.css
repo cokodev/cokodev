@@ -154,6 +154,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
     border-bottom: 0.7px solid rgba(231, 175, 0, 0.7) !important;
 }
 
+
 #app #folder img{
     float: left;
     margin-top: 14px;
@@ -174,6 +175,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
     margin-bottom: 0px;
     padding-top: 18px;
 }
+
 
 #app #folder p {
     font-size: 12px;
@@ -261,8 +263,24 @@ header table form input[type="text"]::-webkit-input-placeholder{
     margin-top:-16px;
 }
 
-#app #folder #fo-folder .inputcenterDesc {
-    margin-top:-17px;
+#app #folder #fo-folder .fa-share {
+    color: #008FF7;
+    font-size:12px;
+}
+
+/**
+ * Folder shared CSS
+ */
+
+.userShared {
+    font-size:18px;
+    float: left;
+    margin-top: 26px;
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
 }
 
 /**
@@ -272,9 +290,6 @@ header table form input[type="text"]::-webkit-input-placeholder{
 #app #snippet{
     background: #343C4B;
 }
-
-
-
 
 #app #sn-snippet #submitSnippet {
     display: block;

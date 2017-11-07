@@ -98,8 +98,7 @@ app.post("/register", function(req, res) {
     password: req.body.password,
     folders: [
             {
-                folderName: "default",
-                snippets: [{ snippetName: "default" }]
+                folderName: "default"
             }
         ]
     });
@@ -183,6 +182,7 @@ app.get("/dashboard", function (req, res) {
     }
 
     UserModel.findOne({ _id: req.session.tokenId }, function (err, currentuser) {
+        console.log("currentusercurrentuser", currentuser);
         res.render("index", { currentuser: currentuser });
     });
 });
@@ -358,6 +358,16 @@ console.log("req.body.languageType :",req.body.languageType);
  *********************************************************************/
 app.get("/shared", function (req, res) {
     res.render('index');
+});
+
+/********************************************************************
+ * SHARED
+ *********************************************************************/
+app.post("/shared", function (req, res) {
+    UserModel.find(function (err, user) {
+        //console.log("usersusersusers", users);
+        res.send(user);
+    });
 });
 
 /********************************************************************

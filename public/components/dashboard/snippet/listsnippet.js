@@ -13,10 +13,6 @@ class Listsnippet extends React.Component {
     submit(values){
          values.selectedFolder = this.props.folderSelected;
          values.selectedSnippet =this.props.snippetSelected;
-
-            console.log("values avant  ajax ", values);
-
-
         $.ajax({
           type: "POST",
           url: "/updatesnippet",
@@ -34,12 +30,9 @@ class Listsnippet extends React.Component {
         var itemsSnippet = [];
         for (var i=0; i<this.props.folders.length; i++ ) {
             if (this.props.folderSelected == this.props.folders[i]._id) {
-                //console.log("this.props.folderSelected", this.props.folderSelected);
-                //console.log("this.props.folders[i]._id", this.props.folders[i]);
                 for(var j=0; j<this.props.folders[i].snippets.length; j++ ) {
                     var className = null;
                     if (this.props.snippetSelected == this.props.folders[i].snippets[j]._id) {
-                        console.log("this.props.folders[i].snippets[j]._id", this.props.folders[i].snippets[j]._id);
                         className = "folder-selected";
                     }
                     itemsSnippet.push(
@@ -79,7 +72,6 @@ function mapStateToPropsSnippet(state) {
 function mapDispatchToPropsSnippet(dispatch) {
     return {
         handleChange: function(snippet, folderSelected,snippetSelected ) {
-            console.log("snippet dans dispatch ",snippet);
             dispatch({type: "updatesnippet", snippet: snippet, folderSelected: folderSelected,
             snippetSelected: snippetSelected});
         },

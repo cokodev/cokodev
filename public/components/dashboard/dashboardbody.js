@@ -19,6 +19,7 @@ class DashboardBody extends React.Component {
                 </div>
             );
         }
+
         var itemHeaderSnippet = [];
         if (this.props.folderSelected != "") {
             itemHeaderSnippet.push(
@@ -27,6 +28,8 @@ class DashboardBody extends React.Component {
                 </div>
             );
         }
+
+
         return (
             <div id="app">
                 <div className="mui-container-fluid">
