@@ -39,14 +39,12 @@ function usersdata(state = {}, action) {
     Update Folder
     ********************************************************************/
     if (action.type == 'updatefolder') {
-        //console.log("démarrage de l'action du reduceur :", action);
         var nState =  jQuery.extend(true, {}, state);
         for (var i=0; i<nState.folders.length; i++ ) {
             if (nState.folders[i]._id == action.folder.id ) {
-        //console.log('condition dans le reducer ',nState.folders[i]._id+"=="+ action.folder.id);
-        //console.log("action du reducer :",action.folder._id);
                 nState.folders[i].folderName = action.folder.folderName;
-                nState.folders[i].folderDescription = action.folder.folderDescription;
+                nState.folders[i].folderDescription = action.folder.folderDescription
+                nState.folders[i].folderStatus = action.folder.folderStatus;
                 break;
             }
         }
