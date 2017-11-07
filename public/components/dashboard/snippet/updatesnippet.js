@@ -25,9 +25,6 @@ class Updatesnippet extends React.Component {
         this.setState({ show: false });
     };
     render() {
-         console.log("snippetDescription dans update snippet : ", this.props.snippet.snippetDescription);
-          console.log("snippetName dans update snippet : ", this.props.snippet.snippetName);
-           console.log("snippetTag  dans update snippet : ", this.props.snippet.snippetTag);
         return (
             <div>
                 <img onClick={this.show.bind(this)}

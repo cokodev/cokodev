@@ -95,7 +95,7 @@ app.post("/register", function(req, res) {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
-    password: req.body.password,
+    password: md5(req.body.password),
     folders: [
             {
                 folderName: "default"
@@ -108,7 +108,7 @@ app.post("/register", function(req, res) {
         req.body.firstName &&
         req.body.lastName &&
         req.body.email &&
-        req.body.password
+        md5(req.body.password)
     ) {
 
     user.save(function(error, user) {
@@ -136,7 +136,7 @@ app.post('/login', function (req, res) {
     console.log(req.body.login.indexOf("@"));
 
     if (req.body.login.indexOf("@") > -1) {
-        UserModel.findOne({ email: req.body.login, password: req.body.password }, function (err, User) {
+        UserModel.findOne({ email: req.body.login, password: md5(req.body.password) }, function (err, User) {
             if (User) {
                 req.session.isLog = true;
                 req.session.tokenId = User.id;
@@ -149,7 +149,7 @@ app.post('/login', function (req, res) {
         });
     }
     else {
-        UserModel.findOne({ userName: req.body.login, password: req.body.password }, function (err, User) {
+        UserModel.findOne({ userName: req.body.login, password: md5(req.body.password) }, function (err, User) {
             if (User) {
                 req.session.isLog = true;
                 req.session.tokenId = User.id;
@@ -182,7 +182,6 @@ app.get("/dashboard", function (req, res) {
     }
 
     UserModel.findOne({ _id: req.session.tokenId }, function (err, currentuser) {
-        console.log("currentusercurrentuser", currentuser);
         res.render("index", { currentuser: currentuser });
     });
 });
