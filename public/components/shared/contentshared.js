@@ -2,7 +2,7 @@ var React = require("react");
 var connect = require('react-redux').connect;
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import {hybrid} from 'react-syntax-highlighter/dist/styles';
+import {docco} from 'react-syntax-highlighter/dist/styles';
 
 class ContentSnippetShared extends React.Component {
     constructor() {
@@ -13,7 +13,7 @@ class ContentSnippetShared extends React.Component {
         var languageType = this.props.snippetContent.languageType;
         return (
             <div >
-                <SyntaxHighlighter showLineNumbers language={languageType} style={hybrid} id="SyntaxHighlighter">
+                <SyntaxHighlighter showLineNumbers language={languageType} style={docco} id="SyntaxHighlighter">
                   {code}
                 </SyntaxHighlighter>
             </div>

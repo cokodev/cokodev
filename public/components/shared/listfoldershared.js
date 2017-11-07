@@ -27,7 +27,6 @@ class Listfoldershared extends React.Component {
             for (var j=0; j<this.props.userShared[i].folders.length; j++ ) {
                 var className = null;
                 if (this.props.userShared[i].folders[j].folderStatus == "shared") {
-                    console.log("this.props.userShared[i]", this.props.userShared[i]);
                     var parapheFirstName = this.props.userShared[i].firstName.slice(0,1);
                     var parapheLastName = this.props.userShared[i].lastName.slice(0,1);
                     var paraphe = parapheFirstName + parapheLastName;
