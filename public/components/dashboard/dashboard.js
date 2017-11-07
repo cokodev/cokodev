@@ -1,6 +1,7 @@
 var React = require("react");
 var HeaderX = require("./header/header");
 var DashboardBodyX = require("./dashboardbody");
+var Link = require("react-router-dom").Link;
 
 class Dashboard extends React.Component {
   constructor() {
@@ -15,8 +16,8 @@ class Dashboard extends React.Component {
             <div className="mui--appbar-height" />
             <div className="mui--text-display3">
               <div className="tabBar">
-                <button className="mui-btn mui-btn--primary">Dashboard</button>
-                <button className="mui-btn mui-btn--primary">Shared</button>
+                  <Link to="/dashboard"><button className="mui-btn mui-btn--primary" id="goDashboard">Dashboard</button></Link>
+                  <Link to="/shared"><button className="mui-btn mui-btn--primary" id="goShared">Shared</button></Link>
               </div>
             </div>
           </div>
@@ -25,7 +26,7 @@ class Dashboard extends React.Component {
         <footer>
           <div className="mui-container mui--text-center">
             <p>
-              Developers <a href="#">Gaspard Lehembreg</a>,{" "}
+              Developers <a href="#">Gaspard Lehembreg</a>,
               <a href="#">Guillaume Suiffet</a>, <a href="#">Olivia Otastet</a>
             </p>
           </div>

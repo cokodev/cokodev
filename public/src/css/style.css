@@ -71,6 +71,10 @@ header table form input[type="text"]::-webkit-input-placeholder{
     color : white;
 }
 
+#goShared, #goDashboard {
+    margin: 5px;
+}
+
 /**
  * Content CSS
  */
@@ -226,7 +230,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
 }
 
 .inputcenterDesc, .inputcenterTypeL, .inputcenterStatus, .inputcenterTag {
-    margin-top:-8px;
+    margin-top:-16px;
 }
 
 .inputcenterTypeL {
@@ -268,6 +272,24 @@ header table form input[type="text"]::-webkit-input-placeholder{
 #app #snippet{
     background: #343C4B;
 }
+
+
+
+
+#app #sn-snippet #submitSnippet {
+    display: block;
+    height: 30px;
+    color: whitesmoke;
+    background: #008FF7;
+    font-size: 14px;
+    width: 211px;
+    border: 0;
+    margin: auto;
+    margin-top:-16px;
+}
+
+
+
 
 #app #snippet #header{
     margin-top: 10px;
@@ -455,11 +477,17 @@ footer p {
     #app #folder #header #trashF{
         margin-top: -30px;
     }
+
 }
 
 /* Smartphones in portrait mode (0-479px) */
 @media only screen and ( max-width: 479px) {
     #app #folder #header #trashF{
         margin-top: -32px;
+    }
+    #goShared, #goDashboard {
+        margin-top : 55px;
+        margin-right: 5px;
+        margin-left: 5px;
     }
 }
