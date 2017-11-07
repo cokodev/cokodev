@@ -21,7 +21,6 @@ class Shared extends React.Component {
             );
         }
 
-        console.log("this.props.snippetContent.snippetContent != null", this.props.snippetContent);
         return (
 
             <div>
@@ -67,7 +66,7 @@ class Shared extends React.Component {
 
 function mapStateToPropsContentSnippet(state) {
     if (typeof(state.snippetSelected) != "undefined" && state.snippetSelected) {
-        for (var i = 0; i < state.usersdata[i].folders.length; i++) {
+        for (var i = 0; i < state.usersdata.length; i++) {
             for (var j = 0; j < state.usersdata[i].folders.length; j++) {
                 if (state.folderSelected == state.usersdata[i].folders[j]._id) {
                     for (var k = 0; k < state.usersdata[i].folders[j].snippets.length; k++) {

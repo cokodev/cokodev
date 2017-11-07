@@ -8,14 +8,13 @@ class ContentSnippetShared extends React.Component {
     constructor() {
         super();
     }
-
     render() {
         var code = (this.props.snippetContent.snippetContent) ? this.props.snippetContent.snippetContent : "";
         var languageType = this.props.snippetContent.languageType;
         return (
             <div >
                 <SyntaxHighlighter showLineNumbers language={languageType} style={hybrid} id="SyntaxHighlighter">
-                    {code}
+                  {code}
                 </SyntaxHighlighter>
             </div>
         )
@@ -24,14 +23,14 @@ class ContentSnippetShared extends React.Component {
 
 function mapStateToPropsContentSnippet(state) {
     if (typeof(state.snippetSelected) != "undefined" && state.snippetSelected) {
-        for (var i=0; i<state.usersdata[i].folders.length; i++ ) {
+        for (var i=0; i<state.usersdata.length; i++ ) {
             for (var j=0; j<state.usersdata[i].folders.length; j++ ) {
-                if (state.folderSelected == state.usersdata[i].folders[j]._id) {
-                    for (var k=0; k<state.usersdata[i].folders[j].snippets.length; k++ ) {
+                for (var k=0; k<state.usersdata[i].folders[j].snippets.length; k++ ) {
+                    if (state.folderSelected == state.usersdata[i].folders[j]._id) {
                         if (state.snippetSelected == state.usersdata[i].folders[j].snippets[k]._id) {
                             return {snippetContent: state.usersdata[i].folders[j].snippets[k],
                                 selectedFolder: state.folderSelected,
-                                selectedSnippet:state.snippetSelected
+                                snippetSelected:state.snippetSelected
                             };
                         }
                     }
@@ -39,7 +38,7 @@ function mapStateToPropsContentSnippet(state) {
             }
         }
     }
-    return {snippetContent : {snippetContent : null}};
+    return {snippetContent : {snippetContent : null}, snippetSelected: state.snippetSelected};
 }
 
 var ContentSnippetSharedX = connect(
