@@ -14,6 +14,19 @@ function data(state = {}, action) {
         }
         return usersFoldersShared;
     }
+    if (action.type == 'countLike') {
+        var nbClicFolder = "";
+        for (var i=0; i<state.length; i++ ) {
+            console.log("state!!state!!", state );
+            if (state[i]._id == state[i]._id) {
+
+            }
+        }
+        return state;
+    }
+
+
+
     return state;
 }
 

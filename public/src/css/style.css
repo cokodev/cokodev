@@ -296,9 +296,26 @@ header table form input[type="text"]::-webkit-input-placeholder{
     z-index: 999;
 }
 
-.fa-thumbs-o-up {
+.fa-thumbs-up {
     float: right;
-    margin-right: 15px;
+    margin-right: 10px;
+    margin-top: -40px;
+    color: whitesmoke;
+}
+
+.fa-thumbs-up:hover {
+    color: #008BEF;
+}
+
+/**
+ * Snippet Like CSS
+ */
+
+#countLike {
+    float: right;
+    font-size: 15px;
+    margin-left: 5px;
+    margin-right: 10px;
     margin-top: -40px;
 }
 

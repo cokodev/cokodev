@@ -48,6 +48,9 @@ class Listfoldershared extends React.Component {
                                     <p>
                                         {this.props.userShared[i].folders[j].folderDescription}
                                     </p>
+                                    <span id="countLike">
+                                    <i className="fa fa-thumbs-o-up" aria-hidden="true">  0</i>
+                                    </span>
                                 </div>
                             </div>
                         </li>
