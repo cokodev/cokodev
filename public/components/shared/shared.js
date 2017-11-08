@@ -39,7 +39,7 @@ class Shared extends React.Component {
                 </div>
                 <div id="app">
                     <div className="mui-container-fluid">
-                        <div className="mui-row">
+                        <div className="mui-row" id="shared">
                             <div className="mui-col-md-3" id="folder">
                                 <ListfoldersharedX/>
                             </div>

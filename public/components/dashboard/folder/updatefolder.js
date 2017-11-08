@@ -23,10 +23,9 @@ class Updatefolder extends React.Component {
     render() {
         return (
             <div>
-                <span className="change-icon">
-                    <i onClick={this.show.bind(this)} className="fa fa-folder-open-o" aria-hidden="true"></i>
-                    <i onClick={this.show.bind(this)} class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                </span>
+                <a href="#">
+                <i onClick={this.show.bind(this)} className="fa fa-folder" aria-hidden="true"></i>
+                </a>
                 <Modal containerClassName="formEF" closeOnOuterClick={true} show={this.state.show} onClose={this.close.bind(this)} transitionSpeed={1000}>
                     <h4 className="titleE1">{this.props.folder.folderName}</h4>
                     <a key="close" style={closeStyle} onClick={this.close.bind(this)}>

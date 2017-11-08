@@ -123,12 +123,16 @@ header table form input[type="text"]::-webkit-input-placeholder{
     color: whitesmoke;
 }
 
-#app #folder #header #trashF{
+#app #folder #header .fa-trash{
     color: whitesmoke;
     font-size: 18px;
     float: right;
     margin-top: -30px;
     padding-right: 10px;
+}
+
+#app #folder #header .fa-trash:hover{
+    color: #008BEF;
 }
 
 #app #folder #fo-folder{
@@ -154,8 +158,7 @@ header table form input[type="text"]::-webkit-input-placeholder{
     border-bottom: 0.7px solid rgba(231, 175, 0, 0.7) !important;
 }
 
-
-#app #folder .fa-folder-open-o, .fa-pencil-square-o, .fa-file-o {
+#app #folder .fa-folder, .fa-file {
     color: whitesmoke;
     margin-top: 29px;
     font-size: 22px;
@@ -164,22 +167,22 @@ header table form input[type="text"]::-webkit-input-placeholder{
     margin-right: 15px;
 }
 
-.change-icon > .fa + .fa,
-.change-icon:hover > .fa {
-    display: none;
-}
-.change-icon:hover > .fa + .fa {
-    display: inherit;
+#app #folder .fa-folder:hover {
+    color: #008BEF;
 }
 
+#app #snippet .fa-file:hover {
+    color: #008BEF;
+}
 
-
+#app #shared #snippet .fa-file:hover {
+    color: whitesmoke!important;
+}
 
 #app #folder h5 {
     margin-bottom: 0px;
     padding-top: 18px;
 }
-
 
 #app #folder p {
     font-size: 12px;
@@ -293,6 +296,12 @@ header table form input[type="text"]::-webkit-input-placeholder{
     z-index: 999;
 }
 
+.fa-thumbs-o-up {
+    float: right;
+    margin-right: 15px;
+    margin-top: -40px;
+}
+
 /**
  * Snippet CSS
  */
@@ -313,9 +322,6 @@ header table form input[type="text"]::-webkit-input-placeholder{
     margin-top:-16px;
 }
 
-
-
-
 #app #snippet #header{
     margin-top: 10px;
     height: 30px;
@@ -335,13 +341,18 @@ header table form input[type="text"]::-webkit-input-placeholder{
     width: 211px;
 }
 
-#app #snippet #header .fa-trash-o{
+#app #snippet #header .fa-trash{
     color: whitesmoke;
     font-size: 18px;
     float: right;
     margin-right: 10px;
     margin-top: -31px;
 }
+
+#app #snippet #header .fa-trash:hover{
+    color: #008BEF;
+}
+
 
 #app #snippet #sn-snippet{
     padding-top: 1px;
@@ -354,22 +365,6 @@ header table form input[type="text"]::-webkit-input-placeholder{
 
 #app #snippet #sn-snippet:hover{
     background: #3A465B;
-}
-
-#app #snippet img{
-    float: left;
-    margin-top: 15px;
-    margin-right: 15px;
-    margin-left: 15px;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-}
-
-#app #snippet .image:hover{
-    content: url("./img/pencils.png");
-    width: 50px;
-    height: 50px;
 }
 
 #app #snippet h5 {
@@ -461,17 +456,6 @@ header table form input[type="text"]::-webkit-input-placeholder{
     margin-top: -60px;
 }
 
-/*
-#content pre, #SyntaxHighlighter {
-    display: none!important;
-}
-
-#editContent{
-    margin-top: -38px;
-    float: right;
-    margin-bottom: -20px;
-}*/
-
 /**
  * Footer CSS
  */
@@ -494,22 +478,14 @@ footer p {
 
 /* Tablets in portrait mode (768-980px) */
 @media only screen and ( min-width: 768px) and ( max-width: 980px) {
-
 }
 
 /* Smartphones in landscape mode (480-768px) */
 @media only screen and ( min-width: 480px) and ( max-width: 767px) {
-    #app #folder #header #trashF{
-        margin-top: -30px;
-    }
-
 }
 
 /* Smartphones in portrait mode (0-479px) */
 @media only screen and ( max-width: 479px) {
-    #app #folder #header #trashF{
-        margin-top: -32px;
-    }
     #goShared, #goDashboard {
         margin-top : 55px;
         margin-right: 5px;

@@ -27,10 +27,9 @@ class Updatesnippet extends React.Component {
     render() {
         return (
             <div>
-                <span className="change-icon">
-                    <i onClick={this.show.bind(this)} class="fa fa-file-o" aria-hidden="true"></i>
-                    <i onClick={this.show.bind(this)} class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                </span>
+                <a href="#">
+                    <i onClick={this.show.bind(this)} class="fa fa-file" aria-hidden="true"></i>
+                </a>
                 <Modal containerClassName="formEF" closeOnOuterClick={true} show={this.state.show} onClose={this.close.bind(this)} transitionSpeed={1000}>
                     <h4 className="titleE1">{this.props.snippet.snippetName}</h4>
                     <a key="close" style={closeStyle} onClick={this.close.bind(this)}>
