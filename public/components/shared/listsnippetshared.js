@@ -16,12 +16,12 @@ class Listsnippetshared extends React.Component {
         for (var i=0; i<this.props.userShared.length; i++ ) {
             for (var j=0; j<this.props.userShared[i].folders.length; j++ ) {
                 if (this.props.folderSelected == this.props.userShared[i].folders[j]._id) {
-                    if (this.props.userShared[i].userName.length > 7) {
-                        var usernameLong = this.props.userShared[i].userName;
-                        var usernameOk = usernameLong.slice(0, 5);
-                    } else {
-                        usernameOk = this.props.userShared[i].userName;
-                    }
+                    /*
+                    var parapheFirstName = this.props.userShared[i].firstName.slice(0,1);
+                    var parapheLastName = this.props.userShared[i].lastName.slice(0,1);
+                    var paraphe = parapheFirstName + parapheLastName;
+                    var parapheToUppercase = paraphe.toUpperCase();
+                    */
                     snippetShared = this.props.userShared[i].folders[j].snippets;
                     for (var k=0; k<snippetShared.length; k++ ) {
                         var className = null;
@@ -32,11 +32,13 @@ class Listsnippetshared extends React.Component {
                             <li onClick={this.handleClick.bind(this, this.props.userShared[i].folders[j].snippets[k]._id)} className="mui-row">
                                 <div id="sn-snippet" className={className}>
                                     <div>
-                                        <span className="userShared">{usernameOk}</span>
+                                        <i class="fa fa-file" aria-hidden="true"></i>
                                     </div>
                                     <h5>{snippetShared[k].snippetName}</h5>
                                     <p>{snippetShared[k].snippetDescription}</p>
-                                    <p><span id="snippettag">{snippetShared[k].snippetTag}</span>
+                                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                    <p>
+                                        <span id="snippettag">{snippetShared[k].languageType}</span>
                                         <span id="folderonsnippet">{this.props.userShared[i].folders[j].folderName}</span>
                                     </p>
                                 </div>
@@ -57,7 +59,7 @@ class Listsnippetshared extends React.Component {
 }
 
 function mapStateToPropsSnippetShared(state) {
-    return {folderSelected: state.folderSelected, userShared : state.usersdata, snippetSelected: state.snippetSelected};
+    return {folderSelected: state.folderSelected, userShared : state.data, snippetSelected: state.snippetSelected};
 }
 
 function mapDispatchToPropsSnippetShared(dispatch) {

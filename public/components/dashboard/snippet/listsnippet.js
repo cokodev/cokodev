@@ -42,7 +42,7 @@ class Listsnippet extends React.Component {
                                 <h5>{this.props.folders[i].snippets[j].snippetName}</h5>
                                 <p>{this.props.folders[i].snippets[j].snippetDescription}</p>
                                 <p>
-                                    <span id="snippettag">{this.props.folders[i].snippets[j].snippetTag}</span>
+                                    <span id="snippettag">{this.props.folders[i].snippets[j].languageType}</span>
                                     <span id="folderonsnippet">{this.props.folders[i].folderName}</span>
                                 </p>
                             </div>

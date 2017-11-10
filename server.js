@@ -371,7 +371,6 @@ app.get("/shared", function (req, res) {
     if (!req.session.isLog) {
         res.redirect('/')
     }
-
     UserModel.findOne({ _id: req.session.tokenId }, function (err, currentuser) {
         res.render("index", { currentuser: currentuser });
     });

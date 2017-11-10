@@ -27,26 +27,29 @@ class Listfoldershared extends React.Component {
             for (var j=0; j<this.props.userShared[i].folders.length; j++ ) {
                 var className = null;
                 if (this.props.userShared[i].folders[j].folderStatus == "shared") {
-                    if (this.props.userShared[i].userName.length > 7) {
-                        var usernameLong = this.props.userShared[i].userName;
-                        var usernameOk = usernameLong.slice(0, 5);
-                    } else {
-                        usernameOk = this.props.userShared[i].userName;
-                    }
+                    var parapheFirstName = this.props.userShared[i].firstName.slice(0,1);
+                    var parapheLastName = this.props.userShared[i].lastName.slice(0,1);
+                    var paraphe = parapheFirstName + parapheLastName;
+                    var parapheToUppercase = paraphe.toUpperCase();
                     if (this.props.folderSelected == this.props.userShared[i].folders[j]._id) {
                         className = "folder-selected";
                     }
                     listfoldershared.push(
                         <li onClick={this.handleClick.bind(this, this.props.userShared[i].folders[j]._id)}>
-                            <div id="sn-snippet" className={className}>
-                            <div>
-                                        <span className="userShared">{usernameOk}</span>
+                            <div className="mui-row">
+                                <div id="fo-folder" className={className}>
+                                    <div>
+                                        <a href="#">
+                                            <span className="userShared">{parapheToUppercase}</span>
+                                            <i className="fa fa-folder sharedfolder" aria-hidden="true"></i>
+                                        </a>
                                     </div>
                                     <h5> <span id="title-folder">{this.props.userShared[i].folders[j].folderName}</span></h5>
                                     <p>
                                         {this.props.userShared[i].folders[j].folderDescription}
                                     </p>
                             </div>
+                                </div>
                         </li>
                     );
                 }
@@ -63,7 +66,7 @@ class Listfoldershared extends React.Component {
 }
 
 function mapStateToPropsFolderShared(state) {
-    return {userShared : state.usersdata, folderSelected: state.folderSelected};
+    return {userShared : state.data, folderSelected: state.folderSelected};
 }
 
 function mapDispatchToPropsFolderShared(dispatch) {

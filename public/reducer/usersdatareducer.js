@@ -125,40 +125,21 @@ function usersdata(state = {}, action) {
      *********************************************************************/
     if (action.type == 'updatesnippet') {
         var nState =  jQuery.extend(true, {}, state);
-        //console.log("action update reducer: ", action);
-        //console.log("nState update reducer",nState);
-               for (var i=0; i<state.folders.length; i++ ) {
-                           if (state.folders[i]._id == action.folderSelected) {
-                               for (var j=0; j<state.folders[i].snippets.length; j++ ) {
-                                    if (action.snippetSelected == state.folders[i].snippets[j]._id) {
-                                        nState.folders[i].snippets[j].snippetName = action.snippet.snippetName;
-                                        nState.folders[i].snippets[j].snippetDescription = action.snippet.snippetDescription;
-                                        nState.folders[i].snippets[j].snippetTag = action.snippet.snippetTag;
-                                        nState.folders[i].snippets[j].languageType = action.snippet.languageType;
-                                        break;
-                            }
-                     }
-                            break;
+        for (var i=0; i<state.folders.length; i++ ) {
+           if (state.folders[i]._id == action.folderSelected) {
+               for (var j=0; j<state.folders[i].snippets.length; j++ ) {
+                    if (action.snippetSelected == state.folders[i].snippets[j]._id) {
+                        nState.folders[i].snippets[j].snippetName = action.snippet.snippetName;
+                        nState.folders[i].snippets[j].snippetDescription = action.snippet.snippetDescription;
+                        nState.folders[i].snippets[j].snippetTag = action.snippet.snippetTag;
+                        nState.folders[i].snippets[j].languageType = action.snippet.languageType;
+                        break;
+                    }
+               }
+               break;
            }
-     }
-        return nState;
-    }
-
-    /********************************************************************
-     Add FolderShared
-     *********************************************************************/
-    if (action.type == 'users') {
-        var usersFoldersShared = [];
-        for (var i=0; i<action.users.length; i++ ) {
-            for (var j=0; j<action.users[i].folders.length; j++ ) {
-                if (action.users[i].folders[j].folderStatus === "shared") {
-                    usersFoldersShared.push(action.users[i]);
-                    console.log(" list des folders user reducer : ", usersFoldersShared);
-                    break;
-                }
-            }
         }
-        return usersFoldersShared;
+        return nState;
     }
     return state;
 }

@@ -27,11 +27,9 @@ class Updatesnippet extends React.Component {
     render() {
         return (
             <div>
-                <img onClick={this.show.bind(this)}
-                src="img/snippet.png"
-                alt="image snippet"
-                className="image"
-                />
+                <a href="#">
+                    <i onClick={this.show.bind(this)} class="fa fa-file" aria-hidden="true"></i>
+                </a>
                 <Modal containerClassName="formEF" closeOnOuterClick={true} show={this.state.show} onClose={this.close.bind(this)} transitionSpeed={1000}>
                     <h4 className="titleE1">{this.props.snippet.snippetName}</h4>
                     <a key="close" style={closeStyle} onClick={this.close.bind(this)}>
@@ -42,8 +40,6 @@ class Updatesnippet extends React.Component {
                         <Field type="text" name="snippetName" className="inputcenterTitleSnippet" placeholder="Untitle snippet" component="input"/>
                         <br/>
                         <Field type="text" name="snippetDescription" className="inputcenterDesc" placeholder="Description" component="input"/>
-                        <br/>
-                        <Field type="text" name="snippetTag" className="inputcenterTag" placeholder="#Tag" component="input"/>
                         <br/>
                         <Field name="languageType" id="select" className="inputcenterTypeL" component="select">
                         <option value="none">Plain text</option>
@@ -57,7 +53,7 @@ class Updatesnippet extends React.Component {
                         <option value="python">python</option>
                         </Field>
                         <br/>
-                            <Button type="submit" value="Save" id="submit" onClick={this.close.bind(this)}>Save</Button>
+                            <Button type="submit" value="Save" id="submitSnippet" onClick={this.close.bind(this)}>Save</Button>
                         </label>
                     </form>
                 </Modal>

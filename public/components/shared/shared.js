@@ -21,6 +21,7 @@ class Shared extends React.Component {
             );
         }
 
+        console.log("this.props.snippetContent.snippetContent", this.props);
         return (
 
             <div>
@@ -30,15 +31,15 @@ class Shared extends React.Component {
                         <div className="mui--appbar-height" />
                         <div className="mui--text-display3">
                             <div className="tabBar">
-                                <a href="/dashboard"><button className="mui-btn mui-btn--primary" id="goDashboard">Dashboard</button></a>
-                                <a href="/shared"><button className="mui-btn mui-btn--primary" id="goShared">Shared</button></a>
+                                <Link to="/dashboard"><button className="mui-btn mui-btn--primary" id="goDashboard">Dashboard</button></Link>
+                                <Link to="/shared"><button className="mui-btn mui-btn--primary" id="goShared">Shared</button></Link>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="app">
                     <div className="mui-container-fluid">
-                        <div className="mui-row">
+                        <div className="mui-row" id="shared">
                             <div className="mui-col-md-3" id="folder">
                                 <ListfoldersharedX/>
                             </div>
@@ -66,12 +67,12 @@ class Shared extends React.Component {
 
 function mapStateToPropsContentSnippet(state) {
     if (typeof(state.snippetSelected) != "undefined" && state.snippetSelected) {
-        for (var i = 0; i < state.usersdata.length; i++) {
-            for (var j = 0; j < state.usersdata[i].folders.length; j++) {
-                if (state.folderSelected == state.usersdata[i].folders[j]._id) {
-                    for (var k = 0; k < state.usersdata[i].folders[j].snippets.length; k++) {
-                        if (state.snippetSelected == state.usersdata[i].folders[j].snippets[k]._id) {
-                            return {snippetContent: state.usersdata[i].folders[j].snippets[k]};
+        for (var i = 0; i < state.data.length; i++) {
+            for (var j = 0; j < state.data[i].folders.length; j++) {
+                if (state.folderSelected == state.data[i].folders[j]._id) {
+                    for (var k = 0; k < state.data[i].folders[j].snippets.length; k++) {
+                        if (state.snippetSelected == state.data[i].folders[j].snippets[k]._id) {
+                            return {snippetContent: state.data[i].folders[j].snippets[k]};
                         }
                     }
                 }

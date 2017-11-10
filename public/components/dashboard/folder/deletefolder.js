@@ -23,7 +23,7 @@ class Deletefolder extends React.Component {
             <div>
                 <a href="#">
                 <i onClick={this.handleClick.bind(this, this.props.folderSelected)}
-                 id="trashF" className="fa fa-trash-o" aria-hidden="true" />
+                 className="fa fa-trash" aria-hidden="true" />
                 </a>
             </div>
         )
