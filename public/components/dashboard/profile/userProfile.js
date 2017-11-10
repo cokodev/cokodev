@@ -20,6 +20,7 @@ class UserProfile extends React.Component {
                     email:values.email,
              },
           success: function () {
+                $("#err").html( "<p>Vos modifications ont bien été enregistrées</p>" );;
         }
         });
     }
@@ -28,6 +29,14 @@ class UserProfile extends React.Component {
         firstName : this.props.user.firstName, email: this.props.user.email };
         return (
         <div>
+        <div>
+        <br/>
+        <center>
+        <img src="img-userprofile.png" className="image_user" />
+       <div id='err' color="white"></div>
+        </center>
+       </div>
+
             <ProfileXForm initialValues={initialValue} onSubmit={this.submit} user={this.props.user}/>
           </div>
 

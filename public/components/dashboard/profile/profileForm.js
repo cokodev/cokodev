@@ -15,11 +15,6 @@ class ProfileForm extends React.Component {
                 //console.log("this.props.initialValue user : ", this.props.user.userName);
         return (
             <div>
-            <div>
-            <br/>
-            <center>
-            <img src="img-userprofile.png" className="image_user" /></center>
-        </div>
         <br/>
         <div>
                 <form onSubmit={this.props.handleSubmit}>

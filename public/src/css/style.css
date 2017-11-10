@@ -114,6 +114,10 @@ height:100px;
     overflow: scroll;
     background: #263043;
 }
+#err{
+    position: center;
+    color: whitesmoke;;
+}
 
 #app #folder #header{
     margin-top: 10px;
@@ -339,7 +343,7 @@ height:100px;
     margin: auto;
     margin-top:-16px;
 }
-<<<<<<< HEAD
+
 #submitUser {
     display: block;
     float: center;
@@ -353,9 +357,6 @@ height:100px;
     margin-top:-16px;
 }
 
-
-=======
->>>>>>> 308ac90876aa407fc26ac1a25515b0357bd68aab
 
 #app #snippet #header{
     margin-top: 10px;
