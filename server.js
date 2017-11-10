@@ -198,6 +198,29 @@ app.get("/dashboard9999", function (req, res) {
 });
 
 /********************************************************************
+* UPDATE USER
+*********************************************************************/
+//Get update USER
+app.get("/profile", function (req, res) {
+    if (!req.session.isLog) {
+        res.redirect('/');
+    }
+
+    UserModel.findOne({ _id: req.session.tokenId }, function (err, currentuser) {
+        res.render("index", { currentuser: currentuser });
+    });
+});
+//Post update USER
+app.post('/profile', function (req, res) {
+console.log("username : ", req.body.userName);
+UserModel.update({_id:req.session.tokenId}, {userName: req.body.userName, firstName: req.body.firstName,
+lastName: req.body.lastName, email: req.body.email} , function (err, userUpdate) {
+                     console.log(userUpdate);
+                     res.send("user updated");
+     });
+ });
+
+/********************************************************************
 * ADD FOLDER
 *********************************************************************/
 //Get addfolder
@@ -247,10 +270,6 @@ app.post('/updatefolder', function (req, res) {
     console.log("tokenId user : ",req.session.tokenId);
     UserModel.update({'folders._id':req.body.selectedFolder},
             {$set: {'folders.$.folderName': req.body.folderName,'folders.$.folderDescription': req.body.folderDescription,'folders.$.folderStatus': req.body.folderStatus}} , function (err, folderUpdate) {
-                    console.log("folder update :", folderUpdate);
-                    console.log("folder name : ",req.body.folderName);
-                    console.log("folder description : ",req.body.folderDescription);
-                    console.log("folder status : ",req.body.folderStatus);
                     res.send("folder updated");
      });
 });
@@ -317,13 +336,6 @@ app.post('/updatecontent', function (req, res) {
 //Post update snippet
 app.post('/updatesnippet', function (req, res) {
 
-console.log("id selectedFolder ", req.body.selectedFolder);
-console.log("id selectedSnippet ", req.body.selectedSnippet);
-console.log("req.body.snippetName :",req.body.snippetName);
-console.log("req.body.snippetDescription :",req.body.snippetDescription);
-console.log("req.body.snippetTag :",req.body.snippetTag);
-console.log("req.body.languageType :",req.body.languageType);
-
     var updateSnippetName = req.body.snippetName;
     var updateSnippetDescription = req.body.snippetDescription;
     var updateSnippetTag = req.body.snippetTag;
@@ -356,7 +368,13 @@ console.log("req.body.languageType :",req.body.languageType);
  * SHARED
  *********************************************************************/
 app.get("/shared", function (req, res) {
-    res.render('index');
+    if (!req.session.isLog) {
+        res.redirect('/')
+    }
+
+    UserModel.findOne({ _id: req.session.tokenId }, function (err, currentuser) {
+        res.render("index", { currentuser: currentuser });
+    });
 });
 
 /********************************************************************

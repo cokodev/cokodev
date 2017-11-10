@@ -49,7 +49,7 @@ class Header extends React.Component {
                           </button>
                           <ul className="mui-dropdown__menu mui-dropdown__menu--right">
                             <li>
-                              <a href="#">Account</a>
+                              <a href="/profile">Account</a>
                             </li>
                             <li>
                               <a href="#">Tutorial</a>

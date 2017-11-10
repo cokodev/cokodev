@@ -38,16 +38,14 @@ class Listfoldershared extends React.Component {
                     }
                     listfoldershared.push(
                         <li onClick={this.handleClick.bind(this, this.props.userShared[i].folders[j]._id)}>
-                            <div className="mui-row">
-                                <div id="fo-folder" className={className}>
-                                    <div>
+                            <div id="sn-snippet" className={className}>
+                            <div>
                                         <span className="userShared">{usernameOk}</span>
                                     </div>
-                                    <h5><span id="title-folder">{this.props.userShared[i].folders[j].folderName}</span></h5>
+                                    <h5> <span id="title-folder">{this.props.userShared[i].folders[j].folderName}</span></h5>
                                     <p>
                                         {this.props.userShared[i].folders[j].folderDescription}
                                     </p>
-                                </div>
                             </div>
                         </li>
                     );

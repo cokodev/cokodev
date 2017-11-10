@@ -23,11 +23,11 @@ class Updatefolder extends React.Component {
     render() {
         return (
             <div>
-                <img onClick={this.show.bind(this)}
-                    src="img/folder.png"
-                    alt="image folder"
-                    className="image"
-                />
+            <img onClick={this.show.bind(this)}
+                src="img/folder.png"
+                alt="image folder"
+                className="image"
+            />
                 <Modal containerClassName="formEF" closeOnOuterClick={true} show={this.state.show} onClose={this.close.bind(this)} transitionSpeed={1000}>
                     <h4 className="titleE1">{this.props.folder.folderName}</h4>
                     <a key="close" style={closeStyle} onClick={this.close.bind(this)}>

@@ -1,29 +1,25 @@
 var React = require("react");
 var connect = require('react-redux').connect;
-var HeaderX = require("../dashboard/header/header");
-var ListsnippetsharedX = require("./listsnippetshared");
-var ListfoldersharedX = require("./listfoldershared");
-var ContentSnippetSharedX = require("./contentshared");
+var HeaderX = require("../header/header");
+var UserProfileX = require("./userProfile");
+/*var FolderX = require("./folder/headerfolder");
+var ListFolderX = require("./folder/listfolder");
+
+var ListSnippetX = require("./snippet/listsnippet");*/
 
 var Link = require("react-router-dom").Link;
 
-class Shared extends React.Component {
+class Profile extends React.Component {
     constructor() {
         super();
     }
     render() {
-        var itemsContent = [];
-        if (this.props.snippetContent.snippetContent != null) {
-            itemsContent.push(
-                <div key={0} >
-                    <ContentSnippetSharedX/>
-                </div>
-            );
-        }
+
 
         return (
 
             <div>
+
                 <HeaderX />
                 <div id="button-bar">
                     <div id="content-wrapper" className="mui--text-center">
@@ -36,26 +32,20 @@ class Shared extends React.Component {
                         </div>
                     </div>
                 </div>
+
                 <div id="app">
-                    <div className="mui-container-fluid">
-                        <div className="mui-row">
-                            <div className="mui-col-md-3" id="folder">
-                                <ListfoldersharedX/>
-                            </div>
-                            <div className="mui-col-md-3" id="snippet">
-                                <ListsnippetsharedX/>
-                            </div>
-                            <div className="mui-col-md-6" id="content">
-                                {itemsContent}
-                            </div>
-                        </div>
-                    </div>
+                <div className="mui-container-fluid">
+
+                            <UserProfileX/>
+
                 </div>
+            </div>
+
+
                 <footer>
                     <div className="mui-container mui--text-center">
                         <p>
-                            Developers <a href="#">Gaspard Lehembreg</a>
-                            <a href="#">Guillaume Suiffet</a>, <a href="#">Olivia Tastet</a>
+                        
                         </p>
                     </div>
                 </footer>
@@ -64,7 +54,7 @@ class Shared extends React.Component {
     }
 }
 
-function mapStateToPropsContentSnippet(state) {
+/*function mapStateToPropsContentSnippet(state) {
     if (typeof(state.snippetSelected) != "undefined" && state.snippetSelected) {
         for (var i = 0; i < state.usersdata.length; i++) {
             for (var j = 0; j < state.usersdata[i].folders.length; j++) {
@@ -81,9 +71,9 @@ function mapStateToPropsContentSnippet(state) {
     return {snippetContent: {snippetContent: null}};
 }
 
-var SharedX = connect(
+var ProfileX = connect(
     mapStateToPropsContentSnippet,
     null
-)(Shared);
+)(Profile);*/
 
-module.exports = SharedX;
+module.exports = Profile;

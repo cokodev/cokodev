@@ -35,10 +35,7 @@ class Listfolder extends React.Component {
             if (this.props.folderSelected == this.props.folder[i]._id) {
                 className = "folder-selected";
             }
-            console.log("this.props.folder[i].folderStatus : dans la boucle : ", this.props.folder[i].folderStatus)
-
              if (this.props.folder[i].folderStatus == "shared" ) {
-              console.log("this.props.folder[i].folderStatus == shared" ,this.props.folder[i].folderStatus == "shared");
                 status = <span className="folder-shared"><i  className="fa fa-share" aria-hidden="true"></i></span>;
             }
             else {
@@ -66,14 +63,12 @@ class Listfolder extends React.Component {
 }
 
 function mapStateToPropsFolder(state) {
-    console.log("status dans folder dans mapStateToPropsFolder : ", state.usersdata.folders.folderStatus);
     return {folder: state.usersdata.folders, folderSelected: state.folderSelected};
 }
 
 function mapDispatchToPropsFolder(dispatch) {
     return {
         handleChange: function(folder) {
-            console.log("folder dans maDisptach : ",folder);
             dispatch({type: "updatefolder", folder:folder});
         },
         handleSelectedFolder: function(folderSelected) {
