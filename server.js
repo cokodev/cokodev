@@ -101,6 +101,7 @@ app.post("/register", function(req, res) {
     folders: [
             {
                 folderName: "default",
+                folderLike: 0,
                 folderStatus: "private"
             }
         ]
