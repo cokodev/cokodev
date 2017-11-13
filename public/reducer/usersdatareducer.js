@@ -7,7 +7,26 @@ function usersdata(state = {}, action) {
         console.log("action dans le reducer login ",action);
         return action.userdata;
     }
+    /********************************************************************
+    Update User
+    ********************************************************************/
+    if (action.type == 'updateuser') {
+        var nState =  jQuery.extend(true, {}, state);
 
+        for (var i=0; i<nState.length; i++ ) {
+            console.log("nState.length reducer :",nState.length);
+            if (nState[i]._id == action.user.id ) {
+        console.log("nState[i]._id == action.user.id reducer :", nState[i]._id == action.user.id);
+                nState.userName = action.user.userName;
+                nState.lastName = action.user.lastName;
+                nState.firstName = action.user.firstName;
+                nState.email = action.user.email;
+                nState.password = action.user.password;
+                break;
+            }
+        }
+        return nState;
+    }
     /********************************************************************
     Add Folder
     *********************************************************************/

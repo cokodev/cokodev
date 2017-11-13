@@ -60,8 +60,8 @@ class Shared extends React.Component {
                 <footer>
                     <div className="mui-container mui--text-center">
                         <p>
-                            Developers <a href="#">Gaspard Lehembreg</a>,
-                            <a href="#">Guillaume Suiffet</a>, <a href="#">Olivia Otastet</a>
+                            Developers <a href="#">Gaspard Lehembreg</a>
+                            <a href="#">Guillaume Suiffet</a>, <a href="#">Olivia Tastet</a>
                         </p>
                     </div>
                 </footer>

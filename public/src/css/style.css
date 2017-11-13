@@ -79,6 +79,12 @@ header table form input[type="text"]::-webkit-input-placeholder{
  * Content CSS
  */
 
+
+ .image_user {
+width:100px;
+height:100px;
+}
+
 #content-wrapper {
     min-height: 100%;
 
@@ -107,6 +113,10 @@ header table form input[type="text"]::-webkit-input-placeholder{
     height: 733px;
     overflow: scroll;
     background: #263043;
+}
+#err{
+    position: center;
+    color: whitesmoke;;
 }
 
 #app #folder #header{
@@ -207,6 +217,18 @@ header table form input[type="text"]::-webkit-input-placeholder{
 }
 
 .inputcenterTitleFolder, .inputcenterTitleSnippet, .inputcenterDesc, .inputcenterTypeL {
+    height: 30px;
+    color: whitesmoke;
+    background: #454C5A;
+    font-size: 14px;
+    width: 200px;
+    border: 0;
+    margin: auto;
+    padding-left: 10px;
+    display: block;
+}
+
+.inputcenterUserName, .inputcenterLastName, .inputcenterFirstName, .inputcenterEmail, .inputcenterPassword {
     height: 30px;
     color: whitesmoke;
     background: #454C5A;
@@ -338,6 +360,20 @@ header table form input[type="text"]::-webkit-input-placeholder{
     margin: auto;
     margin-top:-16px;
 }
+
+#submitUser {
+    display: block;
+    float: center;
+    height: 30px;
+    color: whitesmoke;
+    background: #008FF7;
+    font-size: 14px;
+    width: 211px;
+    border: 0;
+    margin: auto;
+    margin-top:-16px;
+}
+
 
 #app #snippet #header{
     margin-top: 10px;

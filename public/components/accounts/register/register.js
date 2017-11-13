@@ -38,7 +38,7 @@ class Register extends React.Component {
         return <div>
             {redirectComponent}
             <div id="err" color="" />
-            <RegisterXForm onSubmit={this.submit} />
+            <RegisterXForm onSubmit={this.submit} user={this.props.users} />
           </div>;
     }
 }
