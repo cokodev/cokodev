@@ -26,7 +26,9 @@ class Listfoldershared extends React.Component {
         for (var i=0; i<this.props.userShared.length; i++ ) {
             for (var j=0; j<this.props.userShared[i].folders.length; j++ ) {
                 var className = null;
-                if (this.props.userShared[i].folders[j].folderStatus == "shared") {
+                if (this.props.userShared[i].folders[j].folderStatus == "shared" && this.props.userShared[i].firstName != null && this.props.userShared[i].lastName != null) {
+                    //console.log("this.props.userShared[i].firstName", this.props.userShared[i].firstName);
+                    //console.log("this.props.userShared[i].firstName", this.props.userShared[i].lastName);
                     var parapheFirstName = this.props.userShared[i].firstName.slice(0,1);
                     var parapheLastName = this.props.userShared[i].lastName.slice(0,1);
                     var paraphe = parapheFirstName + parapheLastName;
@@ -49,7 +51,7 @@ class Listfoldershared extends React.Component {
                                         {this.props.userShared[i].folders[j].folderDescription}
                                     </p>
                                     <span id="countLike">
-                                    <i className="fa fa-thumbs-o-up" aria-hidden="true">  0</i>
+                                    <i className="fa fa-thumbs-o-up" aria-hidden="true">  {this.props.userShared[i].folders[j].folderLike}</i>
                                     </span>
                                 </div>
                             </div>
@@ -69,7 +71,8 @@ class Listfoldershared extends React.Component {
 }
 
 function mapStateToPropsFolderShared(state) {
-    return {userShared : state.data, folderSelected: state.folderSelected};
+    console.log("stateMAPPROPS", state);
+    return {userShared : state.data.usersFoldersShared, folderSelected: state.folderSelected};
 }
 
 function mapDispatchToPropsFolderShared(dispatch) {

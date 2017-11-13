@@ -56,12 +56,14 @@ var UserSchema = mongoose.Schema({
     folders:[{folderName:String,
                 folderDescription: String,
                 folderStatus : String,
+                folderLike : Number,
                 snippets: [{snippetName:String,
                             snippetDescription: String,
                             snippetTag: String,
                             snippetContent: String,
                             date : Date,
-                            languageType: String
+                            languageType: String,
+                            snippetLike : Number
                             }]
                 }]
 });
@@ -98,7 +100,8 @@ app.post("/register", function(req, res) {
     password: md5(req.body.password),
     folders: [
             {
-                folderName: "default"
+                folderName: "default",
+                folderStatus: "private"
             }
         ]
     });
@@ -213,6 +216,7 @@ app.post('/addfolder', function (req, res) {
         folderName:req.body.folderName,
         folderDescription: req.body.folderDescription,
         folderStatus: req.body.folderStatus,
+        folderLike: 0,
         snippets: []
     };
     console.log("folder "+JSON.stringify(folder));
@@ -267,7 +271,8 @@ app.post('/addsnippet', function (req, res) {
         snippetTag: req.body.snippetTag,
         snippetContent: "",
         date : new Date (),
-        languageType: req.body.languageType
+        languageType: req.body.languageType,
+        snippetLike :0
     };
 
     UserModel.update({'folders._id':req.body.selectedFolder},{$push: {'folders.$.snippets': snippet}}, function (err, snippetAdded) {

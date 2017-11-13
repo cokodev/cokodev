@@ -1,4 +1,4 @@
-function data(state = {}, action) {
+function data(state = {usersFoldersShared:[]}, action) {
     /********************************************************************
      Data
      *********************************************************************/
@@ -12,21 +12,34 @@ function data(state = {}, action) {
                 }
             }
         }
-        return usersFoldersShared;
+        var nState= Object.assign({}, state);
+        nState.usersFoldersShared = usersFoldersShared;
+        console.log("usersFoldersShared", usersFoldersShared);
+        return nState;
     }
-    if (action.type == 'countLike') {
-        var nbClicFolder = "";
-        for (var i=0; i<state.length; i++ ) {
-            console.log("state!!state!!", state );
-            if (state[i]._id == state[i]._id) {
 
+    /********************************************************************
+     Like Snippet
+     *********************************************************************/
+    if (action.type == 'countLike') {
+        var nState= Object.assign({}, state);
+        for (var i=0; i<state.usersFoldersShared.length; i++ ) {
+            for (var j=0; j<state.usersFoldersShared[i].folders.length; j++ ) {
+                if (action.folderSelected == state.usersFoldersShared[i].folders[j]._id) {
+                    for (var k = 0; k < state.usersFoldersShared[i].folders[j].snippets.length; k++) {
+                        if (action.snippetSelected == state.usersFoldersShared[i].folders[j].snippets[k]._id) {
+                            action.countLike[i].folders[j].snippets[k].snippetLike++;
+                            nState.usersFoldersShared[i].folders[j].snippets[k].snippetLike = action.countLike[i].folders[j].snippets[k].snippetLike;
+                            console.log("nState", nState.usersFoldersShared[i].folders[j].snippets[k].snippetLike);
+                            break;
+                        }
+                    }
+                    break;
+                }
             }
         }
-        return state;
+        return nState;
     }
-
-
-
     return state;
 }
 

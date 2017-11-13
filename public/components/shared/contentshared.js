@@ -9,6 +9,7 @@ class ContentSnippetShared extends React.Component {
         super();
     }
     render() {
+        console.log("this.props", this.props);
         var code = (this.props.snippetContent.snippetContent) ? this.props.snippetContent.snippetContent : "";
         var languageType = this.props.snippetContent.languageType;
         return (
@@ -23,12 +24,12 @@ class ContentSnippetShared extends React.Component {
 
 function mapStateToPropsContentSnippet(state) {
     if (typeof(state.snippetSelected) != "undefined" && state.snippetSelected) {
-        for (var i=0; i<state.data.length; i++ ) {
-            for (var j=0; j<state.data[i].folders.length; j++ ) {
-                for (var k=0; k<state.data[i].folders[j].snippets.length; k++ ) {
-                    if (state.folderSelected == state.data[i].folders[j]._id) {
-                        if (state.snippetSelected == state.data[i].folders[j].snippets[k]._id) {
-                            return {snippetContent: state.data[i].folders[j].snippets[k],
+        for (var i=0; i<state.data.usersFoldersShared.length; i++ ) {
+            for (var j=0; j<state.data.usersFoldersShared[i].folders.length; j++ ) {
+                for (var k=0; k<state.data.usersFoldersShared[i].folders[j].snippets.length; k++ ) {
+                    if (state.folderSelected == state.data.usersFoldersShared[i].folders[j]._id) {
+                        if (state.snippetSelected == state.data.usersFoldersShared[i].folders[j].snippets[k]._id) {
+                            return {snippetContent: state.data.usersFoldersShared[i].folders[j].snippets[k],
                                 selectedFolder: state.folderSelected,
                                 snippetSelected:state.snippetSelected
                             };

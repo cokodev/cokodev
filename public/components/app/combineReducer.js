@@ -5,5 +5,5 @@ var data = require("../../reducer/datareducer");
 var usersdata = require("../../reducer/usersdatareducer");
 var folderSelected = require("../../reducer/folderSelectedreducer");
 
-var globalReducers = combineReducers({  form: formReducer, folderSelected, snippetSelected, usersdata, data });
+var globalReducers = combineReducers({  form: formReducer, folderSelected, snippetSelected, usersdata, data});
 module.exports = globalReducers;
