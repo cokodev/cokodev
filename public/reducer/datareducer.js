@@ -29,6 +29,7 @@ function data(state = {usersFoldersShared:[]}, action) {
                     for (var k = 0; k < state.usersFoldersShared[i].folders[j].snippets.length; k++) {
                         if (action.snippetSelected == state.usersFoldersShared[i].folders[j].snippets[k]._id) {
                             action.countLike[i].folders[j].snippets[k].snippetLike++;
+                            action.countLike[i].folders[j].folderLike++;
                             nState.usersFoldersShared[i].folders[j].snippets[k].snippetLike = action.countLike[i].folders[j].snippets[k].snippetLike;
                             console.log("nState", nState.usersFoldersShared[i].folders[j].snippets[k].snippetLike);
                             break;

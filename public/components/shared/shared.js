@@ -13,8 +13,7 @@ class Shared extends React.Component {
     }
     render() {
         var initialValue = {snippetLike : this.props.snippetContent.snippetLike};
-        console.log("this.props.snippetLike.snippetLike", this.props);
-
+        var initialValueLikeFolder = {folderLike: this.props.folderLike};
         var itemsContent = [];
         if (this.props.snippetContent.snippetContent != null) {
             itemsContent.push(
@@ -23,12 +22,7 @@ class Shared extends React.Component {
                 </div>
             );
         }
-
-        //console.log("this.props.snippetContent.snippetContent", this.props);
-
-
         return (
-
             <div>
                 <HeaderX />
                 <div id="button-bar">
@@ -46,10 +40,10 @@ class Shared extends React.Component {
                     <div className="mui-container-fluid">
                         <div className="mui-row" id="shared">
                             <div className="mui-col-md-3" id="folder">
-                                <ListfoldersharedX/>
+                                <ListfoldersharedX initialValues={initialValue}/>
                             </div>
                             <div className="mui-col-md-3" id="snippet">
-                                <ListsnippetsharedX initialValues={initialValue}/>
+                                <ListsnippetsharedX initialValues={initialValueLikeFolder}/>
                             </div>
                             <div className="mui-col-md-6" id="content">
                                 {itemsContent}
@@ -71,15 +65,13 @@ class Shared extends React.Component {
 }
 
 function mapStateToPropsContentSnippet(state) {
-    console.log("hello state", state);
-
     if (typeof(state.snippetSelected) != "undefined" && state.snippetSelected) {
         for (var i = 0; i < state.data.usersFoldersShared.length; i++) {
             for (var j = 0; j < state.data.usersFoldersShared[i].folders.length; j++) {
                 if (state.folderSelected == state.data.usersFoldersShared[i].folders[j]._id) {
                     for (var k = 0; k < state.data.usersFoldersShared[i].folders[j].snippets.length; k++) {
                         if (state.snippetSelected == state.data.usersFoldersShared[i].folders[j].snippets[k]._id) {
-                            return {snippetContent: state.data.usersFoldersShared[i].folders[j].snippets[k]};
+                            return {snippetContent: state.data.usersFoldersShared[i].folders[j].snippets[k], folderLike:state.data.usersFoldersShared[i].folders[j].folderLike};
                         }
                     }
                 }
