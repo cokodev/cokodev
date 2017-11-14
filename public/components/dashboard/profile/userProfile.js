@@ -18,6 +18,7 @@ class UserProfile extends React.Component {
                      lastName:values.lastName,
                     firstName:values.firstName,
                     email:values.email,
+                    password:values.password
              },
           success: function () {
                 $("#err").html( "<p>Vos modifications ont bien été enregistrées</p>" );;
@@ -26,7 +27,7 @@ class UserProfile extends React.Component {
     }
     render() {
     var initialValue = {userName : this.props.user.userName,lastName: this.props.user.lastName,
-        firstName : this.props.user.firstName, email: this.props.user.email };
+        firstName : this.props.user.firstName, email: this.props.user.email, password: this.props.password };
         return (
         <div>
         <div>
