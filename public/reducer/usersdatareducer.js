@@ -110,13 +110,13 @@ function usersdata(state = {}, action) {
                  if (nState.folders[i]._id == action.folderSelected) {
                       for (var j=0; j<nState.folders[i].snippets.length; j++ ) {
                            if (state.folders[i].snippets[j]._id == action.snippetSelected) {
-                                   nState.folders[i].snippets.splice(j, 1);
-                                       break;
+                               nState.folders[i].snippets.splice(j, 1);
+                               break;
                            }
-                    }
-                           break;
+                      }
+                     break;
+                 }
           }
-    }
         return nState;
     }
 

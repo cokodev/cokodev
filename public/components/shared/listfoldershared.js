@@ -26,13 +26,12 @@ class Listfoldershared extends React.Component {
         for (var i=0; i<this.props.userShared.length; i++ ) {
             for (var j=0; j<this.props.userShared[i].folders.length; j++ ) {
                 var className = null;
-                if (this.props.userShared[i].folders[j].folderStatus == "shared") {
-                    //console.log("this.props.userShared[i].firstname : "this.props.userShared[i].firstname);
-                    /*var parapheFirstName = this.props.userShared[i].firstName.slice(0,1);
+                if (this.props.userShared[i].folders[j].folderStatus == "shared" && this.props.userShared[i].firstName != null && this.props.userShared[i].lastName != null) {
+                    var parapheFirstName = this.props.userShared[i].firstName.slice(0,1);
                     var parapheLastName = this.props.userShared[i].lastName.slice(0,1);
                     var paraphe = parapheFirstName + parapheLastName;
                     var parapheToUppercase = paraphe.toUpperCase();
-                    */
+                    
                     if (this.props.folderSelected == this.props.userShared[i].folders[j]._id) {
                         className = "folder-selected";
                     }
@@ -50,8 +49,11 @@ class Listfoldershared extends React.Component {
                                     <p>
                                         {this.props.userShared[i].folders[j].folderDescription}
                                     </p>
-                            </div>
+                                    <span id="countLike">
+                                    <i className="fa fa-thumbs-o-up" aria-hidden="true">  {this.props.userShared[i].folders[j].folderLike}</i>
+                                    </span>
                                 </div>
+                            </div>
                         </li>
                     );
                 }
@@ -68,7 +70,7 @@ class Listfoldershared extends React.Component {
 }
 
 function mapStateToPropsFolderShared(state) {
-    return {userShared : state.data, folderSelected: state.folderSelected};
+    return {userShared : state.data.usersFoldersShared, folderSelected: state.folderSelected};
 }
 
 function mapDispatchToPropsFolderShared(dispatch) {

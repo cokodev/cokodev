@@ -63,7 +63,7 @@ var UserSchema = mongoose.Schema({
                             snippetContent: String,
                             date : Date,
                             languageType: String,
-                            snippetLike: Number
+                            snippetLike : Number
                             }]
                 }]
 });
@@ -100,7 +100,9 @@ app.post("/register", function(req, res) {
     password: md5(req.body.password),
     folders: [
             {
-                folderName: "default"
+                folderName: "default",
+                folderLike: 0,
+                folderStatus: "private"
             }
         ]
     });
@@ -290,7 +292,7 @@ app.post('/addsnippet', function (req, res) {
         snippetContent: "",
         date : new Date (),
         languageType: req.body.languageType,
-        snippetLike: 0
+        snippetLike :0
     };
 
     UserModel.update({'folders._id':req.body.selectedFolder},{$push: {'folders.$.snippets': snippet}}, function (err, snippetAdded) {
