@@ -40,10 +40,10 @@ class Shared extends React.Component {
                     <div className="mui-container-fluid">
                         <div className="mui-row" id="shared">
                             <div className="mui-col-md-3" id="folder">
-                                <ListfoldersharedX initialValues={initialValue}/>
+                                <ListfoldersharedX initialValues={initialValueLikeFolder}/>
                             </div>
                             <div className="mui-col-md-3" id="snippet">
-                                <ListsnippetsharedX initialValues={initialValueLikeFolder}/>
+                                <ListsnippetsharedX initialValues={initialValue}/>
                             </div>
                             <div className="mui-col-md-6" id="content">
                                 {itemsContent}
@@ -54,8 +54,7 @@ class Shared extends React.Component {
                 <footer>
                     <div className="mui-container mui--text-center">
                         <p>
-                            Developers <a href="#">Gaspard Lehembreg</a>
-                            <a href="#">Guillaume Suiffet</a>, <a href="#">Olivia Tastet</a>
+                            Developers <a href="#">Gaspard Lehembreg</a>, <a href="#">Guillaume Suiffet</a>, <a href="#">Olivia Tastet</a>
                         </p>
                     </div>
                 </footer>

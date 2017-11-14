@@ -21,7 +21,6 @@ function usersdata(state = {}, action) {
                 nState.lastName = action.user.lastName;
                 nState.firstName = action.user.firstName;
                 nState.email = action.user.email;
-                nState.password = action.user.password;
                 break;
             }
         }

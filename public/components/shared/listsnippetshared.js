@@ -11,7 +11,36 @@ class Listsnippetshared extends React.Component {
     };
 
     handleClickLike(countLike) {
+
+     countLike.selectedFolder = this.props.folderSelected;
+     countLike.selectedSnippet =this.props.snippetSelected;
+
+       for (var i=0; i<countLike.length; i++ ) {
+             for (var j=0; j<countLike[i].folders.length; j++ ) {
+                 if (this.props.folderSelected == countLike[i].folders[j]._id) {
+                     for (var k = 0; k < countLike[i].folders[j].snippets.length; k++) {
+                         if (this.props.snippetSelected == countLike[i].folders[j].snippets[k]._id) {
+                              countLike.snippetLike = this.props.userShared[i].folders[j].snippets[k].snippetLike;
+                              countLike._id =countLike[i]._id;
+                             break;
+                             }
+                       }
+                    break;
+               }
+          }
+     }
+
+  var componentSelectedSnippetLike = {selectedFolder:  this.props.folderSelected,
+      selectedSnippet:this.props.snippetSelected, snippetLike: countLike.snippetLike,folderLike: countLike.folderLike, _id:countLike._id };
+        $.ajax({
+          type: "POST",
+          url: "/updatecountlike",
+          data: componentSelectedSnippetLike,
+          success: function () {
+        }
+    });
         this.props.handleLikeSnippet(countLike, this.props.folderSelected, this.props.snippetSelected);
+
     }
 
     render() {
@@ -37,10 +66,13 @@ class Listsnippetshared extends React.Component {
                             var nblike =
                                 <span id="countLike">
                                     <i className="fa fa-thumbs-o-up" aria-hidden="true"> {this.props.userShared[i].folders[j].snippets[k].snippetLike}</i>
+
                                 </span>;
+
                         } else {
                             nblike = null;
                         }
+                         console.log("nbre de likkkke après :", this.props.userShared[i].folders[j].snippets[k].snippetLike);
                         Listsnippetshared.push(
                             <li onClick={this.handleClick.bind(this, this.props.userShared[i].folders[j].snippets[k]._id)} className="mui-row">
                                 <div id="sn-snippet" className={className}>
@@ -85,7 +117,6 @@ function mapDispatchToPropsSnippetShared(dispatch) {
             dispatch({type: "selectedsnippet", snippetSelected: snippetSelected});
         },
         handleLikeSnippet: function(countLike, folderSelected, snippetSelected) {
-            console.log("countLike2", snippetSelected);
             dispatch({type:"countLike", countLike: countLike, folderSelected: folderSelected, snippetSelected:snippetSelected})
         }
     };

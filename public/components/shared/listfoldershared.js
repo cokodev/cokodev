@@ -31,7 +31,7 @@ class Listfoldershared extends React.Component {
                     var parapheLastName = this.props.userShared[i].lastName.slice(0,1);
                     var paraphe = parapheFirstName + parapheLastName;
                     var parapheToUppercase = paraphe.toUpperCase();
-                    
+
                     if (this.props.folderSelected == this.props.userShared[i].folders[j]._id) {
                         className = "folder-selected";
                     }
@@ -41,7 +41,7 @@ class Listfoldershared extends React.Component {
                                 <div id="fo-folder" className={className}>
                                     <div>
                                         <a href="#">
-                                            <span className="userShared"></span>
+                                            <span className="userShared">{parapheToUppercase}</span>
                                             <i className="fa fa-folder sharedfolder" aria-hidden="true"></i>
                                         </a>
                                     </div>

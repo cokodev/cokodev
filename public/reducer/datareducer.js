@@ -31,7 +31,8 @@ function data(state = {usersFoldersShared:[]}, action) {
                             action.countLike[i].folders[j].snippets[k].snippetLike++;
                             action.countLike[i].folders[j].folderLike++;
                             nState.usersFoldersShared[i].folders[j].snippets[k].snippetLike = action.countLike[i].folders[j].snippets[k].snippetLike;
-                            console.log("nState", nState.usersFoldersShared[i].folders[j].snippets[k].snippetLike);
+                        console.log("nState avant ", action.countLike[i].folders[j].snippets[k].snippetLike);
+                            console.log("nState après ", nState.usersFoldersShared[i].folders[j].snippets[k].snippetLike);
                             break;
                         }
                     }
