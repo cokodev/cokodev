@@ -41,7 +41,7 @@ class Listfoldershared extends React.Component {
                                 <div id="fo-folder" className={className}>
                                     <div>
                                         <a href="#">
-                                            <span className="userShared"></span>
+                                            <span className="userShared">{parapheToUppercase}</span>
                                             <i className="fa fa-folder sharedfolder" aria-hidden="true"></i>
                                         </a>
                                     </div>
