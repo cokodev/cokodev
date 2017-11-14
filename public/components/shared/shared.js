@@ -12,8 +12,8 @@ class Shared extends React.Component {
         super();
     }
     render() {
-        var initialValue = {snippetLike : this.props.snippetContent.snippetLike};
         var initialValueLikeFolder = {folderLike: this.props.folderLike};
+        var initialValue = {snippetLike : this.props.snippetContent.snippetLike};
         var itemsContent = [];
         if (this.props.snippetContent.snippetContent != null) {
             itemsContent.push(
