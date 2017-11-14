@@ -28,8 +28,7 @@ class Listsnippetshared extends React.Component {
                             className = "folder-selected";
                         }
                         if (this.props.userShared[i]._id != this.props.usersdata._id && this.props.snippetSelected == snippetShared[k]._id) {
-                            var likePerso =
-                                <i className="fa fa-thumbs-up" aria-hidden="true">{this.props.userShared[i].folders[j].snippets[k].snippetLike}</i>;
+                            var likePerso = <i className="fa fa-thumbs-up" aria-hidden="true">{this.props.userShared[i].folders[j].snippets[k].snippetLike}</i>;
                         } else {
                             likePerso = null;
                         }
@@ -41,6 +40,7 @@ class Listsnippetshared extends React.Component {
                         } else {
                             nblike = null;
                         }
+
                         Listsnippetshared.push(
                             <li onClick={this.handleClick.bind(this, this.props.userShared[i].folders[j].snippets[k]._id)} className="mui-row">
                                 <div id="sn-snippet" className={className}>
