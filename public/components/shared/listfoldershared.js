@@ -27,10 +27,12 @@ class Listfoldershared extends React.Component {
             for (var j=0; j<this.props.userShared[i].folders.length; j++ ) {
                 var className = null;
                 if (this.props.userShared[i].folders[j].folderStatus == "shared") {
-                    var parapheFirstName = this.props.userShared[i].firstName.slice(0,1);
+                    //console.log("this.props.userShared[i].firstname : "this.props.userShared[i].firstname);
+                    /*var parapheFirstName = this.props.userShared[i].firstName.slice(0,1);
                     var parapheLastName = this.props.userShared[i].lastName.slice(0,1);
                     var paraphe = parapheFirstName + parapheLastName;
                     var parapheToUppercase = paraphe.toUpperCase();
+                    */
                     if (this.props.folderSelected == this.props.userShared[i].folders[j]._id) {
                         className = "folder-selected";
                     }
@@ -40,7 +42,7 @@ class Listfoldershared extends React.Component {
                                 <div id="fo-folder" className={className}>
                                     <div>
                                         <a href="#">
-                                            <span className="userShared">{parapheToUppercase}</span>
+                                            <span className="userShared"></span>
                                             <i className="fa fa-folder sharedfolder" aria-hidden="true"></i>
                                         </a>
                                     </div>

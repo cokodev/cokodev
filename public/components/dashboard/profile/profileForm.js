@@ -27,6 +27,8 @@ class ProfileForm extends React.Component {
                         <br/>
                         <Field type="email" name="email" className="inputcenterEmail" id="title" placeholder="Email" component="input"/>
                         <br/>
+                        <Field type="text" name="password" className="inputcenterEmail" id="title" placeholder="Password" component="input"/>
+                        <br/>
                         <Button type="submit" value="Save" id="submitUser" >Save</Button>
                     </label>
                 </form>

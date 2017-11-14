@@ -56,12 +56,14 @@ var UserSchema = mongoose.Schema({
     folders:[{folderName:String,
                 folderDescription: String,
                 folderStatus : String,
+                folderLike : Number,
                 snippets: [{snippetName:String,
                             snippetDescription: String,
                             snippetTag: String,
                             snippetContent: String,
                             date : Date,
-                            languageType: String
+                            languageType: String,
+                            snippetLike: Number
                             }]
                 }]
 });
@@ -214,7 +216,7 @@ app.get("/profile", function (req, res) {
 app.post('/profile', function (req, res) {
 console.log("username : ", req.body.userName);
 UserModel.update({_id:req.session.tokenId}, {userName: req.body.userName, firstName: req.body.firstName,
-lastName: req.body.lastName, email: req.body.email} , function (err, userUpdate) {
+lastName: req.body.lastName, email: req.body.email, password: req.body.password} , function (err, userUpdate) {
                      console.log(userUpdate);
                      res.send("user updated");
      });
@@ -236,6 +238,7 @@ app.post('/addfolder', function (req, res) {
         folderName:req.body.folderName,
         folderDescription: req.body.folderDescription,
         folderStatus: req.body.folderStatus,
+        folderLike: 0,
         snippets: []
     };
     console.log("folder "+JSON.stringify(folder));
@@ -286,7 +289,8 @@ app.post('/addsnippet', function (req, res) {
         snippetTag: req.body.snippetTag,
         snippetContent: "",
         date : new Date (),
-        languageType: req.body.languageType
+        languageType: req.body.languageType,
+        snippetLike: 0
     };
 
     UserModel.update({'folders._id':req.body.selectedFolder},{$push: {'folders.$.snippets': snippet}}, function (err, snippetAdded) {
