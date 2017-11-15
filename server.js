@@ -216,9 +216,10 @@ app.get("/profile", function (req, res) {
 });
 //Post update USER
 app.post('/profile', function (req, res) {
-console.log("username : ", req.body.userName);
+
 UserModel.update({_id:req.session.tokenId}, {userName: req.body.userName, firstName: req.body.firstName,
-lastName: req.body.lastName, email: req.body.email, password: req.body.password} , function (err, userUpdate) {
+lastName: req.body.lastName, email: req.body.email} , function (err, userUpdate) {
+
                      console.log(userUpdate);
                      res.send("user updated");
      });
@@ -369,6 +370,36 @@ app.post('/updatesnippet', function (req, res) {
      });
 });
 
+/********************************************************************
+* UPDATE SNIPPET LIKE
+*********************************************************************/
+//Post update snippet
+app.post('/updatecountlike', function (req, res) {
+/*console.log("folder like : ", req.body.folderLike);
+console.log("folder id : ", req.body.selectedFolder);
+console.log("snippet id : ", req.body.selectedSnippet);
+console.log("user id : ", req.body._id);*/
+
+    var updateSnippetLike = req.body.snippetLike;
+    var updateFolderLike = req.body.folderLike;
+     UserModel.findOne({_id:req.body._id},{'_id':0,'folders': { $elemMatch: {_id:req.body.selectedFolder}},'folders.snippets': 1},
+     function (err, snippets) {
+         var snippetCollection = snippets.folders[0].snippets;
+         for (var i=0; i<snippetCollection.length; i++) {
+             if (snippetCollection[i]._id == req.body.selectedSnippet) {
+                 let data = {};
+                data["folders.$.snippets." + i + ".snippetLike"] = updateSnippetLike;
+                data["folders.$.folderLike"] = updateFolderLike;
+                //console.log(data);
+                 UserModel.update({'folders':{$elemMatch: {'_id': req.body.selectedFolder}}},
+                {$set:data}, function (err, updateLike) {
+                         console.log(updateLike);
+                         res.send("snippet and folder Like udpated");
+                 });
+             }
+         }
+     });
+});
 
 /********************************************************************
  * SHARED
