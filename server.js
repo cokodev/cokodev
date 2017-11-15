@@ -384,6 +384,7 @@ console.log("user id : ", req.body._id);*/
     var updateFolderLike = req.body.folderLike;
      UserModel.findOne({_id:req.body._id},{'_id':0,'folders': { $elemMatch: {_id:req.body.selectedFolder}},'folders.snippets': 1},
      function (err, snippets) {
+         console.log("snippetssnippetssnippets", snippets);
          var snippetCollection = snippets.folders[0].snippets;
          for (var i=0; i<snippetCollection.length; i++) {
              if (snippetCollection[i]._id == req.body.selectedSnippet) {

@@ -29,28 +29,29 @@ class Listfolder extends React.Component {
     render() {
         var itemsFolder = [];
         var status = [];
-
-        for(var i=0; i<this.props.folder.length; i++ ) {
-            var className = null;
-            if (this.props.folderSelected == this.props.folder[i]._id) {
-                className = "folder-selected";
-            }
-             if (this.props.folder[i].folderStatus == "shared" ) {
-                status = <span className="folder-shared"><i  className="fa fa-share" aria-hidden="true"></i></span>;
-            }
-            else {
+        if (this.props.folder != "undefined") {
+            for(var i=0; i<this.props.folder.length; i++ ) {
+                var className = null;
+                if (this.props.folderSelected == this.props.folder[i]._id) {
+                    className = "folder-selected";
+                }
+                if (this.props.folder[i].folderStatus == "shared" ) {
+                    status = <span className="folder-shared"><i  className="fa fa-share" aria-hidden="true"></i></span>;
+                }
+                else {
                     status = " ";
-            }
+                }
 
-            itemsFolder.push(
-                <li key={i} onClick={this.handleClick.bind(this, this.props.folder[i]._id) } className="mui-row">
-                    <div id="fo-folder" className={className}>
-                        <UpdateFolderXForm onSubmit={this.submit} folder={this.props.folder[i]}/>
-                        <span><h5>{this.props.folder[i].folderName}  {status} </h5></span>
-                        <p>{this.props.folder[i].folderDescription}</p>
-                    </div>
-                </li>
-            );
+                itemsFolder.push(
+                    <li key={i} onClick={this.handleClick.bind(this, this.props.folder[i]._id) } className="mui-row">
+                        <div id="fo-folder" className={className}>
+                            <UpdateFolderXForm onSubmit={this.submit} folder={this.props.folder[i]}/>
+                            <span><h5>{this.props.folder[i].folderName}  {status} </h5></span>
+                            <p>{this.props.folder[i].folderDescription}</p>
+                        </div>
+                    </li>
+                );
+            }
         }
         return (
             <div>

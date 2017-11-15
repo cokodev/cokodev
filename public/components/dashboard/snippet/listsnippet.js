@@ -28,28 +28,30 @@ class Listsnippet extends React.Component {
     };
     render() {
         var itemsSnippet = [];
-        for (var i=0; i<this.props.folders.length; i++ ) {
-            if (this.props.folderSelected == this.props.folders[i]._id) {
-                for(var j=0; j<this.props.folders[i].snippets.length; j++ ) {
-                    var className = null;
-                    if (this.props.snippetSelected == this.props.folders[i].snippets[j]._id) {
-                        className = "folder-selected";
+        if (this.props.folders != "undefined") {
+            for (var i=0; i<this.props.folders.length; i++ ) {
+                if (this.props.folderSelected == this.props.folders[i]._id) {
+                    for(var j=0; j<this.props.folders[i].snippets.length; j++ ) {
+                        var className = null;
+                        if (this.props.snippetSelected == this.props.folders[i].snippets[j]._id) {
+                            className = "folder-selected";
+                        }
+                        itemsSnippet.push(
+                            <li key={j} onClick={this.handleClick.bind(this, this.props.folders[i].snippets[j]._id)} className="mui-row">
+                                <div id="sn-snippet" className={className}>
+                                    <UpdateSnippetXForm onSubmit={this.submit} snippet={this.props.folders[i].snippets[j]}/>
+                                    <h5>{this.props.folders[i].snippets[j].snippetName}</h5>
+                                    <p>{this.props.folders[i].snippets[j].snippetDescription}</p>
+                                    <p>
+                                        <span id="snippettag">{this.props.folders[i].snippets[j].languageType}</span>
+                                        <span id="folderonsnippet">{this.props.folders[i].folderName}</span>
+                                    </p>
+                                </div>
+                            </li>
+                        );
                     }
-                    itemsSnippet.push(
-                        <li key={j} onClick={this.handleClick.bind(this, this.props.folders[i].snippets[j]._id)} className="mui-row">
-                            <div id="sn-snippet" className={className}>
-                            <UpdateSnippetXForm onSubmit={this.submit} snippet={this.props.folders[i].snippets[j]}/>
-                                <h5>{this.props.folders[i].snippets[j].snippetName}</h5>
-                                <p>{this.props.folders[i].snippets[j].snippetDescription}</p>
-                                <p>
-                                    <span id="snippettag">{this.props.folders[i].snippets[j].languageType}</span>
-                                    <span id="folderonsnippet">{this.props.folders[i].folderName}</span>
-                                </p>
-                            </div>
-                        </li>
-                    );
+                    break;
                 }
-                break;
             }
         }
         console.log("itemsSnippet", itemsSnippet);
