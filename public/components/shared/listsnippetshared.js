@@ -14,6 +14,7 @@ class Listsnippetshared extends React.Component {
 
      countLike.selectedFolder = this.props.folderSelected;
      countLike.selectedSnippet =this.props.snippetSelected;
+    // console.log("countlike :", countLike);
 
        for (var i=0; i<countLike.length; i++ ) {
              for (var j=0; j<countLike[i].folders.length; j++ ) {
@@ -21,7 +22,9 @@ class Listsnippetshared extends React.Component {
                      for (var k = 0; k < countLike[i].folders[j].snippets.length; k++) {
                          if (this.props.snippetSelected == countLike[i].folders[j].snippets[k]._id) {
                               countLike.snippetLike = this.props.userShared[i].folders[j].snippets[k].snippetLike;
+                                countLike.folderLike = this.props.userShared[i].folders[j].folderLike;
                               countLike._id =countLike[i]._id;
+                              //console.log("folder like :", countLike.folderLike);
                              break;
                              }
                        }
@@ -32,6 +35,8 @@ class Listsnippetshared extends React.Component {
 
   var componentSelectedSnippetLike = {selectedFolder:  this.props.folderSelected,
       selectedSnippet:this.props.snippetSelected, snippetLike: countLike.snippetLike,folderLike: countLike.folderLike, _id:countLike._id };
+   //console.log("componentSelectedSnippetLike :", componentSelectedSnippetLike);
+
         $.ajax({
           type: "POST",
           url: "/updatecountlike",

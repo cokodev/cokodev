@@ -375,7 +375,8 @@ app.post('/updatesnippet', function (req, res) {
 *********************************************************************/
 //Post update snippet
 app.post('/updatecountlike', function (req, res) {
-/*console.log("folder like : ", req.body.folderLike);
+/*console.log("snippet like : ", req.body.snippetLike);
+console.log("folder like : ", req.body.folderLike);
 console.log("folder id : ", req.body.selectedFolder);
 console.log("snippet id : ", req.body.selectedSnippet);
 console.log("user id : ", req.body._id);*/
