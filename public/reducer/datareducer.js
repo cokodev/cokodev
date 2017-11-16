@@ -42,6 +42,16 @@ function data(state = {usersFoldersShared:[]}, action) {
         }
         return nState;
     }
+
+    /********************************************************************
+     UserShared
+     *********************************************************************/
+    if (action.type == 'userId') {
+        var nState= Object.assign({}, state);
+        console.log("action!!!!iij", action.userId);
+        nState.userId = action.userId;
+        return nState;
+    }
     return state;
 }
 

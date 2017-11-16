@@ -375,8 +375,7 @@ app.post('/updatesnippet', function (req, res) {
 *********************************************************************/
 //Post update snippet
 app.post('/updatecountlike', function (req, res) {
-/*console.log("snippet like : ", req.body.snippetLike);
-console.log("folder like : ", req.body.folderLike);
+/*console.log("folder like : ", req.body.folderLike);
 console.log("folder id : ", req.body.selectedFolder);
 console.log("snippet id : ", req.body.selectedSnippet);
 console.log("user id : ", req.body._id);*/
@@ -387,9 +386,11 @@ console.log("user id : ", req.body._id);*/
      function (err, snippets) {
          console.log("snippetssnippetssnippets", snippets);
          var snippetCollection = snippets.folders[0].snippets;
+         console.log("snippetCollectionsnippetCollection", snippetCollection);
          for (var i=0; i<snippetCollection.length; i++) {
              if (snippetCollection[i]._id == req.body.selectedSnippet) {
                  let data = {};
+                 console.log("datadatadatadata", data);
                 data["folders.$.snippets." + i + ".snippetLike"] = updateSnippetLike;
                 data["folders.$.folderLike"] = updateFolderLike;
                 //console.log(data);

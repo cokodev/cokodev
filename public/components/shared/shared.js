@@ -22,6 +22,29 @@ class Shared extends React.Component {
                 </div>
             );
         }
+
+        if (this.props.userId != "undefined") {
+            for (var i=0; i<this.props.userSelected.length; i++ ) {
+                if (this.props.userId == this.props.userSelected[i]._id) {
+                    for (var j=0; j<this.props.userSelected[i].folders.length; j++ ) {
+                        if (this.props.folderSelected == this.props.userSelected[i].folders[j]._id) {
+                            console.log("this.props.snippetSelected", this.props.snippetSelected);
+                            var userSharedProfil =
+                                <p>
+                                    {this.props.userSelected[i].userName}
+                                    {this.props.userSelected[i].firstName}
+                                    {this.props.userSelected[i].lastName}
+                                </p>;
+                            console.log("this.props.userSelected[i].userName", this.props.userSelected[i].userName);
+                        }
+                    }
+                }
+            }
+            //console.log("this.props.userId", this.props.userId);
+            //console.log("this.props.userSelected", this.props.userSelected);
+
+        }
+
         return (
             <div>
                 <HeaderX />
@@ -47,6 +70,7 @@ class Shared extends React.Component {
                             </div>
                             <div className="mui-col-md-6" id="content">
                                 {itemsContent}
+                                {userSharedProfil}
                             </div>
                         </div>
                     </div>
@@ -64,20 +88,29 @@ class Shared extends React.Component {
 }
 
 function mapStateToPropsContentSnippet(state) {
+    console.log("statestatestate", state);
     if (typeof(state.snippetSelected) != "undefined" && state.snippetSelected) {
         for (var i = 0; i < state.data.usersFoldersShared.length; i++) {
             for (var j = 0; j < state.data.usersFoldersShared[i].folders.length; j++) {
                 if (state.folderSelected == state.data.usersFoldersShared[i].folders[j]._id) {
                     for (var k = 0; k < state.data.usersFoldersShared[i].folders[j].snippets.length; k++) {
                         if (state.snippetSelected == state.data.usersFoldersShared[i].folders[j].snippets[k]._id) {
-                            return {snippetContent: state.data.usersFoldersShared[i].folders[j].snippets[k], folderLike:state.data.usersFoldersShared[i].folders[j].folderLike};
+                            return {
+                                snippetContent: state.data.usersFoldersShared[i].folders[j].snippets[k],
+                                folderLike: state.data.usersFoldersShared[i].folders[j].folderLike,
+                                userId: state.data.userId,
+                                userSelected: state.data.usersFoldersShared,
+                                folderSelected : state.folderSelected,
+                                snippetSelected: state.snippetSelected
+                            };
                         }
                     }
                 }
             }
         }
     }
-    return {snippetContent: {snippetContent: null}};
+    return {snippetContent: {snippetContent: null}, userId: state.data.userId,
+        userSelected: state.data.usersFoldersShared, folderSelected : state.folderSelected, snippetSelected: state.snippetSelected};
 }
 
 var SharedX = connect(

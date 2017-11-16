@@ -21,6 +21,11 @@ class Listfoldershared extends React.Component {
         this.props.handleSelectedFolder(id);
     };
 
+    handleClickUser(userId) {
+        console.log("idididid", userId);
+        this.props.handleSelectedUser(userId);
+    }
+
     render() {
         var listfoldershared = [];
         for (var i=0; i<this.props.userShared.length; i++ ) {
@@ -40,7 +45,7 @@ class Listfoldershared extends React.Component {
                             <div className="mui-row">
                                 <div id="fo-folder" className={className}>
                                     <div>
-                                        <a href="#">
+                                        <a href="#" onClick={this.handleClickUser.bind(this, this.props.userShared[i]._id)}>
                                             <span className="userShared">{parapheToUppercase}</span>
                                             <i className="fa fa-folder sharedfolder" aria-hidden="true"></i>
                                         </a>
@@ -80,6 +85,9 @@ function mapDispatchToPropsFolderShared(dispatch) {
         },
         handleSelectedFolder: function(folderSelected) {
             dispatch({type: "selectedfolder", folderSelected: folderSelected});
+        },
+        handleSelectedUser: function(userId) {
+            dispatch({type: "userId", userId: userId});
         }
     };
 }
