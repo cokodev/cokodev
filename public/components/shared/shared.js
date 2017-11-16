@@ -15,6 +15,18 @@ class Shared extends React.Component {
         var initialValueLikeFolder = {folderLike: this.props.folderLike};
         var initialValue = {snippetLike : this.props.snippetContent.snippetLike};
         var itemsContent = [];
+
+        /*
+for (var i=0; i<this.props.userSelected.length; i++ ) {
+    for (var j=0; j<this.props.userSelected[i].folders.length; j++ ) {
+        if (this.props.folderSelected == this.props.userSelected[i].folders[j]._id) {
+            for (var k=0; k<this.props.userSelected[i].folders[j].snippets.length; k++ ) {
+                "" = this.props.snippetSelected
+            }
+        }
+    }
+}*/
+
         if (this.props.snippetContent.snippetContent != null) {
             itemsContent.push(
                 <div key={0} >
@@ -23,6 +35,42 @@ class Shared extends React.Component {
             );
         }
 
+        if (this.props.userId != "undefined") {
+            for (var i=0; i<this.props.userSelected.length; i++ ) {
+                if (this.props.userId == this.props.userSelected[i]._id) {
+                    for (var j=0; j<this.props.userSelected[i].folders.length; j++ ) {
+                        if (this.props.folderSelected == this.props.userSelected[i].folders[j]._id) {
+                            console.log("this.props.snippetSelected", this.props.snippetSelected);
+                            var userSharedProfil =
+                                <p id="profilUserShared">
+                                    <span className="profilUserSharedItemLegend">
+                                    Username :
+                                    </span>
+                                    <span className="mui--text-accent mui--text-title profilUserSharedItem">
+                                        {this.props.userSelected[i].userName}
+                                    </span>
+                                    <span className="profilUserSharedItemLegend">
+                                    Firstname :
+                                    </span>
+                                    <span className="mui--text-accent mui--text-title profilUserSharedItem">
+                                        {this.props.userSelected[i].firstName}
+                                    </span>
+                                    <span className="profilUserSharedItemLegend">
+                                    Lastname :
+                                    </span>
+                                    <span className="mui--text-accent mui--text-title profilUserSharedItem">
+                                        {this.props.userSelected[i].lastName}
+                                    </span>
+                                </p>;
+                            console.log("this.props.userSelected[i].userName", this.props.userSelected[i].userName);
+                        }
+                    }
+                }
+            }
+            //console.log("this.props.userId", this.props.userId);
+            //console.log("this.props.userSelected", this.props.userSelected);
+        }
+/*
         if (this.props.userId != "undefined") {
             for (var i=0; i<this.props.userSelected.length; i++ ) {
                 if (this.props.userId == this.props.userSelected[i]._id) {
@@ -42,8 +90,7 @@ class Shared extends React.Component {
             }
             //console.log("this.props.userId", this.props.userId);
             //console.log("this.props.userSelected", this.props.userSelected);
-
-        }
+        }*/
 
         return (
             <div>
@@ -69,8 +116,8 @@ class Shared extends React.Component {
                                 <ListsnippetsharedX initialValues={initialValue}/>
                             </div>
                             <div className="mui-col-md-6" id="content">
-                                {itemsContent}
                                 {userSharedProfil}
+                                {itemsContent}
                             </div>
                         </div>
                     </div>

@@ -510,6 +510,24 @@ height:100px;
 }
 
 /**
+ * profilUserShared CSS
+ */
+
+#profilUserShared {
+    margin: 10px auto;
+    padding: 10px;
+    padding-left: 15px;
+}
+
+#profilUserShared .profilUserSharedItem {
+    margin-right : 20px;
+}
+
+#profilUserShared .profilUserSharedItemLegend {
+    margin-right : 5px;
+}
+
+/**
  * Footer CSS
  */
 
