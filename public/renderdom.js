@@ -3,9 +3,13 @@ var ReactDOM = require("react-dom");
 var BrowserRouter = require("react-router-dom").BrowserRouter;
 var Route = require("react-router-dom").Route;
 
+var store = require("./components/app/store");
+var SelectFolder = require("./components/app/AutoSearch");
+
 //Initialisation de Redux pour le Store
-var createStore = require("redux").createStore;
 var Provider = require("react-redux").Provider;
+
+window.SelectFolder = SelectFolder;
 
 //Les class
 var App = require("./components/app/app");
@@ -17,17 +21,6 @@ var Profile = require("./components/dashboard/profile/profile");
 var Dashboard = require("./components/dashboard/dashboard");
 var Dashboard9999 = require("./components/dashboard/dashboard9999");
 
-
-//Reducer global
-var globalReducers = require("./components/app/combineReducer");
-
-// Le folderSelected ne peut pas être hydraté et fonctionné, il a besoin de l'id généré à la création des folders!
-// redux dev tool:
-//, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
-const store = createStore(globalReducers, ({
-    form: {}, usersdata: usercurrentdata}));
-
-console.log("store",store.getState());
 
 //RenderDom - La page de point entrée dans app
 ReactDOM.render(

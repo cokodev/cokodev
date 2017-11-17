@@ -61,4 +61,30 @@ select:-webkit-autofill:focus {
     color: #FFF;
     text-align: center;
     width: 220px;
+    background: none;
+}
+
+
+/*Recherche*/
+
+.ais-CurrentRefinements__root .ais-SearchBox__root {
+    height: 30px;
+}
+
+.ais-SearchBox__root .ais-SearchBox__wrapper .ais-SearchBox__input {
+    border-radius: 0px;
+}
+
+
+/*Dashboard header menu*/
+
+.tabBar {
+    background: #313f55;
+}
+
+.tabBar .mui-btn {
+    border-radius: 0px;
+}
+.searchResult{
+    background: gray;
 }

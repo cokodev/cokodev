@@ -12,8 +12,9 @@ var app = express();
 *********************************************************************/
 var md5 = require('md5');
 var mongoose = require("mongoose");
+var mongooseAlgolia = require("mongoose-algolia");
 var session = require("express-session");
-var request = require('request');
+var request = require("request");
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());         // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({    // to support URL-encoded bodies
@@ -32,10 +33,16 @@ app.use(express.static('public/src/fonts'));
 /********************************************************************
 * Connexion à mlab - mongoose - models
 *********************************************************************/
+/* Ancienne méthode qui marche , mais en version inférieur à MongoDB 3.6
 var options = { server: { socketOptions: {connectTimeoutMS: 30000 } }};
 mongoose.connect('mongodb://cokodev:keepcool@ds227035.mlab.com:27035/cokodev',options, function(err) {
     console.log(err);
 });
+*/
+
+/* Nouvelle méthode mongoose*/
+mongoose.connect("mongodb://cokodev:keepcool@ds227035.mlab.com:27035/cokodev", { useMongoClient: true });
+mongoose.Promise = global.Promise;
 
 
 //Les sessions
@@ -46,28 +53,11 @@ app.use(session({
     })
 );
 
-//Déclaration des models
-var UserSchema = mongoose.Schema({
-    userName: String,
-    firstName: String,
-    lastName: String,
-    email: String,
-    password: String,
-    folders:[{folderName:String,
-                folderDescription: String,
-                folderStatus : String,
-                folderLike : Number,
-                snippets: [{snippetName:String,
-                            snippetDescription: String,
-                            snippetTag: String,
-                            snippetContent: String,
-                            date : Date,
-                            languageType: String,
-                            snippetLike : Number
-                            }]
-                }]
-});
-var UserModel = mongoose.model('Users', UserSchema);
+
+/********************************************************************
+* Les models
+*********************************************************************/
+var UserModel = require("./models/userAlgoliaModel");
 
 
 

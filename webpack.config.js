@@ -1,5 +1,5 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
   devtool: 'source-map',
@@ -61,6 +61,6 @@ devServer : {
   new CleanWebpackPlugin(['./public/bundle']),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.HotModuleReplacementPlugin()
+  new webpack.HotModuleReplacementPlugin(),
 ]
 };
