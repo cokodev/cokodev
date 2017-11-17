@@ -435,11 +435,11 @@ app.get("/logout", function(req, res) {
 
 
 /*********************************************************************************************************
-* SERVER LOCAL: http://localhost:9999 ou http://127.0.0.1
+* SERVER HEROKU   -     LOCAL: http://localhost:9999 ou http://127.0.0.1
 **********************************************************************************************************/
-var port = (process.env.PORT || 9999);
+var port= (process.env.PORT || 8080);
 app.listen(port, function () {
-    console.log("Server listening on port 9999");
+  console.log("Server listening on port 8080");
 });
 
 /********************************************************************
