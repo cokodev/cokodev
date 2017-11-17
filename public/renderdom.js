@@ -35,7 +35,7 @@ ReactDOM.render(
           <Route exact path="/shared" component={SharedX} />
           <Route exact path="/profile" component={Profile} />
         <Route exact path="/dashboard9999" component={Dashboard9999} />
-        <Route exact path="/lougout" />
+        <Route exact path="/logout" />
       </div>
     </BrowserRouter>
   </Provider>,
