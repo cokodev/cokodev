@@ -47,7 +47,7 @@ class Dashboard9999 extends React.Component {
         <footer>
           <div className="mui-container mui--text-center">
             <p>
-              Developers <a href="#">Gaspard Lehembreg</a>,{" "}
+              Developers <a href="#">Gaspard Lehembre</a>,{" "}
               <a href="#">Guillaume Suiffet</a>, <a href="#">Olivia Otastet</a>
             </p>
           </div>
