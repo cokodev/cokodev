@@ -3,7 +3,7 @@ const path = require('path');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
   devtool: 'source-map',
-  watch:true,
+  watch:false,
 
 entry : {
   public: [
