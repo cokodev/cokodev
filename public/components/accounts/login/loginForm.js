@@ -53,7 +53,7 @@ class LoginForm extends React.Component {
     return <div className="login_register_page">
         <div id="content-wrapper" className="mui--text-center">
           <div className="loginregister_title_bloc">
-            <h1>COKODEV</h1>
+            <a href="http://www.cokodev.com"><h1>COKODEV</h1></a>
             <h5> Collaborative code development</h5>
           </div>
           <div className="loginregister_form_bloc">

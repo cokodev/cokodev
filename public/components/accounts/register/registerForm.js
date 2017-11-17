@@ -10,35 +10,35 @@ const renderFields = (fields) => (
     <div className="input-row">
       <label>Username</label><br/>
       <TextField {...fields.userName.input} type="text"/>
-      {fields.userName.meta.touched && fields.userName.meta.error && 
+      {fields.userName.meta.touched && fields.userName.meta.error &&
        <span className="error">{fields.userName.meta.error}</span>}
     </div>
-    
+
     <div className="input-row">
       <label>Last Name</label><br/>
       <TextField {...fields.lastName.input} type="text"/>
-      {fields.lastName.meta.touched && fields.lastName.meta.error && 
+      {fields.lastName.meta.touched && fields.lastName.meta.error &&
        <span className="error">{fields.lastName.meta.error}</span>}
     </div>
-        
+
     <div className="input-row">
       <label>First Name</label><br/>
       <TextField {...fields.firstName.input} type="text"/>
-      {fields.firstName.meta.touched && fields.firstName.meta.error && 
+      {fields.firstName.meta.touched && fields.firstName.meta.error &&
        <span className="error">{fields.firstName.meta.error}</span>}
     </div>
-    
+
     <div className="input-row">
       <label>Email</label><br/>
       <TextField {...fields.email.input} type="email"/>
-      {fields.email.meta.touched && fields.email.meta.error && 
+      {fields.email.meta.touched && fields.email.meta.error &&
        <span className="error">{fields.email.meta.error}</span>}
     </div>
 
     <div className="input-row">
       <label>Password</label><br/>
       <TextField {...fields.password.input} type="password"/>
-      {fields.password.meta.touched && fields.password.meta.error && 
+      {fields.password.meta.touched && fields.password.meta.error &&
        <span className="error">{fields.password.meta.error}</span>}
     </div>
   </div>
@@ -78,12 +78,12 @@ class RegisterForm extends React.Component {
             <div className="login_register_page">
                 <div id="content-wrapper" className="mui--text-center">
                    <div className="loginregister_title_bloc">
-                        <h1>COKODEV</h1>
+                        <a href="http://www.cokodev.com"><h1>COKODEV</h1></a>
                         <h5> Collaborative code development</h5>
-                    </div>    
+                    </div>
                     <div className="loginregister_form_bloc">
                         <form onSubmit={this.props.handleSubmit}>
-                            <Fields names={["userName", "lastName", "firstName", "email", "password"]} component={renderFields} />    
+                            <Fields names={["userName", "lastName", "firstName", "email", "password"]} component={renderFields} />
                             <Button raised color="primary" type="submit">Submit</Button>
                         </form>
                     </div>
