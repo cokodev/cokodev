@@ -21,8 +21,8 @@ class Listsnippetshared extends React.Component {
                  if (this.props.folderSelected == countLike[i].folders[j]._id) {
                      for (var k = 0; k < countLike[i].folders[j].snippets.length; k++) {
                          if (this.props.snippetSelected == countLike[i].folders[j].snippets[k]._id) {
-                              countLike.snippetLike = this.props.userShared[i].folders[j].snippets[k].snippetLike;
-                                countLike.folderLike = this.props.userShared[i].folders[j].folderLike;
+                              countLike.snippetLike = this.props.userShared[i].folders[j].snippets[k].snippetLike +1;
+                                countLike.folderLike = this.props.userShared[i].folders[j].folderLike +1;
                               countLike._id =countLike[i]._id;
                               //console.log("folder like :", countLike.folderLike);
                              break;
